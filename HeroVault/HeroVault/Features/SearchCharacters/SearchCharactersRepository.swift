@@ -34,5 +34,18 @@ struct CharacterData: Codable {
 }
 
 struct Characters: Codable {
+    let id: Int
     let name: String
+    let description: String
+    let thumbnail: CharacterPictures
+}
+
+struct CharacterPictures: Codable {
+    let path: String
+    let jpg: String
+    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case jpg = "extension"
+    }
 }
