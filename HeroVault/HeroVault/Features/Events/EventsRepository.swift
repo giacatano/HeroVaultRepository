@@ -22,6 +22,7 @@ class EventsRepository: EventsRepositoryType {
     }
 }
 
+
 // MARK: Events Response Model
 struct EventsResponse: Codable {
     let data: EventsData

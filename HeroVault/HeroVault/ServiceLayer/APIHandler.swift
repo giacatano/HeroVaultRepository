@@ -56,14 +56,14 @@ class APIHandler {
         dataTask.resume()
     }
     
-    private func buildEndpoint(path: String) -> String {
+     func buildEndpoint(path: String) -> String {
         let timeStamp = Date().timeIntervalSince1970
         let authorizationKey = "\(timeStamp)\(Constants.APIKeys.privateAPIKey)\(Constants.APIKeys.publicAPIKey)"
         let hashString = md5HashedString(securedString: authorizationKey)
         return "\(path)?&apikey=\(Constants.APIKeys.publicAPIKey)&ts=\(String(timeStamp))&hash=\(hashString)"
     }
     
-    private func md5HashedString(securedString: String) -> String {
+     func md5HashedString(securedString: String) -> String {
         let data = Data(securedString.utf8)
         var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
         _ = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) in

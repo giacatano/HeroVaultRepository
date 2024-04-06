@@ -13,6 +13,6 @@ class CharacterNamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        characterNamesViewModel.fetchCharacters()
+        print(characterNamesViewModel.fetchCharacters())
     }
 }

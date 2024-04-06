@@ -24,8 +24,8 @@ class CharacterNamesViewModel {
             switch result {
             case .success(let characters):
                 self.characters = characters.data.results
-                for x in self.characters {
-                    print(x.name)
+                for character in self.characters {
+                    print(character.name)
                 }
             case .failure(let error):
                 self.error = error

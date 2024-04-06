@@ -21,7 +21,7 @@ class CharacterRepository: CharacterRepositoryType {
         apiHandler.request(path: Constants.EndPoints.marvelCharacterNames, networkType: NetworkingRequestType.GET, model: CharacterResponse.self) { result in
             completion(result)
         }
-    }
+    }    
 }
 
 // MARK: Character Response Model
