@@ -20,12 +20,12 @@ class CharacterNamesViewModel {
     
     func fetchCharacters() {
         characterRepository.fetchCharacters { [weak self] result in
-            guard let self = self else { return }
+            guard let self else { return }
             switch result {
             case .success(let characters):
                 self.characters = characters.data.results
-                for x in self.characters {
-                    print(x.name)
+                for character in self.characters {
+                    print(character.name)
                 }
             case .failure(let error):
                 self.error = error
