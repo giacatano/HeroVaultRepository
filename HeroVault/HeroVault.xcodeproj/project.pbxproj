@@ -21,6 +21,8 @@
 		56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */; };
 		56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LogInViewController.swift */; };
 		56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819632BC5140B009CCE03 /* LogIn.storyboard */; };
+		56E8196A2BC9414E009CCE03 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819682BC9414E009CCE03 /* CharactersTableViewCell.swift */; };
+		56E8196B2BC9414E009CCE03 /* CharactersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E819692BC9414E009CCE03 /* CharactersTableViewCell.xib */; };
 		56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B42BB4484500A740DF /* AppDelegate.swift */; };
 		56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B62BB4484500A740DF /* SceneDelegate.swift */; };
 		56FCA0B92BB4484500A740DF /* SearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B82BB4484500A740DF /* SearchCharactersViewController.swift */; };
@@ -67,6 +69,8 @@
 		56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarNavigation.storyboard; sourceTree = "<group>"; };
 		56E819612BC513FA009CCE03 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		56E819632BC5140B009CCE03 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		56E819682BC9414E009CCE03 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
+		56E819692BC9414E009CCE03 /* CharactersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersTableViewCell.xib; sourceTree = "<group>"; };
 		56FCA0B12BB4484500A740DF /* HeroVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0B42BB4484500A740DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FCA0B62BB4484500A740DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,10 +117,10 @@
 		56A15F8D2BBB2E0300D74E55 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				56E8195C2BC173A8009CCE03 /* TabBar */,
+				56E819672BC7314A009CCE03 /* Search */,
 				56E819602BC513CC009CCE03 /* LogIn */,
 				56A15FB62BBD797600D74E55 /* Events */,
-				56A15F922BBBEEEF00D74E55 /* SearchComics */,
-				56FCA0E42BB8042800A740DF /* SearchCharacters */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -160,6 +164,15 @@
 			path = LogIn;
 			sourceTree = "<group>";
 		};
+		56E819672BC7314A009CCE03 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				56FCA0E42BB8042800A740DF /* SearchCharacters */,
+				56A15F922BBBEEEF00D74E55 /* SearchComics */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		56FCA0A82BB4484500A740DF = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +196,6 @@
 		56FCA0B32BB4484500A740DF /* HeroVault */ = {
 			isa = PBXGroup;
 			children = (
-				56E8195C2BC173A8009CCE03 /* TabBar */,
 				56FCA0ED2BB8065E00A740DF /* ServiceLayer */,
 				56A15F8D2BBB2E0300D74E55 /* Features */,
 				56FCA0B42BB4484500A740DF /* AppDelegate.swift */,
@@ -221,6 +233,8 @@
 				56FCA0E62BB8053D00A740DF /* SearchCharactersViewModel.swift */,
 				56FCA0B82BB4484500A740DF /* SearchCharactersViewController.swift */,
 				56FCA0BA2BB4484500A740DF /* CharacterNames.storyboard */,
+				56E819682BC9414E009CCE03 /* CharactersTableViewCell.swift */,
+				56E819692BC9414E009CCE03 /* CharactersTableViewCell.xib */,
 			);
 			path = SearchCharacters;
 			sourceTree = "<group>";
@@ -344,6 +358,7 @@
 				56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */,
 				56FCA0BC2BB4484500A740DF /* CharacterNames.storyboard in Resources */,
 				56A15F9C2BBC306400D74E55 /* ComicTitles.storyboard in Resources */,
+				56E8196B2BC9414E009CCE03 /* CharactersTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
 				56A15F8C2BBADBC000D74E55 /* Main.storyboard in Resources */,
 				56A15FBE2BBD7CB400D74E55 /* Events.storyboard in Resources */,
@@ -403,6 +418,7 @@
 				56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */,
 				56A15F942BBBEF4900D74E55 /* SearchComicsRepository.swift in Sources */,
 				56A15F982BBBF05F00D74E55 /* SearchComicsViewController.swift in Sources */,
+				56E8196A2BC9414E009CCE03 /* CharactersTableViewCell.swift in Sources */,
 				56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */,
 				56A15FBC2BBD7C5300D74E55 /* EventsViewController.swift in Sources */,
 				56A15F962BBBEF6400D74E55 /* SearchComicsViewModel.swift in Sources */,
