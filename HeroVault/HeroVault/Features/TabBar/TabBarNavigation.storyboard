@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="-158" y="586"/>
         </scene>
-        <!--ComicTitles-->
+        <!--CharacterNames-->
         <scene sceneID="grD-0V-s4f">
             <objects>
-                <viewControllerPlaceholder storyboardName="ComicTitles" id="yV6-8Q-B5M" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="CharacterNames" id="yV6-8Q-B5M" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="oA7-8w-rb5"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EdE-um-o74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

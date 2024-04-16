@@ -41,7 +41,14 @@ extension CharacterNamesViewController: UITableViewDelegate, UITableViewDataSour
             return UITableViewCell()
         }
         cell.nameLabel.text = String(characterNamesViewModel.characters[indexPath.row].name)
+        var imageURL = characterNamesViewModel.createImage(characterIndex: indexPath.row)
+        cell.characterImageView.load(urlString: imageURL)
+        
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 355.0
     }
 }
 

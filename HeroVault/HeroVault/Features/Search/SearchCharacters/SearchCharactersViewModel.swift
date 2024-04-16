@@ -43,4 +43,11 @@ class CharacterNamesViewModel {
             }
         }
     }
+    
+    //change name to fetchImage
+    func createImage(characterIndex: Int) -> String {
+        "\(characters[characterIndex].thumbnail.path).jpg".convertToHttps()
+    }
 }
+
+//fetch name function
