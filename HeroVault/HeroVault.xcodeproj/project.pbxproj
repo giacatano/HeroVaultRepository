@@ -24,6 +24,8 @@
 		56E8196B2BC9414E009CCE03 /* CharactersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E819692BC9414E009CCE03 /* CharactersTableViewCell.xib */; };
 		56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */; };
 		56E819712BCE9B51009CCE03 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819702BCE9B51009CCE03 /* StringExtension.swift */; };
+		56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */; };
+		56E8197A2BCF9E90009CCE03 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819792BCF9E90009CCE03 /* UserProfile.storyboard */; };
 		56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B42BB4484500A740DF /* AppDelegate.swift */; };
 		56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B62BB4484500A740DF /* SceneDelegate.swift */; };
 		56FCA0B92BB4484500A740DF /* SearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B82BB4484500A740DF /* SearchCharactersViewController.swift */; };
@@ -73,6 +75,8 @@
 		56E819692BC9414E009CCE03 /* CharactersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersTableViewCell.xib; sourceTree = "<group>"; };
 		56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		56E819702BCE9B51009CCE03 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		56E819792BCF9E90009CCE03 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		56FCA0B12BB4484500A740DF /* HeroVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0B42BB4484500A740DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FCA0B62BB4484500A740DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,10 +123,11 @@
 		56A15F8D2BBB2E0300D74E55 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				56E8195C2BC173A8009CCE03 /* TabBar */,
-				56E819672BC7314A009CCE03 /* Search */,
 				56E819602BC513CC009CCE03 /* LogIn */,
 				56A15FB62BBD797600D74E55 /* Events */,
+				56E819672BC7314A009CCE03 /* Search */,
+				56E819742BCF9E0D009CCE03 /* UserProfile */,
+				56E8195C2BC173A8009CCE03 /* TabBar */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -181,6 +186,15 @@
 				56E819702BCE9B51009CCE03 /* StringExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		56E819742BCF9E0D009CCE03 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */,
+				56E819792BCF9E90009CCE03 /* UserProfile.storyboard */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		56FCA0A82BB4484500A740DF = {
@@ -370,6 +384,7 @@
 				56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */,
 				56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */,
 				56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */,
+				56E8197A2BCF9E90009CCE03 /* UserProfile.storyboard in Resources */,
 				56FCA0BC2BB4484500A740DF /* CharacterNames.storyboard in Resources */,
 				56E8196B2BC9414E009CCE03 /* CharactersTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
@@ -422,6 +437,7 @@
 			files = (
 				56FCA0EC2BB8060500A740DF /* SearchCharactersRepository.swift in Sources */,
 				56A15FBA2BBD7BF400D74E55 /* EventsViewModel.swift in Sources */,
+				56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */,
 				56FCA0E72BB8053D00A740DF /* SearchCharactersViewModel.swift in Sources */,
 				56A15FB82BBD7BE400D74E55 /* EventsRepository.swift in Sources */,
 				56FCA0B92BB4484500A740DF /* SearchCharactersViewController.swift in Sources */,

@@ -19,22 +19,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-qI-nPE" userLabel="Main stack View">
-                                <rect key="frame" x="41.666666666666657" y="249.33333333333334" width="310" height="353.66666666666663"/>
+                                <rect key="frame" x="41.666666666666657" y="254.33333333333334" width="310" height="343.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nXo-Si-P2F" userLabel="Logo Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xkY-FH-fbA">
-                                                <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="310" id="0Di-g3-9xG"/>
-                                                    <constraint firstAttribute="height" constant="80" id="6FE-Wn-DpS"/>
+                                                    <constraint firstAttribute="height" constant="70" id="6FE-Wn-DpS"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Pod-9R-1PE" userLabel="Details Stack View">
-                                        <rect key="frame" x="55" y="140" width="200" height="213.66666666666663"/>
+                                        <rect key="frame" x="55" y="130" width="200" height="213.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the Vault! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlE-IJ-c02">
                                                 <rect key="frame" x="11" y="0.0" width="177.66666666666666" height="20.333333333333332"/>
@@ -64,7 +64,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV0-IC-ZV3">
-                                                <rect key="frame" x="59.999999999999986" y="124.33333333333331" width="80.000000000000014" height="34"/>
+                                                <rect key="frame" x="59.999999999999986" y="124.33333333333337" width="80.000000000000014" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="qCj-ps-wOf"/>
                                                     <constraint firstAttribute="width" constant="80" id="u3p-lj-t0l"/>

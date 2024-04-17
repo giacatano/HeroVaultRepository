@@ -11,6 +11,7 @@ class CharacterNamesViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
+    @IBOutlet weak var discoverLabel: UILabel!
     private lazy var characterNamesViewModel = CharacterNamesViewModel(characterRepository: CharacterRepository(), delegate: self)
     
     override func viewDidLoad() {
@@ -28,27 +29,40 @@ class CharacterNamesViewController: UIViewController {
 
 extension CharacterNamesViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return characterNamesViewModel.characterCount
+       }
+
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("you did select me")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characterNamesViewModel.characterCount
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.identifier, for: indexPath) as? CharactersTableViewCell else {
             return UITableViewCell()
         }
-        cell.nameLabel.text = String(characterNamesViewModel.characters[indexPath.row].name)
-        var imageURL = characterNamesViewModel.createImage(characterIndex: indexPath.row)
+        cell.nameLabel.text = String(characterNamesViewModel.characters[indexPath.section].name)
+        var imageURL = characterNamesViewModel.createImage(characterIndex: indexPath.section)
         cell.characterImageView.load(urlString: imageURL)
         
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+         return 4
+      }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+         let headerView = UIView()
+         headerView.backgroundColor = UIColor.clear
+         return headerView
+       }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 355.0
+        return 370.0
     }
 }
 
