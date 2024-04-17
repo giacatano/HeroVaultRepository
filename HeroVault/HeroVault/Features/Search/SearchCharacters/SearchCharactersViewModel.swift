@@ -46,7 +46,7 @@ class CharacterNamesViewModel {
     
     //change name to fetchImage
     func createImage(characterIndex: Int) -> String {
-        "\(characters[characterIndex].thumbnail.path).jpg".convertToHttps()
+        "\(characters[characterIndex].thumbnail.path)/standard_fantastic.jpg".convertToHttps()
     }
 }
 

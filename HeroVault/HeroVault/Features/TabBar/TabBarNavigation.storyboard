@@ -3,17 +3,21 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Navigation Controller-->
         <scene sceneID="jyZ-6L-qmk">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="dKa-NC-pT6" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mqi-s1-mvX">
+                <tabBarController modalPresentationStyle="fullScreen" id="dKa-NC-pT6" customClass="TabBarNavigationController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="mqi-s1-mvX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="y6b-r9-LxQ" kind="relationship" relationship="viewControllers" id="lVQ-PC-IiO"/>
@@ -25,14 +29,17 @@
             </objects>
             <point key="canvasLocation" x="-1242" y="-177"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Game-->
         <scene sceneID="qQJ-yS-lmo">
             <objects>
                 <navigationController id="y6b-r9-LxQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="gamecontroller" catalog="system" id="P68-SD-Kk0"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="gamecontroller" catalog="system" id="P68-SD-Kk0">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGZ-SB-yg3">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.75686275960000005" green="0.21960783" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="1l8-Zz-Rnl" kind="relationship" relationship="rootViewController" id="4Kk-mo-D1A"/>
@@ -52,14 +59,15 @@
             </objects>
             <point key="canvasLocation" x="-2385" y="993"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Discover-->
         <scene sceneID="OlM-hd-62P">
             <objects>
                 <navigationController id="DIz-Ow-Gse" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="BYR-DH-DUB"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="BYR-DH-DUB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AoG-Yp-oJr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="RedAccentColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="IjC-j6-mdH" kind="relationship" relationship="rootViewController" id="rXQ-Mo-XgG"/>
@@ -79,14 +87,15 @@
             </objects>
             <point key="canvasLocation" x="-1250" y="993"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="8IV-1b-2iV">
             <objects>
                 <navigationController id="DJY-46-vTM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.circle" catalog="system" selectedImage="person.crop.circle" id="HKT-Bd-n0U"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.crop.circle" id="HKT-Bd-n0U"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Isp-Bt-fSp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="RedAccentColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="yV6-8Q-B5M" kind="relationship" relationship="rootViewController" id="xJN-W0-wkd"/>
@@ -96,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="-158" y="586"/>
         </scene>
-        <!--CharacterNames-->
+        <!--UserProfile-->
         <scene sceneID="grD-0V-s4f">
             <objects>
-                <viewControllerPlaceholder storyboardName="CharacterNames" id="yV6-8Q-B5M" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="UserProfile" id="yV6-8Q-B5M" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="oA7-8w-rb5"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EdE-um-o74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -112,5 +121,8 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="RedAccentColor">
+            <color red="0.87843137979999997" green="0.109803915" blue="0.094117648900000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
