@@ -26,6 +26,8 @@
 		56E819712BCE9B51009CCE03 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819702BCE9B51009CCE03 /* StringExtension.swift */; };
 		56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */; };
 		56E8197A2BCF9E90009CCE03 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819792BCF9E90009CCE03 /* UserProfile.storyboard */; };
+		56E8197D2BCFEBD0009CCE03 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8197C2BCFEBD0009CCE03 /* DetailScreenViewController.swift */; };
+		56E8197F2BCFEBE5009CCE03 /* DetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8197E2BCFEBE5009CCE03 /* DetailScreen.storyboard */; };
 		56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B42BB4484500A740DF /* AppDelegate.swift */; };
 		56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B62BB4484500A740DF /* SceneDelegate.swift */; };
 		56FCA0B92BB4484500A740DF /* SearchCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B82BB4484500A740DF /* SearchCharactersViewController.swift */; };
@@ -77,6 +79,8 @@
 		56E819702BCE9B51009CCE03 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		56E819792BCF9E90009CCE03 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		56E8197C2BCFEBD0009CCE03 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
+		56E8197E2BCFEBE5009CCE03 /* DetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailScreen.storyboard; sourceTree = "<group>"; };
 		56FCA0B12BB4484500A740DF /* HeroVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0B42BB4484500A740DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FCA0B62BB4484500A740DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		56A15F8D2BBB2E0300D74E55 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				56E8197B2BCFEB93009CCE03 /* DetailScreen */,
 				56E819602BC513CC009CCE03 /* LogIn */,
 				56A15FB62BBD797600D74E55 /* Events */,
 				56E819672BC7314A009CCE03 /* Search */,
@@ -195,6 +200,15 @@
 				56E819792BCF9E90009CCE03 /* UserProfile.storyboard */,
 			);
 			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		56E8197B2BCFEB93009CCE03 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				56E8197C2BCFEBD0009CCE03 /* DetailScreenViewController.swift */,
+				56E8197E2BCFEBE5009CCE03 /* DetailScreen.storyboard */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 		56FCA0A82BB4484500A740DF = {
@@ -388,6 +402,7 @@
 				56FCA0BC2BB4484500A740DF /* CharacterNames.storyboard in Resources */,
 				56E8196B2BC9414E009CCE03 /* CharactersTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
+				56E8197F2BCFEBE5009CCE03 /* DetailScreen.storyboard in Resources */,
 				56A15F8C2BBADBC000D74E55 /* Main.storyboard in Resources */,
 				56A15FBE2BBD7CB400D74E55 /* Events.storyboard in Resources */,
 			);
@@ -445,6 +460,7 @@
 				56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */,
 				56A15F8A2BBAD1C800D74E55 /* APIHandler.swift in Sources */,
 				56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */,
+				56E8197D2BCFEBD0009CCE03 /* DetailScreenViewController.swift in Sources */,
 				56A15F942BBBEF4900D74E55 /* SearchComicsRepository.swift in Sources */,
 				56A15F982BBBF05F00D74E55 /* SearchComicsViewController.swift in Sources */,
 				56E8196A2BC9414E009CCE03 /* CharactersTableViewCell.swift in Sources */,

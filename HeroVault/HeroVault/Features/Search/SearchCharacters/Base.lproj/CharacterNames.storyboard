@@ -49,6 +49,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="MCO-2M-pt3" kind="show" identifier="detailScreenSegue" id="yTy-Ss-Rsx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -78,6 +81,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-169" y="-30"/>
+        </scene>
+        <!--DetailScreen-->
+        <scene sceneID="ls4-mR-YOx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="74S-b8-7R9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DetailScreen" id="MCO-2M-pt3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="g7U-dM-Erh"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="476" y="-25"/>
         </scene>
     </scenes>
     <resources>
