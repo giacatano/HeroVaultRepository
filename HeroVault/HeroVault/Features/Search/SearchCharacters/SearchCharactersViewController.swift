@@ -43,8 +43,7 @@ extension CharacterNamesViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let result = characterNamesViewModel.(atIndex: indexPath.section) else { return }
-         performSegue(withIdentifier: "detailScreenSegue", sender: result)
+        print("You selected me.")
        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
