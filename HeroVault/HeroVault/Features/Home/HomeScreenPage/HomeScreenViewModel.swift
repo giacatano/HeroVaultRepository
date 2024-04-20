@@ -13,8 +13,10 @@ protocol ViewModelDelegate: AnyObject {
 
 class HomeScreenViewModel {
     
-    var characters = [Characters]()
-    var comics = [Comics]()
+    // MARK: Variables
+    
+    var characters = [Character]()
+    var comics = [Comic]()
     var error: Error?
     
     private let characterRepository: CharacterRepositoryType?
@@ -29,18 +31,23 @@ class HomeScreenViewModel {
         self.delegate = delegate
     }
     
+    // MARK: Computes properties
+    
     var characterCount: Int {
         characters.count
     }
+    
+    // MARK: Functions
     
     func fetchCharacters() {
         characterRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let characters):
-                self.characters = characters.data.results
-                for character in self.characters {
-                    print(character.name)
+                for character in characters.data.results {
+                    if !character.name.isEmpty && !character.description.isEmpty {
+                        self.characters.append(character)
+                    }
                 }
                 delegate?.reloadView()
             case .failure(let error):
@@ -63,12 +70,12 @@ class HomeScreenViewModel {
             }
         }
     }
-
+    
     func createImage(characterIndex: Int) -> String {
         "\(characters[characterIndex].thumbnail.path)/standard_fantastic.jpg".convertToHttps()
     }
     
-    func fetchCharacters(atIndex: Int) -> Characters? {
+    func fetchCharacters(atIndex: Int) -> Character? {
         characters[atIndex]
     }
 }

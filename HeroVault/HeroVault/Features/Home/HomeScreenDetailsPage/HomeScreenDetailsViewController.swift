@@ -11,7 +11,7 @@ class HomeScreenDetailsViewController: UIViewController {
     
     private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel()
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet weak private var mainStackView: UIStackView!
     @IBOutlet weak private var userRatingLabel: UILabel!
     @IBOutlet weak private var ratingImage: UIImageView!
@@ -20,20 +20,26 @@ class HomeScreenDetailsViewController: UIViewController {
     @IBOutlet weak private var selectedLabel: UILabel!
     @IBOutlet weak private var descriptionTextField: UITextView!
     
-    //MARK: IBActions
+    // MARK: IBActions
     
     @IBAction func starButton(_ sender: Any) {
-        
     }
     
-    //MARK: ViewController Functions
+    // MARK: ViewController Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainStackView.layer.cornerRadius = 10
         print(homeScreenDetailViewModel.character ?? "empty")
+        setUpHomeScreenDetailView()
     }
     
-    func set(character: Characters) {
+    func set(character: Character) {
         homeScreenDetailViewModel.set(character: character)
+    }
+    
+    private func setUpHomeScreenDetailView() {
+        selectedLabel.text = homeScreenDetailViewModel.characterName
+        descriptionTextField.text = homeScreenDetailViewModel.characterDescription
     }
 }

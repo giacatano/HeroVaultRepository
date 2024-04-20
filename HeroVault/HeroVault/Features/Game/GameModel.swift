@@ -1,5 +1,5 @@
 //
-//  ComicModel.swift
+//  GameModel.swift
 //  HeroVault
 //
 //  Created by Gia Catano on 2024/04/20.
@@ -7,24 +7,24 @@
 
 import Foundation
 
-// MARK: Comic Response Model
+// MARK: Game Response Model
 
-struct ComicResponse: Codable {
-    let data: ComicData
+struct GameResponse: Codable {
+    let data: GameData
 }
 
-struct ComicData: Codable {
-    let results: [Comic]
+struct GameData: Codable {
+    let results: [Game]
 }
 
-struct Comic: Codable {
+struct Game: Codable {
     let id: Int
     let title: String
     let description: String
-    let thumbnail: ComicPictures
+    let thumbnail: GamePictures
 }
 
-struct ComicPictures: Codable {
+struct GamePictures: Codable {
     let path: String
     let jpg: String
     

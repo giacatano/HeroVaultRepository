@@ -14,10 +14,10 @@ struct CharacterResponse: Codable {
 }
 
 struct CharacterData: Codable {
-    let results: [Characters]
+    let results: [Character]
 }
 
-struct Characters: Codable {
+struct Character: Codable {
     let id: Int
     let name: String
     let description: String

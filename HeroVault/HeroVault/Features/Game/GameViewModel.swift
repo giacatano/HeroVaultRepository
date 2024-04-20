@@ -7,29 +7,31 @@
 
 import Foundation
 
-class EventsViewModel {
+class GameViewModel {
     
-    var events = [Events]()
+    var events = [Game]()
     var error: Error?
     
-    private let eventsRespository: EventsRepositoryType
+    private let gameRespository: GameRepositoryType
     
-    init(eventsRespository: EventsRepositoryType) {
-        self.eventsRespository = eventsRespository
+    init(gameRespository: GameRepositoryType) {
+        self.gameRespository = gameRespository
     }
     
-    func fetchEvents(){
-        eventsRespository.fetchEvents {[weak self] result in guard let self = self else {return}
+    func fetchEvents() {
+        gameRespository.fetchGames { [weak self] result in
+            guard let self else {
+                return
+            }
             switch result {
             case .success(let events):
                 self.events = events.data.results
                 for event in self.events {
-                   // print(event)
+                    print(event)
                 }
             case .failure(let error):
                 print(self.error = error)
-                }
             }
         }
     }
-    
+}

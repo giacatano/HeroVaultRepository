@@ -9,33 +9,28 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var invalidCredentialsLabel: UILabel!
+    // MARK: IBOutlets
+    
+    @IBOutlet weak private var usernameTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var invalidCredentialsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         invalidCredentialsLabel.isHidden = true
     }
+    
+    // MARK: IBActions
     
     @IBAction func logInButton(_ sender: Any) {
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-
-        if username == "Admin" && password == "HeroPassword"{
-
-            performSegue(withIdentifier: "logInSegue", sender: self)
+        
+        if username == "Admin" && password == "Hero" {
+            performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: self)
         } else {
-            
             invalidCredentialsLabel.text = "Invalid Credentials"
             invalidCredentialsLabel.isHidden = false
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        invalidCredentialsLabel.isHidden = true
     }
 }

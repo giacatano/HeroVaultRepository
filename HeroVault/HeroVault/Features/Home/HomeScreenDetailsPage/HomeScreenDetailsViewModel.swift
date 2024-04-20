@@ -9,9 +9,17 @@ import Foundation
 
 class HomeScreenDetailsViewModel {
     
-    var character: Characters?
+    var character: Character?
     
-    func set(character: Characters) {
+    func set(character: Character) {
         self.character = character
+    }
+    
+    var characterName: String {
+        character?.name ?? ""
+    }
+    
+    var characterDescription: String {
+        character?.description ?? ""
     }
 }

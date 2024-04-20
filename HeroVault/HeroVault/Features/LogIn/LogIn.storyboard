@@ -63,8 +63,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid Credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5y-2D-6dr">
+                                                <rect key="frame" x="40.666666666666664" y="124.33333333333337" width="118.66666666666669" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.87843137250000003" green="0.10980392160000001" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV0-IC-ZV3">
-                                                <rect key="frame" x="59.999999999999986" y="124.33333333333337" width="80.000000000000014" height="34"/>
+                                                <rect key="frame" x="59.999999999999986" y="153.33333333333331" width="80.000000000000014" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="qCj-ps-wOf"/>
                                                     <constraint firstAttribute="width" constant="80" id="u3p-lj-t0l"/>
@@ -79,15 +85,9 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot your password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-6c-EyI">
-                                                <rect key="frame" x="35.333333333333329" y="170.33333333333331" width="129.33333333333337" height="14.333333333333343"/>
+                                                <rect key="frame" x="35.333333333333329" y="199.33333333333331" width="129.33333333333337" height="14.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid Credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5y-2D-6dr">
-                                                <rect key="frame" x="40.666666666666664" y="196.66666666666669" width="118.66666666666669" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.87843137250000003" green="0.10980392160000001" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>

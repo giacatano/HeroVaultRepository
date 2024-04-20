@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,46 +17,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="382" height="370"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-g1-dZ3">
-                        <rect key="frame" x="16" y="16" width="350.33333333333331" height="304.33333333333331"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="350.32999999999998" id="h6K-9L-j2q"/>
-                            <constraint firstAttribute="height" constant="304.32999999999998" id="pSA-FQ-VMP"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Cs-jWw">
-                        <rect key="frame" x="16.000000000000004" y="330.33333333333331" width="51.333333333333343" height="24"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sVl-Ge-ytn">
-                        <rect key="frame" x="323.33333333333331" y="327.66666666666663" width="51.666666666666686" height="35.333333333333371"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="7NI-23-Q68"/>
-                            <constraint firstAttribute="width" constant="51.670000000000002" id="SJI-VD-qif"/>
-                        </constraints>
-                        <imageReference key="image" image="star.circle" catalog="system" symbolScale="small" renderingMode="hierarchical">
-                            <hierarchicalColors>
-                                <color red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-d6-pPu">
+                        <rect key="frame" x="10" y="0.0" width="372" height="370"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-g1-dZ3">
+                                <rect key="frame" x="15" y="15" width="342" height="284.33333333333331"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="243" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-gS-dS7">
+                                <rect key="frame" x="15" y="299.33333333333331" width="342" height="55.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Cs-jWw">
+                                        <rect key="frame" x="0.0" y="16" width="51.333333333333336" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUP-11-e4z">
+                                        <rect key="frame" x="294.33333333333331" y="0.0" width="47.666666666666686" height="55.666666666666664"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="star.circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
+                                            <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sVl-Ge-ytn" secondAttribute="trailing" constant="15.67" id="5mU-CO-hqv"/>
-                    <constraint firstItem="CQE-g1-dZ3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="DVD-2h-cQM"/>
-                    <constraint firstItem="Ms6-Cs-jWw" firstAttribute="top" secondItem="CQE-g1-dZ3" secondAttribute="bottom" constant="10" id="Hdj-Xb-sM2"/>
-                    <constraint firstItem="sVl-Ge-ytn" firstAttribute="top" secondItem="CQE-g1-dZ3" secondAttribute="bottom" constant="5" id="J1v-m7-xkx"/>
-                    <constraint firstItem="CQE-g1-dZ3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Jlq-Qd-9kB"/>
-                    <constraint firstAttribute="trailing" secondItem="CQE-g1-dZ3" secondAttribute="trailing" constant="15.67" id="OCP-mH-E8H"/>
-                    <constraint firstAttribute="trailing" secondItem="sVl-Ge-ytn" secondAttribute="trailing" constant="7" id="lmm-Ex-dwc"/>
-                    <constraint firstItem="Ms6-Cs-jWw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ygo-tF-5m0"/>
+                    <constraint firstItem="eh2-d6-pPu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2FH-iE-9cR"/>
+                    <constraint firstItem="eh2-d6-pPu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5H7-LN-yW5"/>
+                    <constraint firstAttribute="bottom" secondItem="eh2-d6-pPu" secondAttribute="bottom" id="FzC-DS-GjD"/>
+                    <constraint firstAttribute="trailing" secondItem="eh2-d6-pPu" secondAttribute="trailing" id="etQ-wQ-7vD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -65,15 +63,12 @@
             <connections>
                 <outlet property="characterImageView" destination="CQE-g1-dZ3" id="cIy-U2-aNn"/>
                 <outlet property="nameLabel" destination="Ms6-Cs-jWw" id="oDq-5L-jQm"/>
-                <outlet property="starImageView" destination="sVl-Ge-ytn" id="EHc-dC-Zef"/>
+                <outlet property="starButton" destination="IUP-11-e4z" id="UNI-yV-BMa"/>
             </connections>
             <point key="canvasLocation" x="164.8854961832061" y="79.577464788732399"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="star.circle" catalog="system" width="128" height="123"/>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

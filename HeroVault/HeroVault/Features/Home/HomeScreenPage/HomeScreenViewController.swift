@@ -14,9 +14,13 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak private var listTableView: UITableView!
     @IBOutlet weak private var discoverLabel: UILabel!
     
+    // MARK: Variables
+    
     private lazy var homeScreenViewModel = HomeScreenViewModel(characterRepository: CharacterRepository(),
                                                                comicRepository: ComicRepository(),
                                                                delegate: self)
+    
+    // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +29,14 @@ class HomeScreenViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        listTableView.register(HomeScreenTableViewCell.characterNib(), 
+        listTableView.register(HomeScreenTableViewCell.characterNib(),
                                forCellReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
         listTableView.dataSource = self
         listTableView.delegate = self
     }
 }
+
+// MARK: Extensions
 
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -44,7 +50,8 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let homePageTableViewCell = listTableView.dequeueReusableCell(withIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName, for: indexPath) as? HomeScreenTableViewCell else {
+        guard let homePageTableViewCell = listTableView.dequeueReusableCell(withIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName,
+                                                                            for: indexPath) as? HomeScreenTableViewCell else {
             return UITableViewCell()
         }
         
@@ -58,11 +65,13 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 4
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 370.0
     }
@@ -85,6 +94,6 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeScreenViewController: ViewModelDelegate {
     func reloadView() {
-        self.listTableView.reloadData()
+        listTableView.reloadData()
     }
 }
