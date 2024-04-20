@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-2384" y="586"/>
         </scene>
-        <!--Events-->
+        <!--Game-->
         <scene sceneID="Z9y-xB-fmo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Events" id="1l8-Zz-Rnl" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Game" id="1l8-Zz-Rnl" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vmQ-15-aCu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3q8-YN-58S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,7 +122,7 @@
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <namedColor name="RedAccentColor">
-            <color red="0.87800002098083496" green="0.10999999940395355" blue="0.093999996781349182" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.80400002002716064" green="0.23499999940395355" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
