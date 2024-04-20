@@ -61,3 +61,7 @@ opt_in_rules:
   - vertical_whitespace
   - weak_delegate
   - yoda_condition
+  
+line_length:
+ warning: 140
+ error: 1200
