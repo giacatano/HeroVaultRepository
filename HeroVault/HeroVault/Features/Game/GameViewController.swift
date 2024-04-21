@@ -7,12 +7,12 @@
 
 import UIKit
 
-class EventsViewController: UIViewController {
+class GameViewController: UIViewController {
     
-    private var eventsViewModel = EventsViewModel(eventsRespository: EventsRepository())
-
+    private var gameViewModel = GameViewModel(gameRespository: GameRepository())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventsViewModel.fetchEvents()
+        gameViewModel.fetchEvents()
     }
 }

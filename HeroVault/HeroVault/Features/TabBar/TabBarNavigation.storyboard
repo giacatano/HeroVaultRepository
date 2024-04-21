@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-2384" y="586"/>
         </scene>
-        <!--Events-->
+        <!--Game-->
         <scene sceneID="Z9y-xB-fmo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Events" id="1l8-Zz-Rnl" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Game" id="1l8-Zz-Rnl" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vmQ-15-aCu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3q8-YN-58S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-1244" y="586"/>
         </scene>
-        <!--CharacterNames-->
+        <!--HomeScreen-->
         <scene sceneID="CAg-hq-dV6">
             <objects>
-                <viewControllerPlaceholder storyboardName="CharacterNames" id="IjC-j6-mdH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HomeScreen" id="IjC-j6-mdH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="SYX-km-vjc"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHn-Rj-ypz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,7 +122,7 @@
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <namedColor name="RedAccentColor">
-            <color red="0.87843137979999997" green="0.109803915" blue="0.094117648900000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.80400002002716064" green="0.23499999940395355" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

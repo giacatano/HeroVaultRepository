@@ -40,7 +40,7 @@ class APIHandler {
                 completion(.failure(.internalError))
                 return
             }
-            guard let data = data else {
+            guard let data else {
                 completion(.failure(.invalidData))
                 return
             }
