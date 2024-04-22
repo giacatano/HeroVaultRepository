@@ -13,18 +13,18 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak private var profileLabel: UILabel!
     @IBOutlet weak private var userImage: UIImageView!
-    @IBOutlet private weak var userNameLabel: UILabel!
-    @IBOutlet private weak var favouriteCharactersLabel: UILabel!
-    @IBOutlet private weak var favouriteCharactersStarImage: UIImageView!
-    @IBOutlet private weak var favouriteComicsLabel: UILabel!
-    @IBOutlet private weak var favouriteComicsStarImage: UIImageView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var favouriteCharactersLabel: UILabel!
+    @IBOutlet weak private var favouriteCharactersStarImage: UIImageView!
+    @IBOutlet weak private var favouriteComicsLabel: UILabel!
+    @IBOutlet weak private var favouriteComicsStarImage: UIImageView!
 
 // MARK: IBActions
     
-    @IBAction func favouriteCharactersButton(sender: Any) {
+    @IBAction private func favouriteCharactersButton(sender: Any) {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
     }
-    @IBAction func favouriteComicsButton(_ sender: Any) {
+    @IBAction private func favouriteComicsButton(_ sender: Any) {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
     }
 

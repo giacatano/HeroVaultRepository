@@ -121,7 +121,7 @@
                         <outlet property="profileLabel" destination="Aq9-lb-jzB" id="1WM-u5-CY5"/>
                         <outlet property="userImage" destination="7ne-TO-39Y" id="eDH-Vl-O2m"/>
                         <outlet property="userNameLabel" destination="Uva-Qs-UVJ" id="t17-IG-rHQ"/>
-                        <segue destination="Xkt-Zw-tdL" kind="show" identifier="userFavouritesSegue" id="0DC-UL-yrK"/>
+                        <segue destination="Xkt-Zw-tdL" kind="show" identifier="UserFavouritesSegue" id="0DC-UL-yrK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
