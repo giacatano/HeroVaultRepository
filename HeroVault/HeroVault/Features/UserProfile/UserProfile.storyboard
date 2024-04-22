@@ -46,7 +46,7 @@
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="favouriteComicsButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="70h-be-ORA"/>
+                                    <action selector="favouriteComicsButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yfv-c5-STm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvb-fq-LQ1">
@@ -75,7 +75,7 @@
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="favouriteCharactersButtonWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="s6P-UG-6F6"/>
+                                    <action selector="favouriteCharactersButtonTappedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LZT-hH-Uib"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-Gm-7iR">

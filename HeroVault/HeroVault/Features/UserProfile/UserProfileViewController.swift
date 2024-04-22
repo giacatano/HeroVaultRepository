@@ -21,17 +21,10 @@ class UserProfileViewController: UIViewController {
 
 // MARK: IBActions
     
-    @IBAction private func favouriteCharactersButton(sender: Any) {
+    @IBAction private func favouriteCharactersButtonTapped(sender: Any) {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
     }
-    @IBAction private func favouriteComicsButton(_ sender: Any) {
+    @IBAction private func favouriteComicsButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
-    }
-
-// MARK: ViewController Functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
-
