@@ -21,6 +21,8 @@
 		56B05DA82BD4057A001A0A61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DA72BD4057A001A0A61 /* MainViewController.swift */; };
 		56B05DAC2BD405A5001A0A61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B05DAB2BD405A4001A0A61 /* Main.storyboard */; };
 		56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DAD2BD42B53001A0A61 /* GameModel.swift */; };
+		56B05DB32BD62B78001A0A61 /* UserFavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DB22BD62B78001A0A61 /* UserFavouritesViewController.swift */; };
+		56B05DB52BD62BAC001A0A61 /* UserFavourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B05DB42BD62BAC001A0A61 /* UserFavourites.storyboard */; };
 		56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */; };
 		56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LogInViewController.swift */; };
 		56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819632BC5140B009CCE03 /* LogIn.storyboard */; };
@@ -76,6 +78,8 @@
 		56B05DA72BD4057A001A0A61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		56B05DAB2BD405A4001A0A61 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		56B05DAD2BD42B53001A0A61 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		56B05DB22BD62B78001A0A61 /* UserFavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesViewController.swift; sourceTree = "<group>"; };
+		56B05DB42BD62BAC001A0A61 /* UserFavourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavourites.storyboard; sourceTree = "<group>"; };
 		56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarNavigation.storyboard; sourceTree = "<group>"; };
 		56E819612BC513FA009CCE03 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		56E819632BC5140B009CCE03 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
@@ -170,6 +174,22 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		56B05DB02BD62AC1001A0A61 /* UserFavouritesPage */ = {
+			isa = PBXGroup;
+			children = (
+				56B05DB22BD62B78001A0A61 /* UserFavouritesViewController.swift */,
+				56B05DB42BD62BAC001A0A61 /* UserFavourites.storyboard */,
+			);
+			path = UserFavouritesPage;
+			sourceTree = "<group>";
+		};
+		56B05DB12BD62B0F001A0A61 /* UserProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserProfilePage;
+			sourceTree = "<group>";
+		};
 		56E8195C2BC173A8009CCE03 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +228,10 @@
 		56E819742BCF9E0D009CCE03 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				56B05DB12BD62B0F001A0A61 /* UserProfilePage */,
 				56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */,
 				56E819792BCF9E90009CCE03 /* UserProfile.storyboard */,
+				56B05DB02BD62AC1001A0A61 /* UserFavouritesPage */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -403,6 +425,7 @@
 				56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */,
 				56B05DAC2BD405A5001A0A61 /* Main.storyboard in Resources */,
 				56025FAC2BD19E7200A53EE6 /* HomeScreenDetails.storyboard in Resources */,
+				56B05DB52BD62BAC001A0A61 /* UserFavourites.storyboard in Resources */,
 				56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */,
 				56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */,
 				56E8197A2BCF9E90009CCE03 /* UserProfile.storyboard in Resources */,
@@ -462,6 +485,7 @@
 				56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */,
 				56FCA0E72BB8053D00A740DF /* HomeScreenViewModel.swift in Sources */,
 				56A15FB82BBD7BE400D74E55 /* GameRepository.swift in Sources */,
+				56B05DB32BD62B78001A0A61 /* UserFavouritesViewController.swift in Sources */,
 				56FCA0B92BB4484500A740DF /* HomeScreenViewController.swift in Sources */,
 				56FCA0EF2BB8067100A740DF /* Constants.swift in Sources */,
 				56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */,
