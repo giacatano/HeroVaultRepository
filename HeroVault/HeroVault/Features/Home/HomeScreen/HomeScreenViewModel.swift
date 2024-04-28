@@ -19,15 +19,11 @@ class HomeScreenViewModel {
     var comics = [Comic]()
     var error: Error?
     
-    private let characterRepository: CharacterRepositoryType?
-    private let comicRepository: ComicRepositoryType?
+    private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelDelegate?
     
-    init(characterRepository: CharacterRepositoryType,
-         comicRepository: ComicRepositoryType?,
-         delegate: ViewModelDelegate) {
-        self.characterRepository = characterRepository
-        self.comicRepository = comicRepository
+    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelDelegate) {
+        self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
     }
     
@@ -40,7 +36,7 @@ class HomeScreenViewModel {
     // MARK: Functions
     
     func fetchCharacters() {
-        characterRepository?.fetchCharacters { [weak self] result in
+        homeScreenRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let characters):
@@ -57,7 +53,7 @@ class HomeScreenViewModel {
     }
     
     func fetchComics() {
-        comicRepository?.fetchComics { [weak self] result in
+        homeScreenRepository?.fetchComics { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let comics):

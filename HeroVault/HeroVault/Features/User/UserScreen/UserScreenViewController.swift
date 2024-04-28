@@ -1,5 +1,5 @@
 //
-//  UserProfileViewController.swift
+//  UserScreenViewController.swift
 //  HeroVault
 //
 //  Created by Gia Catano on 2024/04/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserScreenViewController: UIViewController {
     
     // MARK: IBOutlets
     
