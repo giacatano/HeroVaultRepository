@@ -16,9 +16,7 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var homeScreenViewModel = HomeScreenViewModel(characterRepository: CharacterRepository(),
-                                                               comicRepository: ComicRepository(),
-                                                               delegate: self)
+    private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self)
     
     // MARK: Functions
     
