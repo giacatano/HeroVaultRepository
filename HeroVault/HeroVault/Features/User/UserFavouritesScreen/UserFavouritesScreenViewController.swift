@@ -1,5 +1,5 @@
 //
-//  UserFavouritesViewController.swift
+//  UserFavouritesScreenViewController.swift
 //  HeroVault
 //
 //  Created by Gia Catano on 2024/04/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserFavouritesViewController: UIViewController {
+class UserFavouritesScreenViewController: UIViewController {
     
     // MARK: IBOutlets
     

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Profile View Controller-->
+        <!--User Screen View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="UserProfileViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="UserScreenViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="242" y="27"/>
         </scene>
-        <!--UserFavourites-->
+        <!--UserFavouritesScreen-->
         <scene sceneID="Stx-rA-EQ3">
             <objects>
-                <viewControllerPlaceholder storyboardName="UserFavourites" id="Xkt-Zw-tdL" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="UserFavouritesScreen" id="Xkt-Zw-tdL" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="sZT-YL-X4t"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JpQ-Hb-Iai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
