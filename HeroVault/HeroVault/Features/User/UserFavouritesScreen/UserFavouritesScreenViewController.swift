@@ -15,4 +15,6 @@ class UserFavouritesScreenViewController: UIViewController {
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var favouritesTitleLabel: UILabel!
     @IBOutlet weak private var favouritesTableView: UITableView!
+    
+    private lazy var userFavouritesViewModel = UserFavouritesViewModel(userFavouritesRepository: UserFavouritesScreenRepository())
 }
