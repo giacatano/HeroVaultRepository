@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ViewModelDelegate: AnyObject {
     func reloadView()
@@ -14,7 +15,6 @@ protocol ViewModelDelegate: AnyObject {
 class HomeScreenViewModel {
     
     // MARK: Variables
-    
     var characters = [Character]()
     var comics = [Comic]()
     var error: Error?
@@ -63,7 +63,7 @@ class HomeScreenViewModel {
             case .success(let comics):
                 self.comics = comics.data.results
                 for comic in self.comics {
-                    print(comic.title)
+                    print(comic.name)
                 }
             case .failure(let error):
                 print(self.error = error)

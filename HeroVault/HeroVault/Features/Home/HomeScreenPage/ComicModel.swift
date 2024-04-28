@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: Comic Response Model
-
+protocol Test {
+    var id: Int { get }
+    var name: String { get }
+    var description: String { get }
+}
 struct ComicResponse: Codable {
     let data: ComicData
 }
@@ -17,9 +21,9 @@ struct ComicData: Codable {
     let results: [Comic]
 }
 
-struct Comic: Codable {
+struct Comic: Codable, Test {
     let id: Int
-    let title: String
+    let name: String
     let description: String
     let thumbnail: ComicPictures
 }

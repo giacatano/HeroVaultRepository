@@ -9,9 +9,11 @@ import Foundation
 
 class HomeScreenDetailsViewModel {
     
-    var character: Character?
+
     
-    func set(character: Character) {
+    var character: Test?
+    
+    func set(character: Test) {
         self.character = character
     }
     
@@ -21,5 +23,9 @@ class HomeScreenDetailsViewModel {
     
     var characterDescription: String {
         character?.description ?? ""
+    }
+    
+    var characterID: Int {
+        character?.id ?? -1
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class HomeScreenViewController: UIViewController {
     
     // MARK: IBOutlets
-    
+    private var test = CoreDataHandler()
     @IBOutlet weak private var listTableView: UITableView!
     @IBOutlet weak private var discoverLabel: UILabel!
     
@@ -39,6 +39,7 @@ class HomeScreenViewController: UIViewController {
 // MARK: Extensions
 
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         homeScreenViewModel.characterCount

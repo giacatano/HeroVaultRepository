@@ -10,6 +10,7 @@ import UIKit
 class HomeScreenDetailsViewController: UIViewController {
     
     private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel()
+    private var test = CoreDataHandler()
     
     // MARK: IBOutlets
     @IBOutlet weak private var mainStackView: UIStackView!
@@ -23,6 +24,16 @@ class HomeScreenDetailsViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func starButton(_ sender: Any) {
+        let test = Characters(context: test.context)
+        test.id = homeScreenDetailViewModel.characterID
+        test.name = homeScreenDetailViewModel.characterName
+        test.overview = homeScreenDetailViewModel.characterDescription
+        
+            self.test.saveContext()
+            self.test.getAllCharacters()
+        
+        print("Saved: \(self.test.getAllCharacters())")
+            
     }
     
     // MARK: ViewController Functions
@@ -34,7 +45,7 @@ class HomeScreenDetailsViewController: UIViewController {
         setUpHomeScreenDetailView()
     }
     
-    func set(character: Character) {
+    func set(character: Test) {
         homeScreenDetailViewModel.set(character: character)
     }
     

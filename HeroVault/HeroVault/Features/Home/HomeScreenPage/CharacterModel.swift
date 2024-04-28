@@ -17,7 +17,7 @@ struct CharacterData: Codable {
     let results: [Character]
 }
 
-struct Character: Codable {
+struct Character: Codable, Test {
     let id: Int
     let name: String
     let description: String

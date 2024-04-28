@@ -30,6 +30,13 @@
 		56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819702BCE9B51009CCE03 /* String+HTTP.swift */; };
 		56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */; };
 		56E8197A2BCF9E90009CCE03 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819792BCF9E90009CCE03 /* UserProfile.storyboard */; };
+		56F97D462BDE54DC0055DF7F /* UserFavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D452BDE54DC0055DF7F /* UserFavouritesViewModel.swift */; };
+		56F97D4C2BDE6B0A0055DF7F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D4A2BDE6B0A0055DF7F /* CoreData.xcdatamodeld */; };
+		56F97D4E2BDE6BF20055DF7F /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D4D2BDE6BF20055DF7F /* CoreDataHandler.swift */; };
+		56F97D522BDE7A350055DF7F /* Comic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D512BDE7A350055DF7F /* Comic+CoreDataClass.swift */; };
+		56F97D542BDE7A9E0055DF7F /* Comic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D532BDE7A9E0055DF7F /* Comic+CoreDataProperties.swift */; };
+		56F97D562BDE91FD0055DF7F /* Characters+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D552BDE91FD0055DF7F /* Characters+CoreDataClass.swift */; };
+		56F97D582BDE92150055DF7F /* Characters+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D572BDE92150055DF7F /* Characters+CoreDataProperties.swift */; };
 		56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B42BB4484500A740DF /* AppDelegate.swift */; };
 		56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B62BB4484500A740DF /* SceneDelegate.swift */; };
 		56FCA0B92BB4484500A740DF /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B82BB4484500A740DF /* HomeScreenViewController.swift */; };
@@ -85,6 +92,13 @@
 		56E819702BCE9B51009CCE03 /* String+HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTTP.swift"; sourceTree = "<group>"; };
 		56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		56E819792BCF9E90009CCE03 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		56F97D452BDE54DC0055DF7F /* UserFavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesViewModel.swift; sourceTree = "<group>"; };
+		56F97D4B2BDE6B0A0055DF7F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		56F97D4D2BDE6BF20055DF7F /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		56F97D512BDE7A350055DF7F /* Comic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		56F97D532BDE7A9E0055DF7F /* Comic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		56F97D552BDE91FD0055DF7F /* Characters+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Characters+CoreDataClass.swift"; sourceTree = "<group>"; };
+		56F97D572BDE92150055DF7F /* Characters+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Characters+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		56FCA0B12BB4484500A740DF /* HeroVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0B42BB4484500A740DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FCA0B62BB4484500A740DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +187,7 @@
 		56B05DB02BD62AC1001A0A61 /* UserFavouritesPage */ = {
 			isa = PBXGroup;
 			children = (
+				56F97D452BDE54DC0055DF7F /* UserFavouritesViewModel.swift */,
 				56B05DB22BD62B78001A0A61 /* UserFavouritesViewController.swift */,
 				56B05DB42BD62BAC001A0A61 /* UserFavourites.storyboard */,
 			);
@@ -182,6 +197,8 @@
 		56B05DB12BD62B0F001A0A61 /* UserProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */,
+				56E819792BCF9E90009CCE03 /* UserProfile.storyboard */,
 			);
 			path = UserProfilePage;
 			sourceTree = "<group>";
@@ -225,16 +242,28 @@
 			isa = PBXGroup;
 			children = (
 				56B05DB12BD62B0F001A0A61 /* UserProfilePage */,
-				56E819772BCF9E7F009CCE03 /* UserProfileViewController.swift */,
-				56E819792BCF9E90009CCE03 /* UserProfile.storyboard */,
 				56B05DB02BD62AC1001A0A61 /* UserFavouritesPage */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
+		56F97D492BDE6AE90055DF7F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				56F97D4A2BDE6B0A0055DF7F /* CoreData.xcdatamodeld */,
+				56F97D552BDE91FD0055DF7F /* Characters+CoreDataClass.swift */,
+				56F97D572BDE92150055DF7F /* Characters+CoreDataProperties.swift */,
+				56F97D512BDE7A350055DF7F /* Comic+CoreDataClass.swift */,
+				56F97D532BDE7A9E0055DF7F /* Comic+CoreDataProperties.swift */,
+				56F97D4D2BDE6BF20055DF7F /* CoreDataHandler.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		56FCA0A82BB4484500A740DF = {
 			isa = PBXGroup;
 			children = (
+				56F97D492BDE6AE90055DF7F /* Core Data */,
 				56FCA0B32BB4484500A740DF /* HeroVault */,
 				56FCA0CA2BB4484800A740DF /* HeroVaultTests */,
 				56FCA0D42BB4484800A740DF /* HeroVaultUITests */,
@@ -472,12 +501,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FCA0EC2BB8060500A740DF /* CharacterRepository.swift in Sources */,
+				56F97D522BDE7A350055DF7F /* Comic+CoreDataClass.swift in Sources */,
 				56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */,
 				56A15FBA2BBD7BF400D74E55 /* GameViewModel.swift in Sources */,
 				56E819782BCF9E7F009CCE03 /* UserProfileViewController.swift in Sources */,
 				56FCA0E72BB8053D00A740DF /* HomeScreenViewModel.swift in Sources */,
 				56A15FB82BBD7BE400D74E55 /* GameRepository.swift in Sources */,
+				56F97D4E2BDE6BF20055DF7F /* CoreDataHandler.swift in Sources */,
+				56F97D462BDE54DC0055DF7F /* UserFavouritesViewModel.swift in Sources */,
+				56F97D582BDE92150055DF7F /* Characters+CoreDataProperties.swift in Sources */,
+				56F97D562BDE91FD0055DF7F /* Characters+CoreDataClass.swift in Sources */,
 				56B05DB32BD62B78001A0A61 /* UserFavouritesViewController.swift in Sources */,
+				56F97D4C2BDE6B0A0055DF7F /* CoreData.xcdatamodeld in Sources */,
 				56FCA0B92BB4484500A740DF /* HomeScreenViewController.swift in Sources */,
 				56FCA0EF2BB8067100A740DF /* Constants.swift in Sources */,
 				56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */,
@@ -489,6 +524,7 @@
 				56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */,
 				56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */,
 				56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */,
+				56F97D542BDE7A9E0055DF7F /* Comic+CoreDataProperties.swift in Sources */,
 				56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */,
 				56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */,
 				56A15FBC2BBD7C5300D74E55 /* GameViewController.swift in Sources */,
@@ -831,6 +867,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56F97D4A2BDE6B0A0055DF7F /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56F97D4B2BDE6B0A0055DF7F /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 56F97D4B2BDE6B0A0055DF7F /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 56FCA0A92BB4484500A740DF /* Project object */;
 }
