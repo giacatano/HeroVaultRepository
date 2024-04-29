@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserFavouritesViewModel: ViewModelDelegate {
+class UserFavouritesScreenViewModel: ViewModelDelegate {
     func reloadView() {
     }
     

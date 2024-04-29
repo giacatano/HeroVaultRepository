@@ -30,9 +30,11 @@
 		56E819782BCF9E7F009CCE03 /* UserScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819772BCF9E7F009CCE03 /* UserScreenViewController.swift */; };
 		56E8197A2BCF9E90009CCE03 /* UserScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819792BCF9E90009CCE03 /* UserScreen.storyboard */; };
 		56F97D5A2BDEC0420055DF7F /* HomeScreenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D592BDEC0420055DF7F /* HomeScreenRepository.swift */; };
-		56F97D5C2BDECC270055DF7F /* UserFavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D5B2BDECC270055DF7F /* UserFavouritesViewModel.swift */; };
+		56F97D5C2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D5B2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift */; };
 		56F97D5E2BDECC4B0055DF7F /* UserScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D5D2BDECC4B0055DF7F /* UserScreenViewModel.swift */; };
 		56F97D602BDECCFD0055DF7F /* UserFavouritesScreenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D5F2BDECCFD0055DF7F /* UserFavouritesScreenRepository.swift */; };
+		56F97D672BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F97D652BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift */; };
+		56F97D682BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F97D662BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.xib */; };
 		56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B42BB4484500A740DF /* AppDelegate.swift */; };
 		56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B62BB4484500A740DF /* SceneDelegate.swift */; };
 		56FCA0B92BB4484500A740DF /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0B82BB4484500A740DF /* HomeScreenViewController.swift */; };
@@ -87,9 +89,11 @@
 		56E819772BCF9E7F009CCE03 /* UserScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreenViewController.swift; sourceTree = "<group>"; };
 		56E819792BCF9E90009CCE03 /* UserScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserScreen.storyboard; sourceTree = "<group>"; };
 		56F97D592BDEC0420055DF7F /* HomeScreenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRepository.swift; sourceTree = "<group>"; };
-		56F97D5B2BDECC270055DF7F /* UserFavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesViewModel.swift; sourceTree = "<group>"; };
+		56F97D5B2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenViewModel.swift; sourceTree = "<group>"; };
 		56F97D5D2BDECC4B0055DF7F /* UserScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreenViewModel.swift; sourceTree = "<group>"; };
 		56F97D5F2BDECCFD0055DF7F /* UserFavouritesScreenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenRepository.swift; sourceTree = "<group>"; };
+		56F97D652BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		56F97D662BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserFavouritesScreenCollectionViewCell.xib; sourceTree = "<group>"; };
 		56FCA0B12BB4484500A740DF /* HeroVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0B42BB4484500A740DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56FCA0B62BB4484500A740DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,9 +182,11 @@
 			isa = PBXGroup;
 			children = (
 				56F97D5F2BDECCFD0055DF7F /* UserFavouritesScreenRepository.swift */,
-				56F97D5B2BDECC270055DF7F /* UserFavouritesViewModel.swift */,
+				56F97D5B2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift */,
 				56B05DB22BD62B78001A0A61 /* UserFavouritesScreenViewController.swift */,
 				56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */,
+				56F97D652BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift */,
+				56F97D662BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.xib */,
 			);
 			path = UserFavouritesScreen;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				56E8196B2BC9414E009CCE03 /* HomeScreenTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
 				56A15FBE2BBD7CB400D74E55 /* Game.storyboard in Resources */,
+				56F97D682BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +496,7 @@
 				56F97D5A2BDEC0420055DF7F /* HomeScreenRepository.swift in Sources */,
 				56FCA0B52BB4484500A740DF /* AppDelegate.swift in Sources */,
 				56A15F8A2BBAD1C800D74E55 /* APIHandler.swift in Sources */,
-				56F97D5C2BDECC270055DF7F /* UserFavouritesViewModel.swift in Sources */,
+				56F97D5C2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift in Sources */,
 				56025FAA2BD19E6500A53EE6 /* HomeScreenDetailsViewController.swift in Sources */,
 				56025FB92BD3F38100A53EE6 /* ComicModel.swift in Sources */,
 				56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */,
@@ -498,6 +505,7 @@
 				56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */,
 				56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */,
 				56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */,
+				56F97D672BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift in Sources */,
 				56A15FBC2BBD7C5300D74E55 /* GameViewController.swift in Sources */,
 				56025FB12BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift in Sources */,
 				56F97D5E2BDECC4B0055DF7F /* UserScreenViewModel.swift in Sources */,

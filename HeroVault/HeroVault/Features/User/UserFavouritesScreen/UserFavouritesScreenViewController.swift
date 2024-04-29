@@ -18,21 +18,20 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     // MARK: Variables
     
-    private lazy var userFavouritesViewModel = UserFavouritesViewModel(userFavouritesRepository: UserFavouritesScreenRepository(), delegate: self)
+    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesRepository: UserFavouritesScreenRepository(), delegate: self)
     
     // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpCollectinView()
-        favouritesCollectionView.dataSource = self
-        favouritesCollectionView.delegate = self
+        setUpCollectionView()
     }
     
-    private func setUpCollectinView() {
-        favouritesCollectionView.register(HomeScreenTableViewCell.characterNib(), forCellWithReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
-
+    private func setUpCollectionView() {
+        favouritesCollectionView.register(UserFavouritesScreenCollectionViewCell.characterNib(),
+                                          forCellWithReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
+        favouritesCollectionView.dataSource = self
+        favouritesCollectionView.delegate = self
     }
     
     func reloadView() {
@@ -56,13 +55,15 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let favouritesCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName,
-                                                                                for: indexPath) as? HomeScreenTableViewCell else {
+        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName,
+                                                                                for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
+       
+        let imageName = userFavouritesScreenViewModel.self
         
-        favouritesCell.setUpNib(imageName: imageName, imageURL: imageURL)
-        return favouritesCell
+        return favouritesScreenCollectionViewCell
+
     }
 }
 // TODO: Setup collection view
