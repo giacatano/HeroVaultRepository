@@ -26,9 +26,9 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
         UINib(nibName: Constants.SegueIdentifierNames.homeScreenTableViewCellName, bundle: nil)
     }
 
-    func setUpNib(imageName: String, imageURL: String ) {
-        favouritedLabel.text = imageName
-        favouritedImageView.load(urlString: imageURL)
+    func setUpNib(with image: UIImage, name: String) {
+        favouritedLabel.text = name
+        favouritedImageView.image = image
     }
     
     private func setUpNib() {

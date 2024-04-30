@@ -29,7 +29,7 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     private func setUpCollectionView() {
         favouritesCollectionView.register(UserFavouritesScreenCollectionViewCell.characterNib(),
-                                          forCellWithReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
+                                          forCellWithReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCell)
         favouritesCollectionView.dataSource = self
         favouritesCollectionView.delegate = self
     }
@@ -50,18 +50,20 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName,
+        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
                                                                                 for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
        
-        let imageName = userFavouritesScreenViewModel.self
+        let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
         
+        favouritesScreenCollectionViewCell.setUpNib()
+//
         return favouritesScreenCollectionViewCell
 
     }

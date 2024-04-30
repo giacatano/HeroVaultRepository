@@ -25,5 +25,6 @@ struct Constants {
         static let homeScreenTableViewCellName = "HomeScreenTableViewCell"
         static let loginScreenSegueName = "LogInSegue"
         static let userFavouritesSegueName = "UserFavouritesSegue"
+        static let userFavouritesScreenCollectionViewCellName = "UserFavouritesScreenCollectionViewCell"
     }
 }
