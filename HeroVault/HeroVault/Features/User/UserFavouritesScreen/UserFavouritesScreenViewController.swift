@@ -11,6 +11,7 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     // MARK: IBOutlets
     
+    @IBOutlet weak var starImageView: UIImageView!
     @IBOutlet weak private var profileLabel: UILabel!
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var favouritesTitleLabel: UILabel!
