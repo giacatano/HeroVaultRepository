@@ -23,7 +23,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     }
     
     static func characterNib() -> UINib {
-        UINib(nibName: Constants.SegueIdentifierNames.homeScreenTableViewCellName, bundle: nil)
+        UINib(nibName: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, bundle: nil)
     }
 
     func setUpNib(with image: UIImage, name: String) {

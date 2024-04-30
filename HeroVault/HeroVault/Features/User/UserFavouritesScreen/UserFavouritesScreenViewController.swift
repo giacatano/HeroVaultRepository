@@ -29,7 +29,7 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     private func setUpCollectionView() {
         favouritesCollectionView.register(UserFavouritesScreenCollectionViewCell.characterNib(),
-                                          forCellWithReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCell)
+                                          forCellWithReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName)
         favouritesCollectionView.dataSource = self
         favouritesCollectionView.delegate = self
     }
@@ -50,7 +50,7 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +62,7 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
        
         let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
         
-        favouritesScreenCollectionViewCell.setUpNib()
+        favouritesScreenCollectionViewCell.setUpNib(with: UIImage(imageLiteralResourceName: "Burger.png"), name: "Burger")
 //
         return favouritesScreenCollectionViewCell
 
