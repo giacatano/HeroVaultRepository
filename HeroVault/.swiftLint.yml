@@ -65,3 +65,6 @@ opt_in_rules:
 line_length:
  warning: 140
  error: 1200
+ 
+empty_count:
+ severity: warning
