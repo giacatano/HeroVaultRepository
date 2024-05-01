@@ -17,7 +17,7 @@ case comic
 var rawValue: String {
      switch self {
          case .character: return Constants.CoreData.characterEntityName
-         case .comic: return Constants.CoreData.coreDataComicName
+         case .comic: return Constants.CoreData.comicEntityName
      }
  }
 }
