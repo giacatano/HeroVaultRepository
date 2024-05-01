@@ -20,6 +20,6 @@ class HomeScreenDetailsViewModel {
     }
     
     var characterDescription: String {
-        character?.description ?? ""
+        character?.overview ?? ""
     }
 }

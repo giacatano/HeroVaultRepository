@@ -17,11 +17,17 @@ struct ComicData: Codable {
     let results: [Comic]
 }
 
-struct Comic: Codable {
+struct Comic: Codable, MarvelData {
     let id: Int
-    let title: String
-    let description: String
+    let name: String
+    let overview: String
     let thumbnail: ComicPictures
+    
+    enum CodingKeys: String, CodingKey {
+        case id, thumbnail
+        case name = "title"
+        case overview = "description"
+    }
 }
 
 struct ComicPictures: Codable {

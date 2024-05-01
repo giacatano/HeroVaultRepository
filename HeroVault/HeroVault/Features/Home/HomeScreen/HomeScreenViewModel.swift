@@ -41,7 +41,7 @@ class HomeScreenViewModel {
             switch result {
             case .success(let characters):
                 for character in characters.data.results {
-                    if !character.name.isEmpty && !character.description.isEmpty {
+                    if !character.name.isEmpty && !character.overview.isEmpty {
                         self.characters.append(character)
                     }
                 }
@@ -59,7 +59,7 @@ class HomeScreenViewModel {
             case .success(let comics):
                 self.comics = comics.data.results
                 for comic in self.comics {
-                    print(comic.title)
+                    print(comic.name)
                 }
             case .failure(let error):
                 print(self.error = error)
