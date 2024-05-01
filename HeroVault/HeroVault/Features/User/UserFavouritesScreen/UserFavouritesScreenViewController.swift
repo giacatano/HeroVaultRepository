@@ -54,6 +54,10 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
         return 12
     }
     
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 10
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
@@ -63,7 +67,7 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
        
         let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
         
-        favouritesScreenCollectionViewCell.setUpNib(with: UIImage(imageLiteralResourceName: "Burger.png"), name: "Burger")
+        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Burger.png"), name: "Burger")
 //
         return favouritesScreenCollectionViewCell
 

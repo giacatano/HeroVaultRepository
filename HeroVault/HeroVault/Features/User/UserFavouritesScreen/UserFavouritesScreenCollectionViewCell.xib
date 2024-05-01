@@ -17,27 +17,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-fr-mQN">
-                        <rect key="frame" x="31" y="20" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npN-BP-FAa">
-                        <rect key="frame" x="115" y="178" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Hs2-vt-ODP">
+                        <rect key="frame" x="0.0" y="0.0" width="303" height="219"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-fr-mQN">
+                                <rect key="frame" x="10" y="69" width="283" height="106"/>
+                                <color key="backgroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                        </subviews>
+                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                    </stackView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="tintColor"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Hs2-vt-ODP" secondAttribute="bottom" id="aEp-1b-Em2"/>
+                <constraint firstItem="Hs2-vt-ODP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="d3G-RD-b9D"/>
+                <constraint firstAttribute="trailing" secondItem="Hs2-vt-ODP" secondAttribute="trailing" id="m5N-Gc-vSy"/>
+                <constraint firstItem="Hs2-vt-ODP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="x7m-9E-wCD"/>
+            </constraints>
             <size key="customSize" width="303" height="219"/>
             <connections>
                 <outlet property="favouritedImageView" destination="tfX-fr-mQN" id="9Ip-n8-EF5"/>
-                <outlet property="favouritedLabel" destination="npN-BP-FAa" id="X6U-Og-euG"/>
+                <outlet property="stackView" destination="Hs2-vt-ODP" id="aaR-W0-bSp"/>
             </connections>
             <point key="canvasLocation" x="274.04580152671753" y="79.225352112676063"/>
         </collectionViewCell>
