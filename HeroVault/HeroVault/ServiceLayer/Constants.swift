@@ -26,4 +26,10 @@ struct Constants {
         static let loginScreenSegueName = "LogInSegue"
         static let userFavouritesSegueName = "UserFavouritesSegue"
     }
+    
+    struct CoreData {
+        static let characterEntityName = "CoreDataCharacter"
+        static let comicEntityName = "CoreDataComic"
+        static let persistentContainerName = "CoreData"
+    }
 }

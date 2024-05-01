@@ -7,6 +7,14 @@
 
 import Foundation
 
+// MARK: Marvel Data Protocol
+
+protocol MarvelData {
+    var id: Int { get }
+    var name: String { get }
+    var overview: String { get }
+}
+
 // MARK: Character Response Model
 
 struct CharacterResponse: Codable {
@@ -17,11 +25,16 @@ struct CharacterData: Codable {
     let results: [Character]
 }
 
-struct Character: Codable {
+struct Character: Codable, MarvelData {
     let id: Int
     let name: String
-    let description: String
+    let overview: String
     let thumbnail: CharacterPictures
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, thumbnail
+        case overview = "description"
+    }
 }
 
 struct CharacterPictures: Codable {
