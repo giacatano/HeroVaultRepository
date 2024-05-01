@@ -9,10 +9,12 @@ import Foundation
 
 class HomeScreenDetailsViewModel {
     
-    var character: Character?
+    var character: MarvelData?
     
-    func set(character: Character) {
-        self.character = character
+    private var homeScreenDetailsRepository: HomeScreenDetailsRepositoryType?
+    
+    init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
+        self.homeScreenDetailsRepository = homeScreenDetailsRepository
     }
     
     var characterName: String {
@@ -21,5 +23,15 @@ class HomeScreenDetailsViewModel {
     
     var characterDescription: String {
         character?.overview ?? ""
+    }
+    
+    func set(character: MarvelData) {
+        self.character = character
+    }
+    
+    func saveObjectIntoCoreData() {
+        if let character {
+            homeScreenDetailsRepository?.saveIntoCoreData(object: character)
+        }
     }
 }

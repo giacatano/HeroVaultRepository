@@ -117,6 +117,7 @@ class CoreDataHandler: CoreDataHandlerType {
         for number in 0..<((characters?.count ?? -1)) {
             names.append(characters?[number].name ?? "no name")
         }
+        print("here are the names: \(names)")
         return names
     }
     

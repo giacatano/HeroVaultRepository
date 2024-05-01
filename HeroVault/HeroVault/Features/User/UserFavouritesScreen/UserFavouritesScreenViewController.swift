@@ -19,13 +19,15 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     // MARK: Variables
     
-    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesRepository: UserFavouritesScreenRepository(), delegate: self)
+    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository: UserFavouritesScreenRepository(), delegate: self)
     
     // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        userFavouritesScreenViewModel.fetchAllCharactersFromCoreData()
+        userFavouritesScreenViewModel.fetchAllNamesOfCharactersInCoreData()
     }
     
     private func setUpCollectionView() {
