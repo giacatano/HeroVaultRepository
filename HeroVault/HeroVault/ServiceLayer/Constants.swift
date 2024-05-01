@@ -29,7 +29,7 @@ struct Constants {
     
     struct CoreData {
         static let characterEntityName = "CoreDataCharacter"
-        static let coreDataComicName = "CoreDataComic"
+        static let comicEntityName = "CoreDataComic"
         static let persistentContainerName = "CoreData"
     }
 }
