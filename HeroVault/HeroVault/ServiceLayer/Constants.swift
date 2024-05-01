@@ -27,8 +27,9 @@ struct Constants {
         static let userFavouritesSegueName = "UserFavouritesSegue"
     }
     
-//    struct CoreDataEntityNames {
-//        static let coreDataCharacter = "CoreDataCharacter"
-//        static let coreDataComic = "CoreDataComic"
-//    }
+    struct CoreData {
+        static let characterEntityName = "CoreDataCharacter"
+        static let coreDataComicName = "CoreDataComic"
+        static let persistentContainerName = "CoreData"
+    }
 }

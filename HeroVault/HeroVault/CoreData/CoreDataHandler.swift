@@ -11,8 +11,15 @@ import UIKit
 // MARK: - Entity Type Enum
 
 enum EntityType: String {
-    case character = "CoreDataCharacter"
-    case comic = "CoreDataComic"
+case character
+case comic
+
+var rawValue: String {
+     switch self {
+         case .character: return Constants.CoreData.characterEntityName
+         case .comic: return Constants.CoreData.coreDataComicName
+     }
+ }
 }
 
 // MARK: - Core Data Handler Protocol
