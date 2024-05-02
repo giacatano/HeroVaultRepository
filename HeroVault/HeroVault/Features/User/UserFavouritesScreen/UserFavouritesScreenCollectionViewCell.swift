@@ -11,9 +11,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     
     // MARK: Outlets
     
-    @IBOutlet weak var favouritedImageView: UIImageView!
-    @IBOutlet weak var stackView: UIStackView!
-    
+    @IBOutlet weak private var favouritedImageView: UIImageView!
     
     // MARK: Functions
     
@@ -25,17 +23,13 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     static func characterNib() -> UINib {
         UINib(nibName: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, bundle: nil)
     }
-
+    
     func setUpImage(with image: UIImage, name: String) {
         favouritedImageView.image = image
     }
     
     private func setUpNib() {
-        backgroundColor = UIColor.white
         favouritedImageView.layer.cornerRadius = 10
         favouritedImageView.layer.masksToBounds = true
-        contentView.layer.cornerRadius = 5.0
-        contentView.layer.masksToBounds = true
-
     }
 }

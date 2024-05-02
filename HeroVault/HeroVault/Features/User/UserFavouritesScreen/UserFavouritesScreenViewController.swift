@@ -11,11 +11,11 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet weak private var starImageView: UIImageView!
     @IBOutlet weak private var profileLabel: UILabel!
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var favouritesTitleLabel: UILabel!
-    @IBOutlet weak var favouritesCollectionView: UICollectionView!
+    @IBOutlet weak private var favouritesCollectionView: UICollectionView!
     
     // MARK: Variables
     
@@ -44,11 +44,10 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
 
 // MARK: Extensions
 
-extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         favouritesCollectionView.deselectItem(at: indexPath, animated: true)
-        
         print("You selcted me")
     }
     
@@ -56,23 +55,22 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
         return 12
     }
     
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 10
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 180, height: 160)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
-                                                                                for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
+        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier:
+                                                                                                        Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
+                                                                                                    for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
-       
-        let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
         
-        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Burger.png"), name: "Burger")
-//
+        let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
+        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Spiderman.png"), name: "Spiderman")
+        favouritesScreenCollectionViewCell.layer.cornerRadius = 10
+        
         return favouritesScreenCollectionViewCell
-
     }
 }
-// TODO: Setup collection view

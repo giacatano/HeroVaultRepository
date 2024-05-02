@@ -28,22 +28,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rOP-kT-jkO">
-                                <rect key="frame" x="0.0" y="251" width="393" height="502"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rOP-kT-jkO">
+                                <rect key="frame" x="10" y="251" width="373" height="567"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3hP-lX-PCD">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="4" id="3hP-lX-PCD">
+                                    <size key="itemSize" width="200" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yM0-nN-7BG">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <rect key="frame" x="86.666666666666671" y="0.0" width="200" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2Or-9h-IAR">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </collectionViewCellContentView>
@@ -63,11 +62,11 @@
                                 </imageReference>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-D9-Ov3">
-                                <rect key="frame" x="292" y="80" width="85" height="75"/>
+                                <rect key="frame" x="283" y="90" width="85" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hg-VJ-oBP">
-                                <rect key="frame" x="16" y="109" width="146.33333333333337" height="37"/>
+                                <rect key="frame" x="27" y="109" width="146.33333333333337" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,8 +77,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="1Ak-mP-NCH" secondAttribute="bottom" id="B60-B3-hoQ"/>
+                            <constraint firstItem="rOP-kT-jkO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="10" id="Lae-Iz-3RL"/>
+                            <constraint firstItem="rOP-kT-jkO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="251" id="RbW-fr-ZrO"/>
                             <constraint firstItem="1Ak-mP-NCH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="i5X-6p-VzH"/>
                             <constraint firstItem="1Ak-mP-NCH" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="tKW-aV-tD8"/>
+                            <constraint firstAttribute="trailing" secondItem="rOP-kT-jkO" secondAttribute="trailing" constant="10" id="wMa-Vg-iRc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rOP-kT-jkO" secondAttribute="bottom" id="xt0-Ds-tPJ"/>
                             <constraint firstAttribute="trailing" secondItem="1Ak-mP-NCH" secondAttribute="trailing" id="y5J-VK-Hfl"/>
                         </constraints>
                     </view>
@@ -101,7 +104,7 @@
         <image name="User" width="170.66667175292969" height="170.66667175292969"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
