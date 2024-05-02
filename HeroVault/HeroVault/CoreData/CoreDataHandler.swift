@@ -17,7 +17,7 @@ case comic
 var rawValue: String {
      switch self {
          case .character: return Constants.CoreData.characterEntityName
-         case .comic: return Constants.CoreData.coreDataComicName
+         case .comic: return Constants.CoreData.comicEntityName
      }
  }
 }
@@ -117,6 +117,7 @@ class CoreDataHandler: CoreDataHandlerType {
         for number in 0..<((characters?.count ?? -1)) {
             names.append(characters?[number].name ?? "no name")
         }
+        print("here are the names: \(names)")
         return names
     }
     

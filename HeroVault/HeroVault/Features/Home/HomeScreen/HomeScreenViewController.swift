@@ -64,12 +64,6 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
         return 4
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 370.0
     }
