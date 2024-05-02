@@ -9,17 +9,32 @@ import Foundation
 
 class HomeScreenDetailsViewModel {
     
-    var character: Character?
+    //MARK: Variables
     
-    func set(character: Character) {
-        self.character = character
-    }
+    var character: MarvelData?
+    private var homeScreenDetailsRepository: HomeScreenDetailsRepositoryType?
     
     var characterName: String {
         character?.name ?? ""
     }
     
     var characterDescription: String {
-        character?.description ?? ""
+        character?.overview ?? ""
+    }
+    
+    //MARK: Functions
+    
+    init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
+        self.homeScreenDetailsRepository = homeScreenDetailsRepository
+    }
+    
+    func set(character: MarvelData) {
+        self.character = character
+    }
+    
+    func saveObjectIntoCoreData() {
+        if let character {
+            homeScreenDetailsRepository?.saveIntoCoreData(object: character)
+        }
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class HomeScreenDetailsViewController: UIViewController {
     
-    private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel()
+    private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel(homeScreenDetailsRepository: HomeScreenDetailsRepository())
     
     // MARK: IBOutlets
     
@@ -24,6 +24,7 @@ class HomeScreenDetailsViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func starButton(_ sender: Any) {
+        homeScreenDetailViewModel.saveObjectIntoCoreData()
     }
     
     // MARK: ViewController Functions
