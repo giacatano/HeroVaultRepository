@@ -7,9 +7,13 @@
 
 import Foundation
 
+    // MARK: Protocol
+
 protocol HomeScreenDetailsRepositoryType {
     func saveIntoCoreData(object: MarvelData)
 }
+
+    //MARK: Repository 
 
 class HomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
     

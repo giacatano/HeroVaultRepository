@@ -62,8 +62,7 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier:
-                                                                                                        Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
-                                                                                                    for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
+                                                                                                        Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
         
