@@ -24,7 +24,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
         UINib(nibName: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, bundle: nil)
     }
     
-    func setUpImage(with image: UIImage, name: String) {
+    func setUpImage(with image: UIImage) {
         favouritedImageView.image = image
     }
     

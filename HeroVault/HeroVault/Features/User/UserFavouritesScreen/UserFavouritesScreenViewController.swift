@@ -60,14 +60,13 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier:
                                                                                                         Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
         
         let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
-        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Spiderman.png"), name: "Spiderman")
+        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Spiderman.png"))
         favouritesScreenCollectionViewCell.layer.cornerRadius = 10
         
         return favouritesScreenCollectionViewCell
