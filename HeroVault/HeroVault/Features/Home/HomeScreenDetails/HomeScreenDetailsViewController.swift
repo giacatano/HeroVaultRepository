@@ -15,11 +15,9 @@ class HomeScreenDetailsViewController: UIViewController {
     
     @IBOutlet weak private var userRatingLabel: UILabel!
     @IBOutlet weak private var ratingImage: UIImageView!
-    @IBOutlet weak private var discoverLabel: UILabel!
     @IBOutlet weak private var selectedImage: UIImageView!
     @IBOutlet weak private var selectedLabel: UILabel!
     @IBOutlet weak private var descriptionTextField: UITextView!
-    @IBOutlet weak private var whiteCardImageView: UIImageView!
     
     // MARK: IBActions
     
@@ -42,6 +40,5 @@ class HomeScreenDetailsViewController: UIViewController {
     private func setUpHomeScreenDetailView() {
         selectedLabel.text = homeScreenDetailViewModel.characterName
         descriptionTextField.text = homeScreenDetailViewModel.characterDescription
-        whiteCardImageView.layer.cornerRadius = 10
     }
 }

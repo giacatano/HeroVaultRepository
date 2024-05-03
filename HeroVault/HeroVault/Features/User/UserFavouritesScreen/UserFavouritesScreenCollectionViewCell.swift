@@ -17,7 +17,6 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpNib()
     }
     
     static func characterNib() -> UINib {
@@ -26,10 +25,5 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     
     func setUpImage(with image: UIImage) {
         favouritedImageView.image = image
-    }
-    
-    private func setUpNib() {
-        favouritedImageView.layer.cornerRadius = 10
-        favouritedImageView.layer.masksToBounds = true
     }
 }

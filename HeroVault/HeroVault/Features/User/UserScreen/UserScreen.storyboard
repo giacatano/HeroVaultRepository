@@ -121,11 +121,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="favouriteCharactersLabel" destination="Abv-mY-j1H" id="5WJ-Ek-HWR"/>
-                        <outlet property="favouriteCharactersStarImage" destination="Qds-Gm-7iR" id="ku6-rF-gTk"/>
-                        <outlet property="favouriteComicsLabel" destination="mvb-fq-LQ1" id="BaV-ms-PPK"/>
-                        <outlet property="favouriteComicsStarImage" destination="F89-4R-1pL" id="mv7-76-Suf"/>
-                        <outlet property="profileLabel" destination="Aq9-lb-jzB" id="1WM-u5-CY5"/>
                         <outlet property="userImage" destination="7ne-TO-39Y" id="eDH-Vl-O2m"/>
                         <outlet property="userNameLabel" destination="Uva-Qs-UVJ" id="t17-IG-rHQ"/>
                         <segue destination="Xkt-Zw-tdL" kind="show" identifier="UserFavouritesSegue" id="0DC-UL-yrK"/>

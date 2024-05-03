@@ -24,6 +24,11 @@
                                 <rect key="frame" x="0.0" y="59" width="430" height="819"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="E8f-I4-Sdm">
                                 <rect key="frame" x="39.666666666666657" y="118.99999999999997" width="351" height="304.33333333333326"/>
@@ -141,12 +146,10 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="srn-WA-7sa" id="W58-Ly-yCs"/>
-                        <outlet property="discoverLabel" destination="9Jl-Yd-weM" id="fvz-fl-7qm"/>
                         <outlet property="ratingImage" destination="UwB-x4-H9o" id="UdG-Ft-KTY"/>
                         <outlet property="selectedImage" destination="E8f-I4-Sdm" id="GuR-QQ-5Gh"/>
                         <outlet property="selectedLabel" destination="DUm-Ou-nA0" id="eYe-uU-QUc"/>
                         <outlet property="userRatingLabel" destination="NvE-Jc-Lub" id="Jqu-rx-Kfy"/>
-                        <outlet property="whiteCardImageView" destination="faJ-s5-WKp" id="DFO-lO-agL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ds-9F-GY8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

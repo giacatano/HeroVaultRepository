@@ -11,13 +11,8 @@ class UserScreenViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak private var profileLabel: UILabel!
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!
-    @IBOutlet weak private var favouriteCharactersLabel: UILabel!
-    @IBOutlet weak private var favouriteCharactersStarImage: UIImageView!
-    @IBOutlet weak private var favouriteComicsLabel: UILabel!
-    @IBOutlet weak private var favouriteComicsStarImage: UIImageView!
 
 // MARK: IBActions
     

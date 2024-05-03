@@ -80,7 +80,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="discoverLabel" destination="BGf-xd-Lqg" id="epN-5s-Vmj"/>
                         <outlet property="listTableView" destination="nkZ-HL-Pez" id="hPB-o1-7XH"/>
                         <outlet property="searchBar" destination="ouZ-Lt-Xb1" id="mKf-IN-ca6"/>
                         <outlet property="segmentedControl" destination="icj-EL-4JK" id="hyt-RA-Z8P"/>

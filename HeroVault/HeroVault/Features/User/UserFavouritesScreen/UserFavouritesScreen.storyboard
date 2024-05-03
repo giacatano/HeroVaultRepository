@@ -89,7 +89,6 @@
                     <connections>
                         <outlet property="favouritesCollectionView" destination="rOP-kT-jkO" id="iu2-cn-3M4"/>
                         <outlet property="favouritesTitleLabel" destination="tIo-8a-rEL" id="nap-mJ-GbT"/>
-                        <outlet property="profileLabel" destination="4Hg-VJ-oBP" id="Y8B-4l-flt"/>
                         <outlet property="userImage" destination="cep-4a-BAV" id="Jqf-nA-hWl"/>
                     </connections>
                 </viewController>
