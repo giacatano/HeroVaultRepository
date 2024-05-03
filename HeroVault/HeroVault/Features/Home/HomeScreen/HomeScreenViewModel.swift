@@ -78,14 +78,12 @@ class HomeScreenViewModel {
             case .success(let comics):
                 for comic in comics.data.results {
                     if !comic.name.isEmpty && !checkIfImageIsAvailable(thumbnail: comic.thumbnail) {
-                        print("\(comic.name)")
-                        print("\(comic.thumbnail)")
                         marvelData.append(comic)
                     }
                 }
                 delegate?.reloadView()
             case .failure(let error):
-                print(self.error = error)
+                self.error = error
             }
         }
     }
