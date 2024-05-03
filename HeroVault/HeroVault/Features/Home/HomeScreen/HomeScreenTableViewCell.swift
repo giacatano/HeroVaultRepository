@@ -20,7 +20,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         setUpNib()
     }
     
-    // MARK: HomeScreenTableViewCell Functions
+    // MARK: Functions
     
     static func characterNib() -> UINib {
         UINib(nibName: Constants.SegueIdentifierNames.homeScreenTableViewCellName, bundle: nil)
