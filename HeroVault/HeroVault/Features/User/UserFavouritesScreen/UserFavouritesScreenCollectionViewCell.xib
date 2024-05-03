@@ -35,6 +35,12 @@
             </constraints>
             <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
             <size key="customSize" width="303" height="219"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerradius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value=""/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="favouritedImageView" destination="tfX-fr-mQN" id="9Ip-n8-EF5"/>
             </connections>

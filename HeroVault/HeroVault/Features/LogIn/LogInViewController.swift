@@ -26,7 +26,7 @@ class LogInViewController: UIViewController {
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        if username == "Admin" && password == "Hero" {
+        if username == "" && password == "" {
             performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: self)
         } else {
             invalidCredentialsLabel.text = "Invalid Credentials"

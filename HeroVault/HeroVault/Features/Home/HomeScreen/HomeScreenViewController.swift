@@ -12,7 +12,10 @@ class HomeScreenViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak private var listTableView: UITableView!
-    @IBOutlet weak private var discoverLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // MARK: Actions
     
     // MARK: Variables
     
@@ -43,7 +46,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,11 +64,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 370.0
+        4
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

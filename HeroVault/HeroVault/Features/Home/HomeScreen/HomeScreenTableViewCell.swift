@@ -13,14 +13,13 @@ class HomeScreenTableViewCell: UITableViewCell {
     
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var characterImageView: UIImageView!
-    @IBOutlet weak var starButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpNib()
     }
     
-    // MARK: HomeScreenTableViewCell Functions
+    // MARK: Functions
     
     static func characterNib() -> UINib {
         UINib(nibName: Constants.SegueIdentifierNames.homeScreenTableViewCellName, bundle: nil)

@@ -13,7 +13,7 @@ protocol HomeScreenDetailsRepositoryType {
     func saveIntoCoreData(object: MarvelData)
 }
 
-    //MARK: Repository 
+    // MARK: Repository 
 
 class HomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
     

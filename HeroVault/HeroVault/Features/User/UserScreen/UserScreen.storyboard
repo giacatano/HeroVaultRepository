@@ -20,16 +20,21 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="SJV-3Z-GGy">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aq9-lb-jzB">
-                                <rect key="frame" x="38" y="100" width="91" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aq9-lb-jzB">
+                                <rect key="frame" x="10" y="69" width="91" height="37"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-TO-39Y">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-TO-39Y">
                                 <rect key="frame" x="123" y="175" width="150" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="75"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value=""/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@comicHero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uva-Qs-UVJ">
                                 <rect key="frame" x="147" y="340" width="98" height="21"/>
@@ -111,14 +116,11 @@
                             <constraint firstAttribute="bottom" secondItem="SJV-3Z-GGy" secondAttribute="bottom" id="MWy-zV-PmA"/>
                             <constraint firstItem="SJV-3Z-GGy" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Sg6-Ot-KSs"/>
                             <constraint firstItem="SJV-3Z-GGy" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="g5B-ij-4Rk"/>
+                            <constraint firstItem="Aq9-lb-jzB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="rQT-Yu-fyt"/>
+                            <constraint firstItem="Aq9-lb-jzB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="yC8-gK-EJc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="favouriteCharactersLabel" destination="Abv-mY-j1H" id="5WJ-Ek-HWR"/>
-                        <outlet property="favouriteCharactersStarImage" destination="Qds-Gm-7iR" id="ku6-rF-gTk"/>
-                        <outlet property="favouriteComicsLabel" destination="mvb-fq-LQ1" id="BaV-ms-PPK"/>
-                        <outlet property="favouriteComicsStarImage" destination="F89-4R-1pL" id="mv7-76-Suf"/>
-                        <outlet property="profileLabel" destination="Aq9-lb-jzB" id="1WM-u5-CY5"/>
                         <outlet property="userImage" destination="7ne-TO-39Y" id="eDH-Vl-O2m"/>
                         <outlet property="userNameLabel" destination="Uva-Qs-UVJ" id="t17-IG-rHQ"/>
                         <segue destination="Xkt-Zw-tdL" kind="show" identifier="UserFavouritesSegue" id="0DC-UL-yrK"/>
