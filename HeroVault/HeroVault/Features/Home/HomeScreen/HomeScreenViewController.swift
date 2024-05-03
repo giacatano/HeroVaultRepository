@@ -18,14 +18,10 @@ class HomeScreenViewController: UIViewController {
     // MARK: Actions
     
     @IBAction private func segmentedControlTapped(_ sender: Any) {
-        
         let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
-        
-        print("segmented control title is: \(segmentedControlTitle)")
-        
-        segmentedControlTitle == "Characters" ? homeScreenViewModel.set(screenType: EntityType.character) : homeScreenViewModel.set(screenType: EntityType.comic)
+        segmentedControlTitle == "Characters" ? homeScreenViewModel.set(marvelDataType: EntityType.character) : 
+        homeScreenViewModel.set(marvelDataType: EntityType.comic)
         homeScreenViewModel.fetchMarvelData()
-        
     }
     
     // MARK: Variables

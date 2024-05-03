@@ -16,7 +16,7 @@ class HomeScreenViewModel {
     // MARK: Variables
     
     var marvelData = [MarvelData]()
-    var screenType: EntityType
+    var marvelDataType: EntityType
     var error: Error?
     
     private let homeScreenRepository: HomeScreenRepositoryType?
@@ -25,7 +25,7 @@ class HomeScreenViewModel {
     init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelDelegate) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
-        self.screenType = .character
+        self.marvelDataType = .character
     }
     
     // MARK: Computes properties
@@ -36,8 +36,8 @@ class HomeScreenViewModel {
     
     // MARK: Functions
     
-    func set(screenType: EntityType) {
-        self.screenType = screenType
+    func set(marvelDataType: EntityType) {
+        self.marvelDataType = marvelDataType
     }
     
     func createImage(marvelIndex: Int) -> String {
@@ -49,11 +49,7 @@ class HomeScreenViewModel {
     }
     
     func fetchMarvelData() {
-        if screenType == .character {
-            fetchCharacters()
-        } else {
-            fetchComics()
-        }
+        marvelDataType == .character ? fetchCharacters() : fetchComics()
     }
     
     private func fetchCharacters() {
@@ -64,8 +60,6 @@ class HomeScreenViewModel {
             case .success(let characters):
                 for character in characters.data.results {
                     if !character.name.isEmpty && !character.overview.isEmpty && !checkIfImageIsAvailable(thumbnail: character.thumbnail) {
-                        print("\(character.name)")
-                        print("\(character.thumbnail)")
                         marvelData.append(character)
                     }
                 }

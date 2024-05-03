@@ -13,6 +13,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //gameViewModel.fetchEvents()
+        gameViewModel.fetchEvents()
     }
 }
