@@ -26,7 +26,7 @@ class HomeScreenRepository: HomeScreenRepositoryType {
     private let apiHandler = APIHandler()
     
     func fetchComics(completion: @escaping (ComicResult) -> Void) {
-        apiHandler.request(path: Constants.EndPoints.marvelComicTitles,
+        apiHandler.request(path: Constants.EndPoints.marvelComicNames,
                            networkType: NetworkingRequestType.GET,
                            model: ComicResponse.self) { result in
             completion(result)

@@ -153,6 +153,7 @@
 		56025FAD2BD3D97900A53EE6 /* HomeScreenDetails */ = {
 			isa = PBXGroup;
 			children = (
+				56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */,
 				56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */,
 				56025FA92BD19E6500A53EE6 /* HomeScreenDetailsViewController.swift */,
 				56025FAB2BD19E7200A53EE6 /* HomeScreenDetails.storyboard */,
@@ -335,7 +336,6 @@
 				56FCA0E62BB8053D00A740DF /* HomeScreenViewModel.swift */,
 				56FCA0B82BB4484500A740DF /* HomeScreenViewController.swift */,
 				56FCA0BA2BB4484500A740DF /* HomeScreen.storyboard */,
-				56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */,
 				56E819682BC9414E009CCE03 /* HomeScreenTableViewCell.swift */,
 				56E819692BC9414E009CCE03 /* HomeScreenTableViewCell.xib */,
 			);

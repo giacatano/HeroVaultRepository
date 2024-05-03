@@ -17,6 +17,17 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: Actions
     
+    @IBAction private func segmentedControlTapped(_ sender: Any) {
+        
+        let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
+        
+        print("segmented control title is: \(segmentedControlTitle)")
+        
+        segmentedControlTitle == "Characters" ? homeScreenViewModel.set(screenType: EntityType.character) : homeScreenViewModel.set(screenType: EntityType.comic)
+        homeScreenViewModel.fetchMarvelData()
+        
+    }
+    
     // MARK: Variables
     
     private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self)
@@ -25,7 +36,7 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeScreenViewModel.fetchCharacters()
+        homeScreenViewModel.fetchMarvelData()
         setUpTableView()
     }
     
@@ -42,7 +53,7 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        homeScreenViewModel.characterCount
+        homeScreenViewModel.marvelDataCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,8 +67,8 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let imageName = homeScreenViewModel.characters[indexPath.section].name
-        let imageURL = homeScreenViewModel.createImage(characterIndex: indexPath.section)
+        let imageName = homeScreenViewModel.marvelData[indexPath.section].name
+        let imageURL = homeScreenViewModel.createImage(marvelIndex: indexPath.section)
         
         homePageTableViewCell.setUpNib(imageName: imageName, imageURL: imageURL)
         return homePageTableViewCell
@@ -76,7 +87,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
            segue.identifier == Constants.SegueIdentifierNames.homeScreenDetailSegueName {
             if let homeScreenDetailScreen = segue.destination as? HomeScreenDetailsViewController {
                 if let characters = homeScreenViewModel.fetchCharacters(atIndex: indexPath.section) {
-                    homeScreenDetailScreen.set(character: characters)
+                    homeScreenDetailScreen.set(marvelData: characters)
                 }
             }
         }

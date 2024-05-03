@@ -40,6 +40,9 @@
                                     <segment title="Comics"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="segmentedControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="W5i-0m-9pK"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="5" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nkZ-HL-Pez">
                                 <rect key="frame" x="10" y="214" width="410" height="684"/>
@@ -82,7 +85,7 @@
                     <connections>
                         <outlet property="listTableView" destination="nkZ-HL-Pez" id="hPB-o1-7XH"/>
                         <outlet property="searchBar" destination="ouZ-Lt-Xb1" id="mKf-IN-ca6"/>
-                        <outlet property="segmentedControl" destination="icj-EL-4JK" id="hyt-RA-Z8P"/>
+                        <outlet property="segmentedControl" destination="icj-EL-4JK" id="Yid-5G-5jQ"/>
                         <segue destination="ybf-eS-CTq" kind="show" identifier="SearchDetailsSegue" id="tvW-Zx-sjA"/>
                     </connections>
                 </viewController>

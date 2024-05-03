@@ -14,4 +14,5 @@ public class CoreDataComic: NSManagedObject, MarvelData {
     @NSManaged public var id: Int
     @NSManaged public var name: String
     @NSManaged public var overview: String
+    @NSManaged public var thumbnail: String
 }

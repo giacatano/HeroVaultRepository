@@ -29,16 +29,16 @@ class HomeScreenDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(homeScreenDetailViewModel.character ?? "empty")
+        print(homeScreenDetailViewModel.marvelData ?? "empty")
         setUpHomeScreenDetailView()
     }
     
-    func set(character: Character) {
-        homeScreenDetailViewModel.set(character: character)
+    func set(marvelData: MarvelData) {
+        homeScreenDetailViewModel.set(marvelData: marvelData)
     }
     
     private func setUpHomeScreenDetailView() {
-        selectedLabel.text = homeScreenDetailViewModel.characterName
-        descriptionTextField.text = homeScreenDetailViewModel.characterDescription
+        selectedLabel.text = homeScreenDetailViewModel.marvelDataName
+        descriptionTextField.text = homeScreenDetailViewModel.marvelDataDescription
     }
 }

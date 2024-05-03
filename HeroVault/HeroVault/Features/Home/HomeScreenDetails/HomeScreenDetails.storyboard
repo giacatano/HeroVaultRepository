@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjm-uz-NAS">
-                                <rect key="frame" x="25" y="635.33333333333337" width="159.66666666666666" height="20"/>
+                                <rect key="frame" x="25" y="618.33333333333337" width="159.66666666666666" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvE-Jc-Lub">
                                         <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="20"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srn-WA-7sa">
-                                <rect key="frame" x="39.666666666666657" y="510.33333333333326" width="351" height="120"/>
+                                <rect key="frame" x="39.666666666666657" y="493.33333333333326" width="351" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="351" id="DH8-aI-J1p"/>
@@ -90,16 +90,16 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P2t-ax-Gmj">
-                                <rect key="frame" x="39.666666666666657" y="433.33333333333331" width="351" height="67"/>
+                                <rect key="frame" x="39.666666666666657" y="433.33333333333331" width="351" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hbtrhtrhtrjhtjyyjyjyjyjyj yj yjyjyjyj" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUm-Ou-nA0">
-                                        <rect key="frame" x="0.0" y="0.0" width="282" height="67"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="282" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCh-if-v8y">
-                                        <rect key="frame" x="282" y="8.3333333333333712" width="69" height="50"/>
+                                        <rect key="frame" x="282" y="0.0" width="69" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="NY6-Yd-lI4"/>
                                             <constraint firstAttribute="height" constant="50" id="uME-Bz-Nzj"/>
