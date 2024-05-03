@@ -13,7 +13,6 @@ class HomeScreenTableViewCell: UITableViewCell {
     
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var characterImageView: UIImageView!
-    @IBOutlet weak var starButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
