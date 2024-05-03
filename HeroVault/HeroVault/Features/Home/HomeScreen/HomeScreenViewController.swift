@@ -14,10 +14,11 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak private var listTableView: UITableView!
     @IBOutlet weak private var discoverLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: Actions
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
     // MARK: Variables
     
     private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self)

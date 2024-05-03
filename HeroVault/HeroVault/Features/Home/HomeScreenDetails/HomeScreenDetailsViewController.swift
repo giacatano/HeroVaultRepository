@@ -31,7 +31,6 @@ class HomeScreenDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        whiteCardImageView.layer.cornerRadius = 10
         print(homeScreenDetailViewModel.character ?? "empty")
         setUpHomeScreenDetailView()
     }
@@ -43,5 +42,6 @@ class HomeScreenDetailsViewController: UIViewController {
     private func setUpHomeScreenDetailView() {
         selectedLabel.text = homeScreenDetailViewModel.characterName
         descriptionTextField.text = homeScreenDetailViewModel.characterDescription
+        whiteCardImageView.layer.cornerRadius = 10
     }
 }
