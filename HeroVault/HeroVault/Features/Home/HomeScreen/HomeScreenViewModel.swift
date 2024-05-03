@@ -15,8 +15,8 @@ class HomeScreenViewModel {
     
     // MARK: Variables
     
-    var characters = [Character]()
-    var comics = [Comic]()
+    var marvelData = [MarvelData]()
+    var marvelDataType: EntityType
     var error: Error?
     
     private let homeScreenRepository: HomeScreenRepositoryType?
@@ -25,24 +25,42 @@ class HomeScreenViewModel {
     init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelDelegate) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
+        self.marvelDataType = .character
     }
     
     // MARK: Computes properties
     
-    var characterCount: Int {
-        characters.count
+    var marvelDataCount: Int {
+        marvelData.count
     }
     
     // MARK: Functions
     
-    func fetchCharacters() {
+    func set(marvelDataType: EntityType) {
+        self.marvelDataType = marvelDataType
+    }
+    
+    func createImage(marvelIndex: Int) -> String {
+        "\(marvelData[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps()
+    }
+    
+    func fetchCharacters(atIndex: Int) -> MarvelData? {
+        marvelData[atIndex]
+    }
+    
+    func fetchMarvelData() {
+        marvelDataType == .character ? fetchCharacters() : fetchComics()
+    }
+    
+    private func fetchCharacters() {
+        marvelData = []
         homeScreenRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let characters):
                 for character in characters.data.results {
-                    if !character.name.isEmpty && !character.overview.isEmpty {
-                        self.characters.append(character)
+                    if !character.name.isEmpty && !character.overview.isEmpty && !checkIfImageIsAvailable(thumbnail: character.thumbnail) {
+                        marvelData.append(character)
                     }
                 }
                 delegate?.reloadView()
@@ -52,26 +70,25 @@ class HomeScreenViewModel {
         }
     }
     
-    func fetchComics() {
+    private func fetchComics() {
+        marvelData = []
         homeScreenRepository?.fetchComics { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let comics):
-                self.comics = comics.data.results
-                for comic in self.comics {
-                    print(comic.name)
+                for comic in comics.data.results {
+                    if !comic.name.isEmpty && !checkIfImageIsAvailable(thumbnail: comic.thumbnail) {
+                        marvelData.append(comic)
+                    }
                 }
+                delegate?.reloadView()
             case .failure(let error):
-                print(self.error = error)
+                self.error = error
             }
         }
     }
     
-    func createImage(characterIndex: Int) -> String {
-        "\(characters[characterIndex].thumbnail.path)/standard_fantastic.jpg".convertToHttps()
-    }
-    
-    func fetchCharacters(atIndex: Int) -> Character? {
-        characters[atIndex]
+    private func checkIfImageIsAvailable(thumbnail: String) -> Bool {
+        thumbnail.contains("image_not_available")
     }
 }

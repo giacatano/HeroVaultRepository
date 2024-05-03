@@ -10,8 +10,9 @@ import CoreData
 
 @objc(CoreDataCharacter)
 public class CoreDataCharacter: NSManagedObject, MarvelData {
-    
+   
     @NSManaged public var id: Int
     @NSManaged public var name: String
     @NSManaged public var overview: String
+    @NSManaged public var thumbnail: String
 }

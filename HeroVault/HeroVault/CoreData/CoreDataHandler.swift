@@ -140,11 +140,13 @@ class CoreDataHandler: CoreDataHandlerType {
             newCharacter.name = object.name
             newCharacter.id = object.id
             newCharacter.overview = object.overview
+            newCharacter.thumbnail = object.thumbnail
         } else {
             let newComic = CoreDataComic(context: context)
             newComic.name = object.name
             newComic.id = object.id
             newComic.overview = object.overview
+            newComic.thumbnail = object.thumbnail
         }
     }
     
