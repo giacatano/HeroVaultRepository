@@ -100,10 +100,12 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCh-if-v8y">
                                         <rect key="frame" x="282" y="0.0" width="69" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="NY6-Yd-lI4"/>
                                             <constraint firstAttribute="height" constant="50" id="uME-Bz-Nzj"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="star.circle" catalog="system" symbolScale="large"/>
@@ -111,7 +113,7 @@
                                             <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="starButton:" destination="ODW-tn-hqn" eventType="touchUpInside" id="ZQZ-iX-tQ0"/>
+                                            <action selector="starButtonTapped:" destination="ODW-tn-hqn" eventType="touchUpInside" id="jbD-51-yA0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,6 +151,7 @@
                         <outlet property="ratingImage" destination="UwB-x4-H9o" id="UdG-Ft-KTY"/>
                         <outlet property="selectedImage" destination="E8f-I4-Sdm" id="GuR-QQ-5Gh"/>
                         <outlet property="selectedLabel" destination="DUm-Ou-nA0" id="eYe-uU-QUc"/>
+                        <outlet property="starButton" destination="wCh-if-v8y" id="Vp1-C7-3RU"/>
                         <outlet property="userRatingLabel" destination="NvE-Jc-Lub" id="Jqu-rx-Kfy"/>
                     </connections>
                 </viewController>

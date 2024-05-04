@@ -27,7 +27,7 @@ class GameViewModel {
             case .success(let events):
                 self.events = events.data.results
                 for event in self.events {
-                    print(event)
+//                    print(event)
                 }
             case .failure(let error):
                 print(self.error = error)
