@@ -15,6 +15,8 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var invalidCredentialsLabel: UILabel!
     
+    private lazy var loginViewModel = LoginViewModel(authenticationRepository: AuthenticationRepository())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         invalidCredentialsLabel.isHidden = true
@@ -26,7 +28,7 @@ class LogInViewController: UIViewController {
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        if username == "" && password == "" {
+        if loginViewModel.loginUser(userName: username, password: password) {
             performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: self)
         } else {
             invalidCredentialsLabel.text = "Invalid Credentials"
