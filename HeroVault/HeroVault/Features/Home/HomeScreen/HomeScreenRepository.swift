@@ -24,6 +24,7 @@ protocol HomeScreenRepositoryType {
 class HomeScreenRepository: HomeScreenRepositoryType {
     
     private let apiHandler = APIHandler()
+    private let coreDataHandler = CoreDataHandler()
     
     func fetchComics(completion: @escaping (ComicResult) -> Void) {
         apiHandler.request(path: Constants.EndPoints.marvelComicNames,
@@ -39,5 +40,9 @@ class HomeScreenRepository: HomeScreenRepositoryType {
                            model: CharacterResponse.self) { result in
             completion(result)
         }
+    }
+    
+    func hasMarvelDataBeenfavourited(object: MarvelData, entityType: EntityType) -> Bool {
+        coreDataHandler.hasObjectBeenFavourited(object, entityType: entityType)
     }
 }

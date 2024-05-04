@@ -14,6 +14,9 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
     private weak var delegate: ViewModelDelegate?
     
+    var marvelDataList: [MarvelData]?
+    var marvelDataType: EntityType?
+    
     // MARK: Functions
     
     init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelDelegate) {
@@ -21,9 +24,19 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
         self.delegate = delegate
     }
     
-    func fetchAllCharactersFromCoreData() -> [MarvelData] {
-        guard let characters = userFavouritesScreenRepository?.fetchCharactersFromCoreData() else { return [] }
-        return characters
+    var marvelDataListCount: Int {
+        marvelDataList?.count ?? 0
+    }
+    
+    var favouritesScreenTitle: String {
+        marvelDataType == .character ? "Characters" : "Comics"
+    }
+    
+    func fetchAllMarvelDataFromCoreData() {
+        guard let marvelDataType = marvelDataType else { return }
+        guard let marvelDataList = userFavouritesScreenRepository?.fetchMarvelDataFromCoreData(marvelDataType: marvelDataType) else { return }
+        print("marvelDataList: \(marvelDataList)")
+        self.marvelDataList = marvelDataList
     }
     
     func fetchAllNamesOfCharactersInCoreData() -> [String] {
@@ -34,7 +47,13 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     func reloadView() {
     }
     
-    func createImage(characterIndex: Int) -> String {
-        "Spiderman"
+    func createImage(marvelDataIndex: Int) -> String {
+        guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
+        imageName.append("/portrait_incredible.jpg")
+        return imageName.convertToHttps()
+    }
+    
+    func set(marvelDataType: EntityType) {
+        self.marvelDataType = marvelDataType
     }
 }

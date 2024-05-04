@@ -23,7 +23,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
         UINib(nibName: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, bundle: nil)
     }
     
-    func setUpImage(with image: UIImage) {
-        favouritedImageView.image = image
+    func setUpNib(imageURL: String) {
+        favouritedImageView.load(urlString: imageURL)
     }
 }
