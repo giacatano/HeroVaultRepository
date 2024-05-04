@@ -18,7 +18,7 @@ class HomeScreenDetailsViewController: UIViewController {
     @IBOutlet weak private var selectedImage: UIImageView!
     @IBOutlet weak private var selectedLabel: UILabel!
     @IBOutlet weak private var descriptionTextField: UITextView!
-    @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak private var starButton: UIButton!
     
     // MARK: IBActions
     

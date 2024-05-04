@@ -11,11 +11,10 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     
     // MARK: Variables
     
+    private var marvelDataList: [MarvelData]?
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
     private weak var delegate: ViewModelDelegate?
-    
-    var marvelDataList: [MarvelData]?
-    var marvelDataType: EntityType?
+    private var marvelDataType: EntityType?
     
     // MARK: Functions
     

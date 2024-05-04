@@ -190,7 +190,7 @@ class CoreDataHandler: CoreDataHandlerType {
     }
     
     func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
-        
+    
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
         fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
         
