@@ -14,12 +14,14 @@ enum EntityType: String {
 case character
 case comic
 
-var rawValue: String {
-     switch self {
-         case .character: return Constants.CoreData.characterEntityName
-         case .comic: return Constants.CoreData.comicEntityName
-     }
- }
+    var rawValue: String {
+        switch self {
+        case .character:
+            return Constants.CoreData.characterEntityName
+        case .comic:
+            return Constants.CoreData.comicEntityName
+        }
+    }
 }
 
 // MARK: - Core Data Handler Protocol
@@ -80,7 +82,7 @@ class CoreDataHandler: CoreDataHandlerType {
     
     func deleteObjectFromCoreData(_ object: MarvelData) {
         
-        var objectToBeDeleted: MarvelData? = nil
+        var objectToBeDeleted: MarvelData?
         
         if object is Character {
             if let characterObject = fetchCharacterByID(object.id) {
