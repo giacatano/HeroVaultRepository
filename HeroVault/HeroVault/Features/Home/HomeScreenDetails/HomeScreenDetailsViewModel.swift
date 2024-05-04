@@ -22,6 +22,12 @@ class HomeScreenDetailsViewModel {
         marvelData?.overview ?? ""
     }
     
+    func createImage() -> String {
+        guard var imageName = (marvelData?.thumbnail) else { return "" }
+        imageName.append("/portrait_incredible.jpg")
+        return imageName.convertToHttps()
+    }
+    
     // MARK: Functions
     
     init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {

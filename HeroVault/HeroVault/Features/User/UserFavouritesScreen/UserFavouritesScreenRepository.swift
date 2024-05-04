@@ -10,7 +10,7 @@ import Foundation
 // MARK: Protocol
 
 protocol UserFavouritesScreenRepositoryType {
-    func fetchCharactersFromCoreData() -> [MarvelData]?
+    func fetchMarvelDataFromCoreData(marvelDataType: EntityType) -> [MarvelData]?
     func fetchNames() -> [String]?
 }
 
@@ -20,8 +20,8 @@ class UserFavouritesScreenRepository: UserFavouritesScreenRepositoryType {
     
     private let coreDataHandler = CoreDataHandler()
     
-    func fetchCharactersFromCoreData() -> [MarvelData]? {
-        coreDataHandler.fetchAllObjectsFromCoreData(entityType: .character)
+    func fetchMarvelDataFromCoreData(marvelDataType: EntityType) -> [MarvelData]? {
+        coreDataHandler.fetchAllObjectsFromCoreData(entityType: marvelDataType)
     }
     
     func fetchNames() -> [String]? {

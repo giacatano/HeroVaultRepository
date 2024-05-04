@@ -9,4 +9,9 @@ import Foundation
 
 class UserScreenViewModel {
     
+    var marvelDataType: EntityType?
+    
+    func set(marvelDataType: EntityType) {
+        self.marvelDataType = marvelDataType
+    }
 }

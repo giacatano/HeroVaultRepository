@@ -18,11 +18,26 @@ class HomeScreenDetailsViewController: UIViewController {
     @IBOutlet weak private var selectedImage: UIImageView!
     @IBOutlet weak private var selectedLabel: UILabel!
     @IBOutlet weak private var descriptionTextField: UITextView!
+    @IBOutlet weak private var starButton: UIButton!
     
     // MARK: IBActions
     
-    @IBAction func starButton(_ sender: Any) {
+    var isActive = false
+    
+    @IBAction func starButtonTapped(_ sender: Any) {
         homeScreenDetailViewModel.saveObjectIntoCoreData()
+        
+        if let button = sender as? UIButton {
+            
+            button.isSelected.toggle()
+            
+            if button.isSelected {
+                button.setImage(UIImage(systemName: "star.circle.fill"), for: .normal)
+                
+            } else {
+                button.setImage(UIImage(systemName: "star.circle"), for: .normal)
+            }
+        }
     }
     
     // MARK: ViewController Functions
@@ -40,5 +55,6 @@ class HomeScreenDetailsViewController: UIViewController {
     private func setUpHomeScreenDetailView() {
         selectedLabel.text = homeScreenDetailViewModel.marvelDataName
         descriptionTextField.text = homeScreenDetailViewModel.marvelDataDescription
+        selectedImage.load(urlString: homeScreenDetailViewModel.createImage())
     }
 }

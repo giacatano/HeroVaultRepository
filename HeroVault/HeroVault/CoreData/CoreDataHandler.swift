@@ -14,12 +14,14 @@ enum EntityType: String {
 case character
 case comic
 
-var rawValue: String {
-     switch self {
-         case .character: return Constants.CoreData.characterEntityName
-         case .comic: return Constants.CoreData.comicEntityName
-     }
- }
+    var rawValue: String {
+        switch self {
+        case .character:
+            return Constants.CoreData.characterEntityName
+        case .comic:
+            return Constants.CoreData.comicEntityName
+        }
+    }
 }
 
 // MARK: - Core Data Handler Protocol
@@ -80,7 +82,7 @@ class CoreDataHandler: CoreDataHandlerType {
     
     func deleteObjectFromCoreData(_ object: MarvelData) {
         
-        var objectToBeDeleted: MarvelData? = nil
+        var objectToBeDeleted: MarvelData?
         
         if object is Character {
             if let characterObject = fetchCharacterByID(object.id) {
@@ -141,12 +143,14 @@ class CoreDataHandler: CoreDataHandlerType {
             newCharacter.id = object.id
             newCharacter.overview = object.overview
             newCharacter.thumbnail = object.thumbnail
+            newCharacter.hasBeenfavourited = true
         } else {
             let newComic = CoreDataComic(context: context)
             newComic.name = object.name
             newComic.id = object.id
             newComic.overview = object.overview
             newComic.thumbnail = object.thumbnail
+            newComic.hasBeenfavourited = true
         }
     }
     
@@ -182,6 +186,21 @@ class CoreDataHandler: CoreDataHandlerType {
         } catch {
             print("Error fetching character: \(error.localizedDescription)")
             return nil
+        }
+    }
+    
+    func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
+    
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            let marvelData = results.first as? MarvelData
+            return marvelData?.hasBeenfavourited ?? false
+        } catch {
+            print("Error fetching character: \(error.localizedDescription)")
+            return false
         }
     }
     

@@ -17,15 +17,28 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
     
     // MARK: Variables
     
-    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository: UserFavouritesScreenRepository(), delegate: self)
+    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository: UserFavouritesScreenRepository(),
+                                                                                   delegate: self)
     
     // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
-        userFavouritesScreenViewModel.fetchAllCharactersFromCoreData()
-        userFavouritesScreenViewModel.fetchAllNamesOfCharactersInCoreData()
+        setUpScreen()
+    }
+    
+    func setUpScreen() {
+        userFavouritesScreenViewModel.fetchAllMarvelDataFromCoreData()
+        favouritesTitleLabel.text = userFavouritesScreenViewModel.favouritesScreenTitle
+        
+    }
+    func reloadView() {
+        favouritesCollectionView.reloadData()
+    }
+    
+    func set(marvelDataType: EntityType) {
+        userFavouritesScreenViewModel.set(marvelDataType: marvelDataType)
     }
     
     private func setUpCollectionView() {
@@ -33,10 +46,6 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
                                           forCellWithReuseIdentifier: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName)
         favouritesCollectionView.dataSource = self
         favouritesCollectionView.delegate = self
-    }
-    
-    func reloadView() {
-        favouritesCollectionView.reloadData()
     }
 }
 
@@ -50,23 +59,26 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        userFavouritesScreenViewModel.marvelDataListCount
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 160)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 180, height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let favouritesScreenCollectionViewCell = favouritesCollectionView.dequeueReusableCell(withReuseIdentifier:
-                                                                                                        Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
+        guard let favouritesScreenCollectionViewCell =
+                favouritesCollectionView.dequeueReusableCell(withReuseIdentifier:
+                                                                Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName,
+                                                             for: indexPath) as? UserFavouritesScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        let imageName = userFavouritesScreenViewModel.createImage(characterIndex: indexPath.row)
-        favouritesScreenCollectionViewCell.setUpImage(with: UIImage(imageLiteralResourceName: "Spiderman.png"))
+        let imageName = userFavouritesScreenViewModel.createImage(marvelDataIndex: indexPath.row)
+        favouritesScreenCollectionViewCell.setUpNib(imageURL: imageName)
         favouritesScreenCollectionViewCell.layer.cornerRadius = 10
-        
         return favouritesScreenCollectionViewCell
     }
 }

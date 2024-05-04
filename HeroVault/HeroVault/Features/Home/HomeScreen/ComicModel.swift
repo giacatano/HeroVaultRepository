@@ -22,6 +22,7 @@ struct Comic: Codable, MarvelData {
     let name: String
     let overview: String
     let thumbnail: String
+    let hasBeenfavourited: Bool
     
     enum CodingKeys: String, CodingKey {
         case id, thumbnail
@@ -36,6 +37,7 @@ struct Comic: Codable, MarvelData {
         overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
         let pictures = try container.decode(Pictures.self, forKey: .thumbnail)
         thumbnail = pictures.path
+        hasBeenfavourited = false
     }
 }
 
