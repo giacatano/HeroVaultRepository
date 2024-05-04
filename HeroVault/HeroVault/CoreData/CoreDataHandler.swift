@@ -11,9 +11,9 @@ import UIKit
 // MARK: - Entity Type Enum
 
 enum EntityType: String {
-case character
-case comic
-
+    case character
+    case comic
+    
     var rawValue: String {
         switch self {
         case .character:
@@ -31,6 +31,7 @@ protocol CoreDataHandlerType {
     func saveObjectIntoCoreData(_ object: MarvelData)
     func deleteObjectFromCoreData(_ object: MarvelData)
     func deleteAllObjectsFromCoreData()
+    func signUpUser(userName: String, password: String) -> Bool
     //delete this one
     func showAllNames() -> [String]
 }
@@ -53,6 +54,8 @@ class CoreDataHandler: CoreDataHandlerType {
     
     // MARK: - Core Data CRUD functions
     
+    // MARK: - Core Data Create Marvel Data
+    
     func fetchAllObjectsFromCoreData(entityType: EntityType) -> [MarvelData]? {
         if entityType == .character {
             do {
@@ -69,6 +72,8 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
+    // MARK: - Core Data Save Marvel Data
+    
     func saveObjectIntoCoreData(_ object: MarvelData) {
         let entityType: EntityType = object is Character ? .character : .comic
         if !doesObjectExistInCoreData(object, entityType: entityType) {
@@ -79,6 +84,8 @@ class CoreDataHandler: CoreDataHandlerType {
             print("already in list: \(object.name)")
         }
     }
+    
+    // MARK: - Core Data Delete Marvel Data
     
     func deleteObjectFromCoreData(_ object: MarvelData) {
         
@@ -99,6 +106,8 @@ class CoreDataHandler: CoreDataHandlerType {
             print("deleted from core data: \(object.name)")
         }
     }
+    
+    // MARK: - Core Data Delete All Marvel Data
     
     func deleteAllObjectsFromCoreData() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataCharacter.fetchRequest()
@@ -121,6 +130,49 @@ class CoreDataHandler: CoreDataHandlerType {
         }
         print("here are the names: \(names)")
         return names
+    }
+    
+    // MARK: - Core Data Create User Data
+    
+    func signUpUser(userName: String, password: String) -> Bool {
+        if !checkIfUserExists(userName: userName, password: password) {
+            let newUser = User(context: context)
+            newUser.username = userName
+            newUser.password = password
+            saveContext()
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: - Core Data Login User Data
+    
+    func loginUser(userName: String, password: String) -> Bool {
+        if !checkIfUserExists(userName: userName, password: password) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    private func checkIfUserExists(userName: String, password: String) -> Bool {
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return !results.isEmpty
+        } catch {
+            print("Error fetching user: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    func deleteUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try? context.execute(batchDeleteRequest)
     }
     
     // MARK: - Core Data Helper Functions
@@ -190,7 +242,7 @@ class CoreDataHandler: CoreDataHandlerType {
     }
     
     func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
-    
+        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
         fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
         

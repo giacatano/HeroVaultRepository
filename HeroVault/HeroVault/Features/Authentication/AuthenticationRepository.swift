@@ -7,10 +7,14 @@
 
 import Foundation
 
+// MARK: Protocol
+
 protocol AuthenticationRepositoryType {
-    func createUser(userName: String, password: String) -> Bool
+    func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
 }
+
+// MARK: Repository
 
 class AuthenticationRepository: AuthenticationRepositoryType {
     
@@ -18,8 +22,8 @@ class AuthenticationRepository: AuthenticationRepositoryType {
     
     // MARK: Authentication Functions
     
-    func createUser(userName: String, password: String) -> Bool {
-        coreDataHandler.createUser(userName: userName, password: password)
+    func signUpUser(userName: String, password: String) -> Bool {
+        coreDataHandler.signUpUser(userName: userName, password: password)
     }
     
     func loginUser(userName: String, password: String) -> Bool {

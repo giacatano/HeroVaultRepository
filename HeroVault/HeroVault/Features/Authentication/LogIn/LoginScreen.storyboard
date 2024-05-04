@@ -7,11 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log In Screen View Controller-->
+        <!--Login Screen View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="LogInScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LogInScreenViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginScreenViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
                                                     <color key="baseBackgroundColor" red="0.8784313725490196" green="0.10980392156862745" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="logInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yVd-77-HeC"/>
+                                                    <action selector="logInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EFN-dK-aRA"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot your password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-6c-EyI">
@@ -138,7 +138,7 @@
                         <outlet property="InvalidCredentialsLabel" destination="q5y-2D-6dr" id="Cfb-uQ-L5D"/>
                         <outlet property="PasswordTextField" destination="XKb-Rw-YdX" id="nBF-kN-BQU"/>
                         <outlet property="UsernameTextField" destination="kYB-wz-15m" id="Ljf-Q4-yau"/>
-                        <segue destination="xkH-FE-ePn" kind="show" identifier="LogInSegue" id="eDH-2H-0cW"/>
+                        <segue destination="xkH-FE-ePn" kind="show" identifier="LoginScreenSegue" id="eDH-2H-0cW"/>
                         <segue destination="328-9Z-7gS" kind="show" identifier="SignUpScreenSegue" id="EdI-ji-zzI"/>
                     </connections>
                 </viewController>
