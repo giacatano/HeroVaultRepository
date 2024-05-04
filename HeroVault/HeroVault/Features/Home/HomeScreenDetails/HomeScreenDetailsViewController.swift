@@ -55,5 +55,6 @@ class HomeScreenDetailsViewController: UIViewController {
     private func setUpHomeScreenDetailView() {
         selectedLabel.text = homeScreenDetailViewModel.marvelDataName
         descriptionTextField.text = homeScreenDetailViewModel.marvelDataDescription
+        selectedImage.load(urlString: homeScreenDetailViewModel.createImage())
     }
 }
