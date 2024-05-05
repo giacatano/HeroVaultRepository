@@ -32,7 +32,11 @@ class LoginScreenViewController: UIViewController {
         }
     }
     
+    // MARK: Variables
+    
     private lazy var loginScreenViewModel = LoginScreenViewModel(authenticationRepository: AuthenticationRepository())
+    
+    // MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()

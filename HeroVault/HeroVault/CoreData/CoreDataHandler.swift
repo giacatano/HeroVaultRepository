@@ -32,6 +32,7 @@ protocol CoreDataHandlerType {
     func deleteObjectFromCoreData(_ object: MarvelData)
     func deleteAllObjectsFromCoreData()
     func signUpUser(userName: String, password: String) -> Bool
+    func loginUser(userName: String, password: String) -> Bool
     //delete this one
     func showAllNames() -> [String]
 }
@@ -148,6 +149,12 @@ class CoreDataHandler: CoreDataHandlerType {
     
     // MARK: - Core Data Login User Data
     
+    func deleteUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try? context.execute(batchDeleteRequest)
+    }
+    
     func loginUser(userName: String, password: String) -> Bool {
         if !checkIfUserExists(userName: userName, password: password) {
             return false
@@ -169,13 +176,22 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    func deleteUsers() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        _ = try? context.execute(batchDeleteRequest)
-    }
-    
     // MARK: - Core Data Helper Functions
+    
+    func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            let marvelData = results.first as? MarvelData
+            return marvelData?.hasBeenfavourited ?? false
+        } catch {
+            print("Error fetching character: \(error.localizedDescription)")
+            return false
+        }
+    }
     
     private func saveContext() {
         if context.hasChanges {
@@ -238,21 +254,6 @@ class CoreDataHandler: CoreDataHandlerType {
         } catch {
             print("Error fetching character: \(error.localizedDescription)")
             return nil
-        }
-    }
-    
-    func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            let marvelData = results.first as? MarvelData
-            return marvelData?.hasBeenfavourited ?? false
-        } catch {
-            print("Error fetching character: \(error.localizedDescription)")
-            return false
         }
     }
     
