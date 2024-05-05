@@ -163,6 +163,8 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
+    // MARK: - Core Data Helper Function
+    
     func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
@@ -177,6 +179,8 @@ class CoreDataHandler: CoreDataHandlerType {
             return false
         }
     }
+    
+    // MARK: - Core Data Login User Data
     
     private func checkIfUserExists(userName: String, password: String) -> Bool {
         let fetchRequest = NSFetchRequest<User>(entityName: "User")
