@@ -163,21 +163,6 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    private func checkIfUserExists(userName: String, password: String) -> Bool {
-        let fetchRequest = NSFetchRequest<User>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            return !results.isEmpty
-        } catch {
-            print("Error fetching user: \(error.localizedDescription)")
-            return false
-        }
-    }
-    
-    // MARK: - Core Data Helper Functions
-    
     func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
@@ -192,6 +177,21 @@ class CoreDataHandler: CoreDataHandlerType {
             return false
         }
     }
+    
+    private func checkIfUserExists(userName: String, password: String) -> Bool {
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return !results.isEmpty
+        } catch {
+            print("Error fetching user: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    // MARK: - Core Data Helper Functions
     
     private func saveContext() {
         if context.hasChanges {
