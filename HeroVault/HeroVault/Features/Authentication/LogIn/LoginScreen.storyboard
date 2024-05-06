@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log In View Controller-->
+        <!--Login Screen View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LogInViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginScreenViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nXo-Si-P2F" userLabel="Logo Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xkY-FH-fbA">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xkY-FH-fbA">
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="310" id="0Di-g3-9xG"/>
@@ -81,7 +81,7 @@
                                                     <color key="baseBackgroundColor" red="0.8784313725490196" green="0.10980392156862745" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="logInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yVd-77-HeC"/>
+                                                    <action selector="logInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EFN-dK-aRA"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot your password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-6c-EyI">
@@ -95,21 +95,37 @@
                                 </subviews>
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-hz-Cjk">
-                                <rect key="frame" x="100.00000000000001" y="782.33333333333337" width="193.33333333333337" height="15.666666666666629"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1L-8M-EuQ">
+                                <rect key="frame" x="87.666666666666671" y="768" width="217.66666666666663" height="29.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-hz-Cjk">
+                                        <rect key="frame" x="0.0" y="0.0" width="142.33333333333334" height="29.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gam-Z1-t6t">
+                                        <rect key="frame" x="142.33333333333331" y="0.0" width="75.333333333333314" height="29.666666666666668"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" Sign Up">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                            <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uCi-vA-M4c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.75686275960000005" green="0.21960783" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="L9g-hz-Cjk" secondAttribute="bottom" constant="20" id="0xc-2P-Lyf"/>
+                            <constraint firstItem="Z1L-8M-EuQ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="550-OE-d5E"/>
                             <constraint firstItem="nDR-24-oGl" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="95M-zM-TiZ"/>
                             <constraint firstAttribute="trailing" secondItem="nDR-24-oGl" secondAttribute="trailing" id="FnV-GZ-nTv"/>
                             <constraint firstItem="nDR-24-oGl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="J5Q-hz-zJX"/>
-                            <constraint firstItem="L9g-hz-Cjk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="RvF-NU-c7v"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Z1L-8M-EuQ" secondAttribute="bottom" constant="20.329999999999998" id="TtT-8j-LZ0"/>
                             <constraint firstAttribute="bottom" secondItem="nDR-24-oGl" secondAttribute="bottom" id="W68-DW-cnW"/>
                             <constraint firstItem="LZS-qI-nPE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cgy-FD-FOF"/>
                             <constraint firstItem="nDR-24-oGl" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="gzK-k5-9qt"/>
@@ -121,12 +137,23 @@
                         <outlet property="InvalidCredentialsLabel" destination="q5y-2D-6dr" id="Cfb-uQ-L5D"/>
                         <outlet property="PasswordTextField" destination="XKb-Rw-YdX" id="nBF-kN-BQU"/>
                         <outlet property="UsernameTextField" destination="kYB-wz-15m" id="Ljf-Q4-yau"/>
-                        <segue destination="xkH-FE-ePn" kind="show" identifier="LogInSegue" id="eDH-2H-0cW"/>
+                        <segue destination="xkH-FE-ePn" kind="show" identifier="LoginScreenSegue" id="eDH-2H-0cW"/>
+                        <segue destination="328-9Z-7gS" kind="show" identifier="SignUpScreenSegue" id="EdI-ji-zzI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1266" y="29"/>
+            <point key="canvasLocation" x="-1541.2213740458014" y="28.87323943661972"/>
+        </scene>
+        <!--SignUpScreen-->
+        <scene sceneID="JGG-ln-ndH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUpScreen" id="328-9Z-7gS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Q5J-H1-owk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ls-oc-HNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-453" y="-88"/>
         </scene>
         <!--TabBarNavigation-->
         <scene sceneID="S5y-HV-c67">

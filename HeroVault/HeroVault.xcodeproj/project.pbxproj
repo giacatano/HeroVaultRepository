@@ -12,6 +12,11 @@
 		56025FB12BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */; };
 		56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB62BD3F35200A53EE6 /* CharacterModel.swift */; };
 		56025FB92BD3F38100A53EE6 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB82BD3F38100A53EE6 /* ComicModel.swift */; };
+		566C885B2BE6AA91007AEB4C /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C885A2BE6AA91007AEB4C /* LoginScreenViewModel.swift */; };
+		566C885D2BE6AAAC007AEB4C /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C885C2BE6AAAC007AEB4C /* AuthenticationRepository.swift */; };
+		566C88612BE6AD72007AEB4C /* SignUpScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */; };
+		566C88632BE6ADC4007AEB4C /* SignUpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C88622BE6ADC4007AEB4C /* SignUpScreenViewController.swift */; };
+		566C88662BE6AE79007AEB4C /* SignUpScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 566C88652BE6AE79007AEB4C /* SignUpScreen.storyboard */; };
 		56A15F8A2BBAD1C800D74E55 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A15F892BBAD1C800D74E55 /* APIHandler.swift */; };
 		56A15FB82BBD7BE400D74E55 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A15FB72BBD7BE400D74E55 /* GameRepository.swift */; };
 		56A15FBA2BBD7BF400D74E55 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A15FB92BBD7BF400D74E55 /* GameViewModel.swift */; };
@@ -22,8 +27,8 @@
 		56B05DB52BD62BAC001A0A61 /* UserFavouritesScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */; };
 		56CAB27E2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */; };
 		56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */; };
-		56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LogInViewController.swift */; };
-		56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819632BC5140B009CCE03 /* LogIn.storyboard */; };
+		56E819622BC513FA009CCE03 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */; };
+		56E819642BC5140B009CCE03 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819632BC5140B009CCE03 /* LoginScreen.storyboard */; };
 		56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819682BC9414E009CCE03 /* HomeScreenTableViewCell.swift */; };
 		56E8196B2BC9414E009CCE03 /* HomeScreenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E819692BC9414E009CCE03 /* HomeScreenTableViewCell.xib */; };
 		56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */; };
@@ -78,6 +83,11 @@
 		56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsViewModel.swift; sourceTree = "<group>"; };
 		56025FB62BD3F35200A53EE6 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		56025FB82BD3F38100A53EE6 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		566C885A2BE6AA91007AEB4C /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		566C885C2BE6AAAC007AEB4C /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewModel.swift; sourceTree = "<group>"; };
+		566C88622BE6ADC4007AEB4C /* SignUpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewController.swift; sourceTree = "<group>"; };
+		566C88652BE6AE79007AEB4C /* SignUpScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpScreen.storyboard; sourceTree = "<group>"; };
 		56A15F892BBAD1C800D74E55 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		56A15FB72BBD7BE400D74E55 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		56A15FB92BBD7BF400D74E55 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -88,8 +98,8 @@
 		56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavouritesScreen.storyboard; sourceTree = "<group>"; };
 		56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsRepository.swift; sourceTree = "<group>"; };
 		56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarNavigation.storyboard; sourceTree = "<group>"; };
-		56E819612BC513FA009CCE03 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		56E819632BC5140B009CCE03 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		56E819632BC5140B009CCE03 /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
 		56E819682BC9414E009CCE03 /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		56E819692BC9414E009CCE03 /* HomeScreenTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenTableViewCell.xib; sourceTree = "<group>"; };
 		56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -169,10 +179,30 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		566C885E2BE6AD3A007AEB4C /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */,
+				566C88622BE6ADC4007AEB4C /* SignUpScreenViewController.swift */,
+				566C88652BE6AE79007AEB4C /* SignUpScreen.storyboard */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		566C885F2BE6AD4C007AEB4C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				566C885C2BE6AAAC007AEB4C /* AuthenticationRepository.swift */,
+				56E819602BC513CC009CCE03 /* LogIn */,
+				566C885E2BE6AD3A007AEB4C /* Signup */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		56A15F8D2BBB2E0300D74E55 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				56E819602BC513CC009CCE03 /* LogIn */,
+				566C885F2BE6AD4C007AEB4C /* Authentication */,
 				56E8195C2BC173A8009CCE03 /* TabBar */,
 				56A15FB62BBD797600D74E55 /* Game */,
 				56E819672BC7314A009CCE03 /* Home */,
@@ -227,8 +257,9 @@
 		56E819602BC513CC009CCE03 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				56E819612BC513FA009CCE03 /* LogInViewController.swift */,
-				56E819632BC5140B009CCE03 /* LogIn.storyboard */,
+				566C885A2BE6AA91007AEB4C /* LoginScreenViewModel.swift */,
+				56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */,
+				56E819632BC5140B009CCE03 /* LoginScreen.storyboard */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -457,8 +488,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E819642BC5140B009CCE03 /* LogIn.storyboard in Resources */,
+				56E819642BC5140B009CCE03 /* LoginScreen.storyboard in Resources */,
 				56025FAC2BD19E7200A53EE6 /* HomeScreenDetails.storyboard in Resources */,
+				566C88662BE6AE79007AEB4C /* SignUpScreen.storyboard in Resources */,
 				56B05DB52BD62BAC001A0A61 /* UserFavouritesScreen.storyboard in Resources */,
 				56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */,
 				56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */,
@@ -515,9 +547,11 @@
 			files = (
 				56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */,
 				56CAB27E2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift in Sources */,
+				566C885B2BE6AA91007AEB4C /* LoginScreenViewModel.swift in Sources */,
 				56F97D762BE188640055DF7F /* CoreDataHandler.swift in Sources */,
 				56A15FBA2BBD7BF400D74E55 /* GameViewModel.swift in Sources */,
 				56E819782BCF9E7F009CCE03 /* UserScreenViewController.swift in Sources */,
+				566C88632BE6ADC4007AEB4C /* SignUpScreenViewController.swift in Sources */,
 				56F97D722BE183660055DF7F /* CoreDataComic+CoreDataProperties.swift in Sources */,
 				56FCA0E72BB8053D00A740DF /* HomeScreenViewModel.swift in Sources */,
 				56A15FB82BBD7BE400D74E55 /* GameRepository.swift in Sources */,
@@ -531,13 +565,15 @@
 				56A15F8A2BBAD1C800D74E55 /* APIHandler.swift in Sources */,
 				56F97D5C2BDECC270055DF7F /* UserFavouritesScreenViewModel.swift in Sources */,
 				56025FAA2BD19E6500A53EE6 /* HomeScreenDetailsViewController.swift in Sources */,
+				566C885D2BE6AAAC007AEB4C /* AuthenticationRepository.swift in Sources */,
 				56025FB92BD3F38100A53EE6 /* ComicModel.swift in Sources */,
-				56E819622BC513FA009CCE03 /* LogInViewController.swift in Sources */,
+				56E819622BC513FA009CCE03 /* LoginScreenViewController.swift in Sources */,
 				56F97D6C2BE182290055DF7F /* CoreData.xcdatamodeld in Sources */,
 				56F97D6E2BE1831D0055DF7F /* CoreDataCharacter+CoreDataClass.swift in Sources */,
 				56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */,
 				56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */,
 				56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */,
+				566C88612BE6AD72007AEB4C /* SignUpScreenViewModel.swift in Sources */,
 				56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */,
 				56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */,
 				56F97D672BDFD7A80055DF7F /* UserFavouritesScreenCollectionViewCell.swift in Sources */,

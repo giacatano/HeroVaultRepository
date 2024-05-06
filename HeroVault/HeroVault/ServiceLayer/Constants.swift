@@ -23,9 +23,10 @@ struct Constants {
     struct SegueIdentifierNames {
         static let homeScreenDetailSegueName = "SearchDetailsSegue"
         static let homeScreenTableViewCellName = "HomeScreenTableViewCell"
-        static let loginScreenSegueName = "LogInSegue"
+        static let loginScreenSegueName = "LoginScreenSegue"
         static let userFavouritesSegueName = "UserFavouritesSegue"
         static let userFavouritesScreenCollectionViewCellName = "UserFavouritesScreenCollectionViewCell"
+        static let signUpScreenSegueName = "SignUpScreenSegue"
     }
     
     struct CoreData {
