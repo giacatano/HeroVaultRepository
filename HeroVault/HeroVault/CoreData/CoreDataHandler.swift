@@ -149,12 +149,6 @@ class CoreDataHandler: CoreDataHandlerType {
     
     // MARK: - Core Data Login User Data
     
-    func deleteUsers() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        _ = try? context.execute(batchDeleteRequest)
-    }
-    
     func loginUser(userName: String, password: String) -> Bool {
         if !checkIfUserExists(userName: userName, password: password) {
             return false
@@ -163,17 +157,12 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    private func checkIfUserExists(userName: String, password: String) -> Bool {
-        let fetchRequest = NSFetchRequest<User>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            return !results.isEmpty
-        } catch {
-            print("Error fetching user: \(error.localizedDescription)")
-            return false
-        }
+    // MARK: - Core Data Delete User Data
+    
+    func deleteUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try? context.execute(batchDeleteRequest)
     }
     
     // MARK: - Core Data Helper Functions
@@ -189,6 +178,19 @@ class CoreDataHandler: CoreDataHandlerType {
             return marvelData?.hasBeenfavourited ?? false
         } catch {
             print("Error fetching character: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    private func checkIfUserExists(userName: String, password: String) -> Bool {
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return !results.isEmpty
+        } catch {
+            print("Error fetching user: \(error.localizedDescription)")
             return false
         }
     }
