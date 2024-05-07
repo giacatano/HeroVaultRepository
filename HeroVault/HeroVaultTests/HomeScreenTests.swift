@@ -70,6 +70,21 @@ class HomeScreenViewModelTests: XCTestCase {
         
         XCTAssertEqual(imageUrl, "iron_man.jpg/portrait_incredible.jpg".convertToHttps())
     }
+    
+    func testFetchCharactersAtIndex() {
+        let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
+        let expectedCharacter = Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)
+        
+        viewModel.marvelData = [expectedCharacter]
+        
+        let characterAtIndex = viewModel.fetchCharacters(atIndex: 0)
+        
+        XCTAssertEqual(characterAtIndex?.id, expectedCharacter.id)
+        XCTAssertEqual(characterAtIndex?.name, expectedCharacter.name)
+        XCTAssertEqual(characterAtIndex?.overview, expectedCharacter.overview)
+        XCTAssertEqual(characterAtIndex?.thumbnail, expectedCharacter.thumbnail)
+        XCTAssertEqual(characterAtIndex?.hasBeenfavourited, expectedCharacter.hasBeenfavourited)
+    }
 }
 
 // MARK: Mock Classes
