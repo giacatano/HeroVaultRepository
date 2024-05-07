@@ -28,6 +28,8 @@ class HomeScreenViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK: Tests
+    
     func testFetchCharactersSuccess() {
         let characterResponse = CharacterResponse(data: CharacterData(results: [Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
         
@@ -57,20 +59,21 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
     
-//    func testFetchCharactersFailure() {
-//        // Given
-//        //let error = NetworkingError.invalidResponse
-//        mockRepository.characterResponseToReturn = .failure(error)
-//        // When
-//        viewModel.fetchMarvelData()
-//        // Then
-//        XCTAssertEqual(viewModel.marvelDataCount, 0)
-//        XCTAssertEqual(viewModel.error as? NetworkingError, error)
-//        XCTAssertFalse(mockDelegate.reloadViewCalled)
-//    }
-    // Similarly, write tests for fetchComics, createImage, fetchCharacters(atIndex:), and checkIfImageIsAvailable methods.
+    func testCreateImage() {
+        let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
+        let marvelData = [Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false),
+            Character(id: 2, name: "Spider-Man", overview: "Friendly neighborhood superhero", thumbnail: "spider_man.jpg", hasBeenfavourited: false)]
+        
+        viewModel.marvelData = marvelData
+        
+        let imageUrl = viewModel.createImage(marvelIndex: 0)
+        
+        XCTAssertEqual(imageUrl, "iron_man.jpg/portrait_incredible.jpg".convertToHttps())
+    }
 }
-// Mock Classes
+
+// MARK: Mock Classes
+
 class MockHomeScreenRepository: HomeScreenRepositoryType {
     var characterResponseToReturn: CharacterResult?
     var comicResponseToReturn: ComicResult?
