@@ -44,6 +44,18 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
     
+    func testFetchCharactersFailure() {
+        let characterResponse = NetworkingError.parsingError
+        mockRepository.characterResponseToReturn = .failure(characterResponse)
+        
+        viewModel.fetchMarvelData()
+        guard let networkingError = viewModel.error as? NetworkingError else {
+            return
+        }
+        
+        XCTAssertEqual(networkingError, NetworkingError.parsingError)
+    }
+    
     func testFetchComicsSuccess() {
         let comicResponse = ComicResponse(data: ComicData(results: [Comic(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
         
@@ -59,13 +71,28 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
     
+    func testFetchComicsFailure() {
+        let comicResponse = NetworkingError.parsingError
+        mockRepository.comicResponseToReturn = .failure(comicResponse)
+        
+        viewModel.set(marvelDataType: .comic)
+        viewModel.fetchMarvelData()
+        
+        guard let networkingError = viewModel.error as? NetworkingError else {
+            return
+        }
+        
+        XCTAssertEqual(networkingError, NetworkingError.parsingError)
+    }
+    
     func testCreateImage() {
         let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
-        let marvelData = [Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false),
-            Character(id: 2, name: "Spider-Man", overview: "Friendly neighborhood superhero", thumbnail: "spider_man.jpg", hasBeenfavourited: false)]
+        let marvelData = [Character(id: 1, name: "Iron Man",
+                                    overview: "Genius billionaire playboy philanthropist",
+                                    thumbnail: "iron_man.jpg", hasBeenfavourited: false),
+                          Character(id: 2, name: "Spider-Man", overview: "Friendly neighborhood superhero", thumbnail: "spider_man.jpg", hasBeenfavourited: false)]
         
         viewModel.marvelData = marvelData
-        
         let imageUrl = viewModel.createImage(marvelIndex: 0)
         
         XCTAssertEqual(imageUrl, "iron_man.jpg/portrait_incredible.jpg".convertToHttps())
@@ -73,10 +100,11 @@ class HomeScreenViewModelTests: XCTestCase {
     
     func testFetchCharactersAtIndex() {
         let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
-        let expectedCharacter = Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)
+        let expectedCharacter = Character(id: 1, name: "Iron Man",
+                                          overview: "Genius billionaire playboy philanthropist",
+                                          thumbnail: "iron_man.jpg", hasBeenfavourited: false)
         
         viewModel.marvelData = [expectedCharacter]
-        
         let characterAtIndex = viewModel.fetchCharacters(atIndex: 0)
         
         XCTAssertEqual(characterAtIndex?.id, expectedCharacter.id)
@@ -108,6 +136,7 @@ class MockHomeScreenRepository: HomeScreenRepositoryType {
 
 class MockViewModelDelegate: ViewModelDelegate {
     var reloadViewCalled = false
+    
     func reloadView() {
         reloadViewCalled = true
     }
