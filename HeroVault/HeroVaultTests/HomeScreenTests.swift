@@ -5,62 +5,6 @@
 //  Created by Gia Catano on 2024/05/06.
 //
 
-//import XCTest
-//@testable import HeroVault
-//
-//class MockRepository: HomeScreenRepositoryType {
-//    
-//    let mockComicData = ComicData(results: [Comic(id: 8, name: "String", overview: "", thumbnail: "", hasBeenfavourited: false), Comic(id: 8, name: "jj", overview: "", thumbnail: "", hasBeenfavourited: false)])
-//    let mockCharacterData = CharacterData(results: [Character(id: 6, name: "", overview: "", thumbnail: "", hasBeenfavourited: false),Character(id: 6, name: "", overview: "", thumbnail: "", hasBeenfavourited: false)])
-//    
-//    func fetchComics(completion: @escaping (HeroVault.ComicResult) -> Void) {
-//        let result = ComicResponse(data: mockComicData)
-//        return completion(Result.success(result))
-//    }
-//    
-//    func fetchCharacters(completion: @escaping (HeroVault.CharacterResult) -> Void) {
-//        let result = CharacterResponse(data: mockCharacterData)
-//        return completion(Result.success(result))
-//    }
-//}
-//
-//class MockDelegate: ViewModelDelegate {
-//    
-//    func reloadView() {
-//        
-//    }
-//}
-//
-//final class HomeScreenTests: XCTestCase {
-//    
-//    var viewModelUnderTests: HomeScreenViewModel!
-//    var mockRepository: HomeScreenRepositoryType!
-//    var mockDelegate: ViewModelDelegate!
-//    
-//    override func setUp() {
-//        
-//        mockRepository = MockRepository()
-//        mockDelegate = MockDelegate()
-//        viewModelUnderTests = HomeScreenViewModel(homeScreenRepository: mockRepository, delegate: mockDelegate)
-//    }
-//    
-//    func testMarvelDataCount() {
-//        viewModelUnderTests.set(marvelDataType: .character)
-//        viewModelUnderTests.fetchMarvelData()
-////        let expectedResult = Comic(id: 8, name: "String", overview: "", thumbnail: "", hasBeenfavourited: false)
-////        let result = try XCTUnwrap(viewModelUnderTest.)
-//        let result = viewModelUnderTests.marvelDataCount
-//        
-//        //  let result = try XCTUnwrap(viewModelUnderTest.track(atIndex: 1)?.artistName)
-//        
-//        XCTAssertEqual(result, 0)
-//        
-//        // let result = viewModelUnderTests.marvelDataCount
-//        // XCTAssertEqual(result, 0)
-//    }
-//}
-
-
 
 import XCTest
 @testable import HeroVault
@@ -97,6 +41,22 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.error)
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
+    
+    func testFetchComicsSuccess() {
+        let comicResponse = ComicResponse(data: ComicData(results: [Comic(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
+        
+        viewModel.set(marvelDataType: .comic)
+        mockRepository.comicResponseToReturn = .success(comicResponse)
+        viewModel.fetchMarvelData()
+        
+        XCTAssertEqual(viewModel.marvelDataCount, 1)
+        XCTAssertEqual(viewModel.marvelData[0].name, "Iron Man")
+        XCTAssertEqual(viewModel.marvelData[0].overview, "Genius billionaire playboy philanthropist")
+        XCTAssertEqual(viewModel.marvelData[0].thumbnail, "iron_man.jpg")
+        XCTAssertNil(viewModel.error)
+        XCTAssertTrue(mockDelegate.reloadViewCalled)
+    }
+    
 //    func testFetchCharactersFailure() {
 //        // Given
 //        //let error = NetworkingError.invalidResponse
