@@ -28,7 +28,7 @@ class HomeScreenViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: Tests
+    // MARK: Tests
     
     func testFetchCharactersSuccess() {
         let characterResponse = CharacterResponse(data: CharacterData(results: [Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
