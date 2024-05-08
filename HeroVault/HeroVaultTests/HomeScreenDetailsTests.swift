@@ -10,7 +10,7 @@ import XCTest
 
 class HomeScreenDetailsViewModelTests: XCTestCase {
     var viewModel: HomeScreenDetailsViewModel!
-    var mockRepository: HomeScreenDetailsRepositoryType!
+    var mockRepository: MockHomeScreenDetailsRepository!
     
     override func setUp() {
         super.setUp()
