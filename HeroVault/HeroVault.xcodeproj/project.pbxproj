@@ -26,6 +26,7 @@
 		56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DAD2BD42B53001A0A61 /* GameModel.swift */; };
 		56B05DB32BD62B78001A0A61 /* UserFavouritesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DB22BD62B78001A0A61 /* UserFavouritesScreenViewController.swift */; };
 		56B05DB52BD62BAC001A0A61 /* UserFavouritesScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */; };
+		56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */; };
 		56CAB27E2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */; };
 		56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */; };
 		56E819622BC513FA009CCE03 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */; };
@@ -98,6 +99,7 @@
 		56B05DAD2BD42B53001A0A61 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		56B05DB22BD62B78001A0A61 /* UserFavouritesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenViewController.swift; sourceTree = "<group>"; };
 		56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavouritesScreen.storyboard; sourceTree = "<group>"; };
+		56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsTests.swift; sourceTree = "<group>"; };
 		56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsRepository.swift; sourceTree = "<group>"; };
 		56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarNavigation.storyboard; sourceTree = "<group>"; };
 		56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */,
 				566C88672BE8C97C007AEB4C /* HomeScreenTests.swift */,
+				56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */,
 			);
 			path = HeroVaultTests;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				566C88682BE8C97C007AEB4C /* HomeScreenTests.swift in Sources */,
+				56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */,
 				56FCA0CC2BB4484800A740DF /* HeroVaultTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
