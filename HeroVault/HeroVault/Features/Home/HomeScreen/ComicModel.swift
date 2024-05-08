@@ -39,6 +39,14 @@ struct Comic: Codable, MarvelData {
         thumbnail = pictures.path
         hasBeenfavourited = false
     }
+    
+    init(id: Int, name: String, overview: String, thumbnail: String, hasBeenfavourited: Bool) {
+        self.id = id
+        self.name = name
+        self.overview = overview
+        self.thumbnail = thumbnail
+        self.hasBeenfavourited = hasBeenfavourited
+    }
 }
 
 struct Pictures: Codable {
