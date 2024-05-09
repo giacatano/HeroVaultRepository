@@ -27,6 +27,8 @@
 		56B05DB32BD62B78001A0A61 /* UserFavouritesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B05DB22BD62B78001A0A61 /* UserFavouritesScreenViewController.swift */; };
 		56B05DB52BD62BAC001A0A61 /* UserFavouritesScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */; };
 		56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */; };
+		56C149222BEB6A1A00237B09 /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C149212BEB6A1A00237B09 /* LoginScreenTests.swift */; };
+		56C149242BEB6BA700237B09 /* SignUpScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C149232BEB6BA700237B09 /* SignUpScreenTests.swift */; };
 		56CAB27E2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */; };
 		56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */; };
 		56E819622BC513FA009CCE03 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */; };
@@ -100,6 +102,8 @@
 		56B05DB22BD62B78001A0A61 /* UserFavouritesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenViewController.swift; sourceTree = "<group>"; };
 		56B05DB42BD62BAC001A0A61 /* UserFavouritesScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFavouritesScreen.storyboard; sourceTree = "<group>"; };
 		56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsTests.swift; sourceTree = "<group>"; };
+		56C149212BEB6A1A00237B09 /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
+		56C149232BEB6BA700237B09 /* SignUpScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenTests.swift; sourceTree = "<group>"; };
 		56CAB27D2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsRepository.swift; sourceTree = "<group>"; };
 		56E8195D2BC173FE009CCE03 /* TabBarNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarNavigation.storyboard; sourceTree = "<group>"; };
 		56E819612BC513FA009CCE03 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				566C885F2BE6AD4C007AEB4C /* Authentication */,
-				56E8195C2BC173A8009CCE03 /* TabBar */,
 				56A15FB62BBD797600D74E55 /* Game */,
 				56E819672BC7314A009CCE03 /* Home */,
 				56E819742BCF9E0D009CCE03 /* User */,
@@ -248,6 +251,18 @@
 				56E819792BCF9E90009CCE03 /* UserScreen.storyboard */,
 			);
 			path = UserScreen;
+			sourceTree = "<group>";
+		};
+		56C149262BEB710600237B09 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				56FCA0C22BB4484700A740DF /* Info.plist */,
+				56FCA0B42BB4484500A740DF /* AppDelegate.swift */,
+				56FCA0B62BB4484500A740DF /* SceneDelegate.swift */,
+				56FCA0BD2BB4484700A740DF /* Assets.xcassets */,
+				56FCA0BF2BB4484700A740DF /* LaunchScreen.storyboard */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		56E8195C2BC173A8009CCE03 /* TabBar */ = {
@@ -331,16 +346,13 @@
 		56FCA0B32BB4484500A740DF /* HeroVault */ = {
 			isa = PBXGroup;
 			children = (
+				56FCA0ED2BB8065E00A740DF /* ServiceLayer */,
 				56F97D692BE182080055DF7F /* CoreData */,
+				56E8195C2BC173A8009CCE03 /* TabBar */,
 				56025FB22BD3DF3100A53EE6 /* Constants */,
 				56E8196D2BCE940C009CCE03 /* Extensions */,
-				56FCA0ED2BB8065E00A740DF /* ServiceLayer */,
 				56A15F8D2BBB2E0300D74E55 /* Features */,
-				56FCA0B42BB4484500A740DF /* AppDelegate.swift */,
-				56FCA0B62BB4484500A740DF /* SceneDelegate.swift */,
-				56FCA0BD2BB4484700A740DF /* Assets.xcassets */,
-				56FCA0BF2BB4484700A740DF /* LaunchScreen.storyboard */,
-				56FCA0C22BB4484700A740DF /* Info.plist */,
+				56C149262BEB710600237B09 /* Configuration */,
 			);
 			path = HeroVault;
 			sourceTree = "<group>";
@@ -351,6 +363,8 @@
 				56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */,
 				566C88672BE8C97C007AEB4C /* HomeScreenTests.swift */,
 				56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */,
+				56C149212BEB6A1A00237B09 /* LoginScreenTests.swift */,
+				56C149232BEB6BA700237B09 /* SignUpScreenTests.swift */,
 			);
 			path = HeroVaultTests;
 			sourceTree = "<group>";
@@ -494,8 +508,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E819642BC5140B009CCE03 /* LoginScreen.storyboard in Resources */,
 				56025FAC2BD19E7200A53EE6 /* HomeScreenDetails.storyboard in Resources */,
+				56E819642BC5140B009CCE03 /* LoginScreen.storyboard in Resources */,
 				566C88662BE6AE79007AEB4C /* SignUpScreen.storyboard in Resources */,
 				56B05DB52BD62BAC001A0A61 /* UserFavouritesScreen.storyboard in Resources */,
 				56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */,
@@ -594,7 +608,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C149242BEB6BA700237B09 /* SignUpScreenTests.swift in Sources */,
 				566C88682BE8C97C007AEB4C /* HomeScreenTests.swift in Sources */,
+				56C149222BEB6A1A00237B09 /* LoginScreenTests.swift in Sources */,
 				56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */,
 				56FCA0CC2BB4484800A740DF /* HeroVaultTests.swift in Sources */,
 			);
@@ -771,7 +787,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HeroVault/Info.plist;
+				INFOPLIST_FILE = HeroVault/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -797,7 +813,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HeroVault/Info.plist;
+				INFOPLIST_FILE = HeroVault/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
