@@ -12,7 +12,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     // MARK: Outlets
     
     @IBOutlet weak private var favouritedImageView: UIImageView!
-    @IBOutlet weak var favouritedLabel: UILabel!
+    @IBOutlet weak private var favouritedLabel: UILabel!
     // MARK: Functions
     
     override func awakeFromNib() {
