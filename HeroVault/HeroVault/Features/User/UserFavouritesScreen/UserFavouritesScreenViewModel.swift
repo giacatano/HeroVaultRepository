@@ -47,18 +47,29 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     func reloadView() {
     }
     
-    func createImage(marvelDataIndex: Int) -> String {
-        guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
-        imageName.append("/portrait_incredible.jpg")
-        return imageName.convertToHttps()
+    struct CharacterImage {
+        let imageURL: String
+        let imageName: String
     }
     
-    func createLabel(marvelDataIndex: Int) -> String {
-        guard let imageLabel = (marvelDataList?[marvelDataIndex].name) else { return "" }
-        return imageLabel
+    func marvelDataItem(marvelDataIndex: Int) -> CharacterImage? {
+        guard let marvelData = marvelDataList?[marvelDataIndex] else {
+            return nil
+        }
+        
+        let imageURL = createImage(marvelDataIndex: marvelDataIndex)
+        let imageName = marvelData.name
+        
+        return CharacterImage(imageURL: imageURL, imageName: imageName)
     }
     
     func set(marvelDataType: EntityType) {
         self.marvelDataType = marvelDataType
+    }
+    
+    private func createImage(marvelDataIndex: Int) -> String {
+        guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
+        imageName.append("/portrait_incredible.jpg")
+        return imageName.convertToHttps()
     }
 }
