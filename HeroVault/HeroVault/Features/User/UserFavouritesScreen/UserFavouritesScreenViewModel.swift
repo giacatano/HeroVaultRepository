@@ -47,12 +47,12 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     func reloadView() {
     }
     
-    struct MarvelImage {
+    struct CharacterImage {
         let imageURL: String
         let imageName: String
     }
     
-    func marvelDataItem(marvelDataIndex: Int) -> MarvelImage? {
+    func marvelDataItem(marvelDataIndex: Int) -> CharacterImage? {
         guard let marvelData = marvelDataList?[marvelDataIndex] else {
             return nil
         }
@@ -60,7 +60,7 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
         let imageURL = createImage(marvelDataIndex: marvelDataIndex)
         let imageName = marvelData.name
         
-        return MarvelImage(imageURL: imageURL, imageName: imageName)
+        return CharacterImage(imageURL: imageURL, imageName: imageName)
     }
     
     func set(marvelDataType: EntityType) {
