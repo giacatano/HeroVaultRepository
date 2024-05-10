@@ -15,6 +15,7 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var marvelDataType: EntityType?
+    var marvelData = [MarvelData]()
     
     // MARK: Functions
     
@@ -50,6 +51,11 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
         guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
         imageName.append("/portrait_incredible.jpg")
         return imageName.convertToHttps()
+    }
+    
+    func createLabel(marvelDataIndex: Int) -> String {
+        guard let imageLabel = (marvelDataList?[marvelDataIndex].name) else { return "" }
+        return imageLabel
     }
     
     func set(marvelDataType: EntityType) {
