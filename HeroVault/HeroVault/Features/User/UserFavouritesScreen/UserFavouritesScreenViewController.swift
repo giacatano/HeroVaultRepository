@@ -76,9 +76,11 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
             return UICollectionViewCell()
         }
         
-        let imageName = userFavouritesScreenViewModel.createImage(marvelDataIndex: indexPath.row)
-        favouritesScreenCollectionViewCell.setUpNib(imageURL: imageName)
-        favouritesScreenCollectionViewCell.layer.cornerRadius = 10
+        let marvelImage = userFavouritesScreenViewModel.createImage(marvelDataIndex: indexPath.row)
+        let marvelImageName = userFavouritesScreenViewModel.createLabel(marvelDataIndex: indexPath.row)
+        
+        favouritesScreenCollectionViewCell.setUpNib(imageURL: marvelImage, imageName: marvelImageName)
+        favouritesScreenCollectionViewCell.layer.cornerRadius = 5
         return favouritesScreenCollectionViewCell
     }
 }

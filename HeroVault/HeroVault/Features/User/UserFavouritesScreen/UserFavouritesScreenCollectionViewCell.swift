@@ -12,7 +12,7 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     // MARK: Outlets
     
     @IBOutlet weak private var favouritedImageView: UIImageView!
-    
+    @IBOutlet weak private var favouritedLabel: UILabel!
     // MARK: Functions
     
     override func awakeFromNib() {
@@ -23,7 +23,8 @@ class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
         UINib(nibName: Constants.SegueIdentifierNames.userFavouritesScreenCollectionViewCellName, bundle: nil)
     }
     
-    func setUpNib(imageURL: String) {
+    func setUpNib(imageURL: String, imageName: String) {
         favouritedImageView.load(urlString: imageURL)
+        favouritedLabel.text = imageName
     }
 }
