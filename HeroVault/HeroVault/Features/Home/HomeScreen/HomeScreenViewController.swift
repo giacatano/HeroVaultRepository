@@ -38,7 +38,7 @@ class HomeScreenViewController: UIViewController {
     
     private func setUpSearchBar() {
         var textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = UIColor.black
+        textFieldInsideSearchBar?.textColor = .black
         searchBar.searchTextField.backgroundColor = .white
     }
     
