@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
+class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
     
     // MARK: IBOutlets
     

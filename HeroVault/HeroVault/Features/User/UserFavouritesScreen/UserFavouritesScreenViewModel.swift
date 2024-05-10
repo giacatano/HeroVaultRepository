@@ -7,18 +7,18 @@
 
 import Foundation
 
-class UserFavouritesScreenViewModel: ViewModelDelegate {
+class UserFavouritesScreenViewModel: ViewModelProtocol {
     
     // MARK: Variables
     
     private var marvelDataList: [MarvelData]?
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
-    private weak var delegate: ViewModelDelegate?
+    private weak var delegate: ViewModelProtocol?
     private var marvelDataType: EntityType?
     
     // MARK: Functions
     
-    init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelDelegate) {
+    init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelProtocol) {
         self.userFavouritesScreenRepository = userFavouritesScreenRepository
         self.delegate = delegate
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ViewModelDelegate: AnyObject {
+protocol ViewModelProtocol: AnyObject {
     func reloadView()
 }
 
@@ -16,16 +16,19 @@ class HomeScreenViewModel {
     // MARK: Variables
     
     var marvelData = [MarvelData]()
+    var filteredMarvelData = [MarvelData]()
     var marvelDataType: EntityType
     var error: Error?
+    var isSearching: Bool
     
     private let homeScreenRepository: HomeScreenRepositoryType?
-    private weak var delegate: ViewModelDelegate?
+    private weak var delegate: ViewModelProtocol?
     
-    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelDelegate) {
+    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
         self.marvelDataType = .character
+        isSearching = false
     }
     
     // MARK: Computes properties
@@ -34,22 +37,51 @@ class HomeScreenViewModel {
         marvelData.count
     }
     
+    var filteredMarvelDataCount: Int {
+        filteredMarvelData.count
+    }
+    
+    var numberOfSections: Int {
+        isSearching ? filteredMarvelDataCount : marvelDataCount
+    }
+    
     // MARK: Functions
     
     func set(marvelDataType: EntityType) {
         self.marvelDataType = marvelDataType
     }
     
-    func createImage(marvelIndex: Int) -> String {
-        "\(marvelData[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps()
+    func fetchMarvelNameAndImage(for marvelIndex: Int) -> (String, String) {
+        isSearching ?
+        (filteredMarvelData[marvelIndex].name, "\(filteredMarvelData[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps()) :
+        (marvelData[marvelIndex].name, "\(marvelData[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps())
     }
     
-    func fetchCharacters(atIndex: Int) -> MarvelData? {
-        marvelData[atIndex]
+    func fetchMarvelData(atIndex: Int) -> MarvelData? {
+        isSearching ? filteredMarvelData[atIndex] : marvelData[atIndex]
     }
     
     func fetchMarvelData() {
         marvelDataType == .character ? fetchCharacters() : fetchComics()
+    }
+    
+    func filterMarvelData(filteredText: String) {
+        isSearching = true
+        guard !filteredText.isEmpty else {
+            isSearching = false
+            return
+        }
+        
+        filteredMarvelData = marvelData.filter { marvelItem in
+            marvelItem.name.lowercased().contains(filteredText.lowercased())
+        }
+        delegate?.reloadView()
+    }
+    
+    func handleSegmentedControl(segmentedCotrolTitle: String) {
+        isSearching = false
+        segmentedCotrolTitle == "Characters" ? set(marvelDataType: EntityType.character) : set(marvelDataType: EntityType.comic)
+        fetchMarvelData()
     }
     
     private func fetchCharacters() {
