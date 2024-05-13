@@ -47,15 +47,10 @@ class UserFavouritesScreenViewModel: ViewModelProtocol {
     func reloadView() {
     }
     
-    func createImage(marvelDataIndex: Int) -> String {
-        guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
-        imageName.append("/portrait_incredible.jpg")
-        return imageName.convertToHttps()
-    }
-    
-    func createLabel(marvelDataIndex: Int) -> String {
-        guard let imageLabel = (marvelDataList?[marvelDataIndex].name) else { return "" }
-        return imageLabel
+    func fetchMarvelNameAndImage(for marvelIndex: Int) -> (String, String) {
+        guard let marvelDataList else { return ("", "") }
+        
+        return (marvelDataList[marvelIndex].name, "\(marvelDataList[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps())
     }
     
     func set(marvelDataType: EntityType) {
