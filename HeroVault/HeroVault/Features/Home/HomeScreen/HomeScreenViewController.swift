@@ -14,13 +14,14 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak private var listTableView: UITableView!
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
+    @IBOutlet weak private var noResultsLabel: UILabel!
     
     // MARK: Actions
     
     @IBAction private func segmentedControlTapped(_ sender: Any) {
         searchBar.text = ""
         let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? ""
-        homeScreenViewModel.handleSegmentedControl(segmentedCotrolTitle: segmentedControlTitle)
+        homeScreenViewModel.handleSegmentedControl(segmentedControlTitle: segmentedControlTitle)
     }
     
     // MARK: Variables
@@ -34,6 +35,7 @@ class HomeScreenViewController: UIViewController {
         homeScreenViewModel.fetchMarvelData()
         setUpTableView()
         setUpSearchBar()
+        noResultsLabel.isHidden = homeScreenViewModel.hideNoResultsText
     }
     
     private func setUpSearchBar() {
@@ -103,5 +105,6 @@ extension HomeScreenViewController: ViewModelProtocol {
 extension HomeScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         homeScreenViewModel.filterMarvelData(filteredText: searchText)
+        noResultsLabel.isHidden = homeScreenViewModel.hideNoResultsText
     }
 }

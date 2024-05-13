@@ -34,8 +34,8 @@ class HomeScreenViewModelTests: XCTestCase {
                                                     CharacterData(results: [Character(id: 1,
                                                                                       name: "Iron Man",
                                                                                       overview: "Genius billionaire playboy philanthropist",
-                                                                                      thumbnail: "iron_man.jpg", 
-                                                                                      hasBeenfavourited: false)]))
+                                                                                      thumbnail: "iron_man.jpg",
+                                                                                      hasBeenFavourited: false)]))
         
         mockRepository.characterResponseToReturn = .success(characterResponse)
         viewModel.fetchMarvelData()
@@ -64,8 +64,8 @@ class HomeScreenViewModelTests: XCTestCase {
         let comicResponse = ComicResponse(data: ComicData(results: [Comic(id: 1,
                                                                           name: "Iron Man",
                                                                           overview: "Genius billionaire playboy philanthropist",
-                                                                          thumbnail: "iron_man.jpg", 
-                                                                          hasBeenfavourited: false)]))
+                                                                          thumbnail: "iron_man.jpg",
+                                                                          hasBeenFavourited: false)]))
         
         viewModel.set(marvelDataType: .comic)
         mockRepository.comicResponseToReturn = .success(comicResponse)
@@ -95,9 +95,9 @@ class HomeScreenViewModelTests: XCTestCase {
     
     func testFilteredMarvelDataCount() {
         viewModel.filteredMarvelData = [
-            Character(id: 1, name: "Iron Man", overview: "", thumbnail: "", hasBeenfavourited: false),
-            Comic(id: 2, name: "Spider-Man", overview: "", thumbnail: "", hasBeenfavourited: false),
-            Comic(id: 3, name: "Batman", overview: "", thumbnail: "", hasBeenfavourited: false)
+            Character(id: 1, name: "Iron Man", overview: "", thumbnail: "", hasBeenFavourited: false),
+            Comic(id: 2, name: "Spider-Man", overview: "", thumbnail: "", hasBeenFavourited: false),
+            Comic(id: 3, name: "Batman", overview: "", thumbnail: "", hasBeenFavourited: false)
         ]
         XCTAssertEqual(viewModel.filteredMarvelDataCount, 3)
         viewModel.filteredMarvelData.removeLast()
@@ -107,16 +107,16 @@ class HomeScreenViewModelTests: XCTestCase {
     }
     
     func testFetchMarvelNameAndImage() {
-        let marvelData1 = Character(id: 1, 
+        let marvelData1 = Character(id: 1,
                                     name: "Iron Man",
                                     overview: "Genius, billionaire, playboy, philanthropist",
                                     thumbnail: "http://example.com/ironman",
-                                    hasBeenfavourited: false)
-        let marvelData2 = Comic(id: 2, 
+                                    hasBeenFavourited: false)
+        let marvelData2 = Comic(id: 2,
                                 name: "Spider-Man",
                                 overview: "Friendly neighborhood superhero",
-                                thumbnail: "http://example.com/spiderman", 
-                                hasBeenfavourited: false)
+                                thumbnail: "http://example.com/spiderman",
+                                hasBeenFavourited: false)
         
         viewModel.marvelData = [marvelData1, marvelData2]
         
@@ -133,56 +133,56 @@ class HomeScreenViewModelTests: XCTestCase {
     }
     
     func testNumberOfSectionsForNotFiltering() {
-        let marvelData = Character(id: 1, 
+        let marvelData = Character(id: 1,
                                    name: "Iron Man",
                                    overview: "Genius, billionaire, playboy, philanthropist",
-                                   thumbnail: "http://example.com/ironman", 
-                                   hasBeenfavourited: false)
+                                   thumbnail: "http://example.com/ironman",
+                                   hasBeenFavourited: false)
         viewModel.isSearching = false
         viewModel.marvelData = [marvelData]
         XCTAssertEqual(viewModel.numberOfSections, 1)
     }
     
     func testNumberOfSectionsForFiltering() {
-        let marvelData = Character(id: 1, 
+        let marvelData = Character(id: 1,
                                    name: "Iron Man",
                                    overview: "Genius, billionaire, playboy, philanthropist",
                                    thumbnail: "http://example.com/ironman",
-                                   hasBeenfavourited: false)
-        let marvelData2 = Comic(id: 2, 
+                                   hasBeenFavourited: false)
+        let marvelData2 = Comic(id: 2,
                                 name: "Spider-Man",
                                 overview: "Friendly neighborhood superhero",
-                                thumbnail: "http://example.com/spiderman", 
-                                hasBeenfavourited: false)
+                                thumbnail: "http://example.com/spiderman",
+                                hasBeenFavourited: false)
         viewModel.isSearching = true
         viewModel.filteredMarvelData = [marvelData, marvelData2]
         XCTAssertEqual(viewModel.numberOfSections, 2)
     }
     
     func testHandleSegmentedControlForCharactersSelected() {
-        viewModel.handleSegmentedControl(segmentedCotrolTitle: "Characters")
+        viewModel.handleSegmentedControl(segmentedControlTitle: "Characters")
         XCTAssertEqual(viewModel.marvelDataType, EntityType.character)
-        viewModel.handleSegmentedControl(segmentedCotrolTitle: "Comics")
+        viewModel.handleSegmentedControl(segmentedControlTitle: "Comics")
         XCTAssertEqual(viewModel.marvelDataType, EntityType.comic)
     }
     
     func testFilteredMarvelDataWithSearchText() {
         viewModel.marvelData = [
-            Character(id: 1, 
-                      name: "Spider-Man", 
+            Character(id: 1,
+                      name: "Spider-Man",
                       overview: "A superhero",
                       thumbnail: "spiderman.jpg",
-                      hasBeenfavourited: false),
-            Character(id: 2, 
+                      hasBeenFavourited: false),
+            Character(id: 2,
                       name: "Iron Man",
                       overview: "A billionaire playboy philanthropist",
-                      thumbnail: "ironman.jpg", 
-                      hasBeenfavourited: false),
-            Comic(id: 1, 
+                      thumbnail: "ironman.jpg",
+                      hasBeenFavourited: false),
+            Comic(id: 1,
                   name: "Avengers",
                   overview: "A team of superheroes",
                   thumbnail: "avengers.jpg",
-                  hasBeenfavourited: false)
+                  hasBeenFavourited: false)
         ]
         
         viewModel.filterMarvelData(filteredText: "spider")
@@ -199,17 +199,17 @@ class HomeScreenViewModelTests: XCTestCase {
                       name: "Spider-Man",
                       overview: "A superhero",
                       thumbnail: "spiderman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Character(id: 2,
                       name: "Iron Man",
                       overview: "A billionaire playboy philanthropist",
                       thumbnail: "ironman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Comic(id: 1,
                   name: "Avengers",
                   overview: "A team of superheroes",
                   thumbnail: "avengers.jpg",
-                  hasBeenfavourited: false)
+                  hasBeenFavourited: false)
         ]
         viewModel.filterMarvelData(filteredText: "")
         
@@ -223,17 +223,17 @@ class HomeScreenViewModelTests: XCTestCase {
                       name: "Spider-Man",
                       overview: "A superhero",
                       thumbnail: "spiderman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Character(id: 2,
                       name: "Iron Man",
                       overview: "A billionaire playboy philanthropist",
                       thumbnail: "ironman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Comic(id: 1,
                   name: "Avengers",
                   overview: "A team of superheroes",
                   thumbnail: "avengers.jpg",
-                  hasBeenfavourited: false)
+                  hasBeenFavourited: false)
         ]
         
         viewModel.isSearching = false
@@ -247,22 +247,36 @@ class HomeScreenViewModelTests: XCTestCase {
                       name: "Spider-Man",
                       overview: "A superhero",
                       thumbnail: "spiderman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Character(id: 2,
                       name: "Iron Man",
                       overview: "A billionaire playboy philanthropist",
                       thumbnail: "ironman.jpg",
-                      hasBeenfavourited: false),
+                      hasBeenFavourited: false),
             Comic(id: 1,
                   name: "Avengers",
                   overview: "A team of superheroes",
                   thumbnail: "avengers.jpg",
-                  hasBeenfavourited: false)
+                  hasBeenFavourited: false)
         ]
         
         viewModel.isSearching = true
         XCTAssertEqual(viewModel.filteredMarvelData.count, 3)
         XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 1)?.name, "Iron Man")
+    }
+    
+    func testFilterMarvelData_EmptyFilteredMarvelData() {
+        viewModel.filteredMarvelData = []
+        viewModel.filterMarvelData(filteredText: "")
+        XCTAssertTrue(viewModel.hideNoResultsText)
+    }
+    
+    func testFilterMarvelData_NonEmptyFilteredMarvelData() {
+        viewModel.filteredMarvelData = [
+            Character(id: 1, name: "Spider-Man", overview: "A superhero", thumbnail: "spiderman.jpg", hasBeenFavourited: false)
+        ]
+        viewModel.filterMarvelData(filteredText: "Spider")
+        XCTAssertFalse(viewModel.hideNoResultsText)
     }
 }
 

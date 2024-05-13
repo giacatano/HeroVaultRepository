@@ -98,7 +98,7 @@ class MockHomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
 
 class MockMarvelData: MarvelData {
     var id: Int
-    var hasBeenfavourited: Bool
+    var hasBeenFavourited: Bool
     var name: String
     var overview: String
     var thumbnail: String
@@ -108,6 +108,6 @@ class MockMarvelData: MarvelData {
         self.overview = overview
         self.thumbnail = thumbnail
         self.id = id
-        self.hasBeenfavourited = hasBeenfavourited
+        self.hasBeenFavourited = hasBeenfavourited
     }
 }

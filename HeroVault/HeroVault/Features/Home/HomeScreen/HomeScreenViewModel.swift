@@ -20,6 +20,7 @@ class HomeScreenViewModel {
     var marvelDataType: EntityType
     var error: Error?
     var isSearching: Bool
+    var hideNoResultsText: Bool
     
     private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelProtocol?
@@ -29,6 +30,7 @@ class HomeScreenViewModel {
         self.delegate = delegate
         self.marvelDataType = .character
         isSearching = false
+        hideNoResultsText = true
     }
     
     // MARK: Computes properties
@@ -66,21 +68,25 @@ class HomeScreenViewModel {
     }
     
     func filterMarvelData(filteredText: String) {
+        
         isSearching = true
         guard !filteredText.isEmpty else {
             isSearching = false
+            hideNoResultsText = true
             return
         }
         
         filteredMarvelData = marvelData.filter { marvelItem in
             marvelItem.name.lowercased().contains(filteredText.lowercased())
         }
+        
+        loadSearchNotFoundText()
         delegate?.reloadView()
     }
     
-    func handleSegmentedControl(segmentedCotrolTitle: String) {
+    func handleSegmentedControl(segmentedControlTitle: String) {
         isSearching = false
-        segmentedCotrolTitle == "Characters" ? set(marvelDataType: EntityType.character) : set(marvelDataType: EntityType.comic)
+        segmentedControlTitle == "Characters" ? set(marvelDataType: EntityType.character) : set(marvelDataType: EntityType.comic)
         fetchMarvelData()
     }
     
@@ -122,5 +128,13 @@ class HomeScreenViewModel {
     
     private func checkIfImageIsAvailable(thumbnail: String) -> Bool {
         thumbnail.contains("image_not_available")
+    }
+    
+    private func loadSearchNotFoundText() {
+        if filteredMarvelData.isEmpty {
+            hideNoResultsText = false
+        } else {
+            hideNoResultsText = true
+        }
     }
 }
