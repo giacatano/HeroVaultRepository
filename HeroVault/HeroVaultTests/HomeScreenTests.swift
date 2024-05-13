@@ -5,19 +5,18 @@
 //  Created by Gia Catano on 2024/05/06.
 //
 
-
 import XCTest
 @testable import HeroVault
 
 class HomeScreenViewModelTests: XCTestCase {
     var viewModel: HomeScreenViewModel!
     var mockRepository: MockHomeScreenRepository!
-    var mockDelegate: MockViewModelDelegate!
+    var mockDelegate: MockViewModelProtocol!
     
     override func setUp() {
         super.setUp()
         mockRepository = MockHomeScreenRepository()
-        mockDelegate = MockViewModelDelegate()
+        mockDelegate = MockViewModelProtocol()
         viewModel = HomeScreenViewModel(homeScreenRepository: mockRepository, delegate: mockDelegate)
     }
     
@@ -31,7 +30,12 @@ class HomeScreenViewModelTests: XCTestCase {
     // MARK: Tests
     
     func testFetchCharactersSuccess() {
-        let characterResponse = CharacterResponse(data: CharacterData(results: [Character(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man.jpg", 
+                                                                                      hasBeenfavourited: false)]))
         
         mockRepository.characterResponseToReturn = .success(characterResponse)
         viewModel.fetchMarvelData()
@@ -57,7 +61,11 @@ class HomeScreenViewModelTests: XCTestCase {
     }
     
     func testFetchComicsSuccess() {
-        let comicResponse = ComicResponse(data: ComicData(results: [Comic(id: 1, name: "Iron Man", overview: "Genius billionaire playboy philanthropist", thumbnail: "iron_man.jpg", hasBeenfavourited: false)]))
+        let comicResponse = ComicResponse(data: ComicData(results: [Comic(id: 1,
+                                                                          name: "Iron Man",
+                                                                          overview: "Genius billionaire playboy philanthropist",
+                                                                          thumbnail: "iron_man.jpg", 
+                                                                          hasBeenfavourited: false)]))
         
         viewModel.set(marvelDataType: .comic)
         mockRepository.comicResponseToReturn = .success(comicResponse)
@@ -85,33 +93,176 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertEqual(networkingError, NetworkingError.parsingError)
     }
     
-    func testCreateImage() {
-        let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
-        let marvelData = [Character(id: 1, name: "Iron Man",
-                                    overview: "Genius billionaire playboy philanthropist",
-                                    thumbnail: "iron_man.jpg", hasBeenfavourited: false),
-                          Character(id: 2, name: "Spider-Man", overview: "Friendly neighborhood superhero", thumbnail: "spider_man.jpg", hasBeenfavourited: false)]
-        
-        viewModel.marvelData = marvelData
-        let imageUrl = viewModel.createImage(marvelIndex: 0)
-        
-        XCTAssertEqual(imageUrl, "iron_man.jpg/portrait_incredible.jpg".convertToHttps())
+    func testFilteredMarvelDataCount() {
+        viewModel.filteredMarvelData = [
+            Character(id: 1, name: "Iron Man", overview: "", thumbnail: "", hasBeenfavourited: false),
+            Comic(id: 2, name: "Spider-Man", overview: "", thumbnail: "", hasBeenfavourited: false),
+            Comic(id: 3, name: "Batman", overview: "", thumbnail: "", hasBeenfavourited: false)
+        ]
+        XCTAssertEqual(viewModel.filteredMarvelDataCount, 3)
+        viewModel.filteredMarvelData.removeLast()
+        XCTAssertEqual(viewModel.filteredMarvelDataCount, 2)
+        viewModel.filteredMarvelData.removeAll()
+        XCTAssertEqual(viewModel.filteredMarvelDataCount, 0)
     }
     
-    func testFetchCharactersAtIndex() {
-        let viewModel = HomeScreenViewModel(homeScreenRepository: MockHomeScreenRepository(), delegate: MockViewModelDelegate())
-        let expectedCharacter = Character(id: 1, name: "Iron Man",
-                                          overview: "Genius billionaire playboy philanthropist",
-                                          thumbnail: "iron_man.jpg", hasBeenfavourited: false)
+    func testFetchMarvelNameAndImage() {
+        let marvelData1 = Character(id: 1, 
+                                    name: "Iron Man",
+                                    overview: "Genius, billionaire, playboy, philanthropist",
+                                    thumbnail: "http://example.com/ironman",
+                                    hasBeenfavourited: false)
+        let marvelData2 = Comic(id: 2, 
+                                name: "Spider-Man",
+                                overview: "Friendly neighborhood superhero",
+                                thumbnail: "http://example.com/spiderman", 
+                                hasBeenfavourited: false)
         
-        viewModel.marvelData = [expectedCharacter]
-        let characterAtIndex = viewModel.fetchCharacters(atIndex: 0)
+        viewModel.marvelData = [marvelData1, marvelData2]
         
-        XCTAssertEqual(characterAtIndex?.id, expectedCharacter.id)
-        XCTAssertEqual(characterAtIndex?.name, expectedCharacter.name)
-        XCTAssertEqual(characterAtIndex?.overview, expectedCharacter.overview)
-        XCTAssertEqual(characterAtIndex?.thumbnail, expectedCharacter.thumbnail)
-        XCTAssertEqual(characterAtIndex?.hasBeenfavourited, expectedCharacter.hasBeenfavourited)
+        viewModel.isSearching = false
+        let (name1, image1) = viewModel.fetchMarvelNameAndImage(for: 0)
+        XCTAssertEqual(name1, "Iron Man")
+        XCTAssertEqual(image1, "https://example.com/ironman/portrait_incredible.jpg")
+        
+        viewModel.isSearching = true
+        viewModel.filteredMarvelData = [marvelData1, marvelData2]
+        let (name2, image2) = viewModel.fetchMarvelNameAndImage(for: 1)
+        XCTAssertEqual(name2, "Spider-Man")
+        XCTAssertEqual(image2, "https://example.com/spiderman/portrait_incredible.jpg")
+    }
+    
+    func testNumberOfSectionsForNotFiltering() {
+        let marvelData = Character(id: 1, 
+                                   name: "Iron Man",
+                                   overview: "Genius, billionaire, playboy, philanthropist",
+                                   thumbnail: "http://example.com/ironman", 
+                                   hasBeenfavourited: false)
+        viewModel.isSearching = false
+        viewModel.marvelData = [marvelData]
+        XCTAssertEqual(viewModel.numberOfSections, 1)
+    }
+    
+    func testNumberOfSectionsForFiltering() {
+        let marvelData = Character(id: 1, 
+                                   name: "Iron Man",
+                                   overview: "Genius, billionaire, playboy, philanthropist",
+                                   thumbnail: "http://example.com/ironman",
+                                   hasBeenfavourited: false)
+        let marvelData2 = Comic(id: 2, 
+                                name: "Spider-Man",
+                                overview: "Friendly neighborhood superhero",
+                                thumbnail: "http://example.com/spiderman", 
+                                hasBeenfavourited: false)
+        viewModel.isSearching = true
+        viewModel.filteredMarvelData = [marvelData, marvelData2]
+        XCTAssertEqual(viewModel.numberOfSections, 2)
+    }
+    
+    func testHandleSegmentedControlForCharactersSelected() {
+        viewModel.handleSegmentedControl(segmentedCotrolTitle: "Characters")
+        XCTAssertEqual(viewModel.marvelDataType, EntityType.character)
+        viewModel.handleSegmentedControl(segmentedCotrolTitle: "Comics")
+        XCTAssertEqual(viewModel.marvelDataType, EntityType.comic)
+    }
+    
+    func testFilteredMarvelDataWithSearchText() {
+        viewModel.marvelData = [
+            Character(id: 1, 
+                      name: "Spider-Man", 
+                      overview: "A superhero",
+                      thumbnail: "spiderman.jpg",
+                      hasBeenfavourited: false),
+            Character(id: 2, 
+                      name: "Iron Man",
+                      overview: "A billionaire playboy philanthropist",
+                      thumbnail: "ironman.jpg", 
+                      hasBeenfavourited: false),
+            Comic(id: 1, 
+                  name: "Avengers",
+                  overview: "A team of superheroes",
+                  thumbnail: "avengers.jpg",
+                  hasBeenfavourited: false)
+        ]
+        
+        viewModel.filterMarvelData(filteredText: "spider")
+        
+        XCTAssertTrue(viewModel.isSearching)
+        XCTAssertEqual(viewModel.filteredMarvelData.count, 1)
+        XCTAssertEqual(viewModel.filteredMarvelData[0].name, "Spider-Man")
+        XCTAssertTrue(mockDelegate.reloadViewCalled)
+    }
+    
+    func testFilteredMarvelDataWithNoSearchText() {
+        viewModel.marvelData = [
+            Character(id: 1,
+                      name: "Spider-Man",
+                      overview: "A superhero",
+                      thumbnail: "spiderman.jpg",
+                      hasBeenfavourited: false),
+            Character(id: 2,
+                      name: "Iron Man",
+                      overview: "A billionaire playboy philanthropist",
+                      thumbnail: "ironman.jpg",
+                      hasBeenfavourited: false),
+            Comic(id: 1,
+                  name: "Avengers",
+                  overview: "A team of superheroes",
+                  thumbnail: "avengers.jpg",
+                  hasBeenfavourited: false)
+        ]
+        viewModel.filterMarvelData(filteredText: "")
+        
+        XCTAssertFalse(viewModel.isSearching)
+        XCTAssertEqual(viewModel.filteredMarvelData.count, 0)
+    }
+    
+    func testFetchMarvelDataAtIndexWhenNotFiltering() {
+        viewModel.marvelData = [
+            Character(id: 1,
+                      name: "Spider-Man",
+                      overview: "A superhero",
+                      thumbnail: "spiderman.jpg",
+                      hasBeenfavourited: false),
+            Character(id: 2,
+                      name: "Iron Man",
+                      overview: "A billionaire playboy philanthropist",
+                      thumbnail: "ironman.jpg",
+                      hasBeenfavourited: false),
+            Comic(id: 1,
+                  name: "Avengers",
+                  overview: "A team of superheroes",
+                  thumbnail: "avengers.jpg",
+                  hasBeenfavourited: false)
+        ]
+        
+        viewModel.isSearching = false
+        XCTAssertEqual(viewModel.marvelData.count, 3)
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Spider-Man")
+    }
+    
+    func testFetchMarvelDataAtIndexWhenFiltering() {
+        viewModel.filteredMarvelData = [
+            Character(id: 1,
+                      name: "Spider-Man",
+                      overview: "A superhero",
+                      thumbnail: "spiderman.jpg",
+                      hasBeenfavourited: false),
+            Character(id: 2,
+                      name: "Iron Man",
+                      overview: "A billionaire playboy philanthropist",
+                      thumbnail: "ironman.jpg",
+                      hasBeenfavourited: false),
+            Comic(id: 1,
+                  name: "Avengers",
+                  overview: "A team of superheroes",
+                  thumbnail: "avengers.jpg",
+                  hasBeenfavourited: false)
+        ]
+        
+        viewModel.isSearching = true
+        XCTAssertEqual(viewModel.filteredMarvelData.count, 3)
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 1)?.name, "Iron Man")
     }
 }
 
@@ -134,7 +285,7 @@ class MockHomeScreenRepository: HomeScreenRepositoryType {
     }
 }
 
-class MockViewModelDelegate: ViewModelDelegate {
+class MockViewModelProtocol: ViewModelProtocol {
     var reloadViewCalled = false
     
     func reloadView() {

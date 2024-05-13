@@ -12,16 +12,15 @@ class HomeScreenViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak private var listTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak private var searchBar: UISearchBar!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
     
     // MARK: Actions
     
     @IBAction private func segmentedControlTapped(_ sender: Any) {
-        let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
-        segmentedControlTitle == "Characters" ? homeScreenViewModel.set(marvelDataType: EntityType.character) : 
-        homeScreenViewModel.set(marvelDataType: EntityType.comic)
-        homeScreenViewModel.fetchMarvelData()
+        searchBar.text = ""
+        let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? ""
+        homeScreenViewModel.handleSegmentedControl(segmentedCotrolTitle: segmentedControlTitle)
     }
     
     // MARK: Variables
@@ -34,6 +33,13 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         homeScreenViewModel.fetchMarvelData()
         setUpTableView()
+        setUpSearchBar()
+    }
+    
+    private func setUpSearchBar() {
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = .black
+        searchBar.searchTextField.backgroundColor = .white
     }
     
     private func setUpTableView() {
@@ -49,7 +55,7 @@ class HomeScreenViewController: UIViewController {
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        homeScreenViewModel.marvelDataCount
+        homeScreenViewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,10 +69,8 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let imageName = homeScreenViewModel.marvelData[indexPath.section].name
-        let imageURL = homeScreenViewModel.createImage(marvelIndex: indexPath.section)
-        
-        homePageTableViewCell.setUpNib(imageName: imageName, imageURL: imageURL)
+        let (marvelName, marvelImage) = homeScreenViewModel.fetchMarvelNameAndImage(for: indexPath.section)
+        homePageTableViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         return homePageTableViewCell
     }
     
@@ -82,16 +86,22 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
         if let indexPath = sender as? IndexPath,
            segue.identifier == Constants.SegueIdentifierNames.homeScreenDetailSegueName {
             if let homeScreenDetailScreen = segue.destination as? HomeScreenDetailsViewController {
-                if let characters = homeScreenViewModel.fetchCharacters(atIndex: indexPath.section) {
-                    homeScreenDetailScreen.set(marvelData: characters)
+                if let marvelData = homeScreenViewModel.fetchMarvelData(atIndex: indexPath.section) {
+                    homeScreenDetailScreen.set(marvelData: marvelData)
                 }
             }
         }
     }
 }
 
-extension HomeScreenViewController: ViewModelDelegate {
+extension HomeScreenViewController: ViewModelProtocol {
     func reloadView() {
         listTableView.reloadData()
+    }
+}
+
+extension HomeScreenViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        homeScreenViewModel.filterMarvelData(filteredText: searchText)
     }
 }

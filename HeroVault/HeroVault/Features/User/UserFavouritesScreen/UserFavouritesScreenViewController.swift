@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserFavouritesScreenViewController: UIViewController, ViewModelDelegate {
+class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
     
     // MARK: IBOutlets
     
@@ -76,10 +76,8 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
             return UICollectionViewCell()
         }
         
-        let marvelImage = userFavouritesScreenViewModel.createImage(marvelDataIndex: indexPath.row)
-        let marvelImageName = userFavouritesScreenViewModel.createLabel(marvelDataIndex: indexPath.row)
-        
-        favouritesScreenCollectionViewCell.setUpNib(imageURL: marvelImage, imageName: marvelImageName)
+        let (marvelName, marvelImage) = userFavouritesScreenViewModel.fetchMarvelNameAndImage(for: indexPath.row)
+        favouritesScreenCollectionViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         favouritesScreenCollectionViewCell.layer.cornerRadius = 5
         return favouritesScreenCollectionViewCell
     }

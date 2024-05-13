@@ -7,19 +7,19 @@
 
 import Foundation
 
-class UserFavouritesScreenViewModel: ViewModelDelegate {
+class UserFavouritesScreenViewModel: ViewModelProtocol {
     
     // MARK: Variables
     
     private var marvelDataList: [MarvelData]?
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
-    private weak var delegate: ViewModelDelegate?
+    private weak var delegate: ViewModelProtocol?
     private var marvelDataType: EntityType?
     var marvelData = [MarvelData]()
     
     // MARK: Functions
     
-    init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelDelegate) {
+    init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelProtocol) {
         self.userFavouritesScreenRepository = userFavouritesScreenRepository
         self.delegate = delegate
     }
@@ -47,15 +47,10 @@ class UserFavouritesScreenViewModel: ViewModelDelegate {
     func reloadView() {
     }
     
-    func createImage(marvelDataIndex: Int) -> String {
-        guard var imageName = (marvelDataList?[marvelDataIndex].thumbnail) else { return "" }
-        imageName.append("/portrait_incredible.jpg")
-        return imageName.convertToHttps()
-    }
-    
-    func createLabel(marvelDataIndex: Int) -> String {
-        guard let imageLabel = (marvelDataList?[marvelDataIndex].name) else { return "" }
-        return imageLabel
+    func fetchMarvelNameAndImage(for marvelIndex: Int) -> (String, String) {
+        guard let marvelDataList else { return ("", "") }
+        
+        return (marvelDataList[marvelIndex].name, "\(marvelDataList[marvelIndex].thumbnail)/portrait_incredible.jpg".convertToHttps())
     }
     
     func set(marvelDataType: EntityType) {

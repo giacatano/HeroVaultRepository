@@ -25,9 +25,9 @@ class HomeScreenTableViewCell: UITableViewCell {
         UINib(nibName: Constants.SegueIdentifierNames.homeScreenTableViewCellName, bundle: nil)
     }
     
-    func setUpNib(imageName: String, imageURL: String ) {
-        nameLabel.text = imageName
-        characterImageView.load(urlString: imageURL)
+    func setUpNib(marvelName: String, marvelImage: String) {
+        nameLabel.text = marvelName
+        characterImageView.load(urlString: marvelImage)
     }
     
     private func setUpNib() {
