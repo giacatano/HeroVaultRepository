@@ -22,7 +22,7 @@ struct Comic: Codable, MarvelData {
     let name: String
     let overview: String
     let thumbnail: String
-    let hasBeenFavourited: Bool
+    let isFavourited: Bool
     
     enum CodingKeys: String, CodingKey {
         case id, thumbnail
@@ -37,7 +37,7 @@ struct Comic: Codable, MarvelData {
         overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
         let pictures = try container.decode(Pictures.self, forKey: .thumbnail)
         thumbnail = pictures.path
-        hasBeenFavourited = false
+        isFavourited = false
     }
     
     init(id: Int, name: String, overview: String, thumbnail: String, hasBeenFavourited: Bool) {
@@ -45,7 +45,7 @@ struct Comic: Codable, MarvelData {
         self.name = name
         self.overview = overview
         self.thumbnail = thumbnail
-        self.hasBeenFavourited = hasBeenFavourited
+        self.isFavourited = hasBeenFavourited
     }
 }
 

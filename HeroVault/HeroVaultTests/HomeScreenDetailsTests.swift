@@ -31,7 +31,7 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
                                         overview: "Genius billionaire playboy philanthropist",
                                         thumbnail: "iron_man.jpg",
                                         id: 8,
-                                        hasBeenFavourited: true)
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let name = viewModel.marvelDataName
@@ -50,7 +50,7 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
                                         overview: "Genius billionaire playboy philanthropist",
                                         thumbnail: "iron_man.jpg",
                                         id: 8,
-                                        hasBeenFavourited: true)
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let description = viewModel.marvelDataDescription
@@ -69,7 +69,7 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
                                         overview: "Genius billionaire playboy philanthropist",
                                         thumbnail: "iron_man.jpg",
                                         id: 8,
-                                        hasBeenFavourited: true)
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let imageUrl = viewModel.createImage()
@@ -82,7 +82,7 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
                                         overview: "Genius billionaire playboy philanthropist",
                                         thumbnail: "iron_man.jpg",
                                         id: 8,
-                                        hasBeenFavourited: true)
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         viewModel.saveObjectIntoCoreData()
@@ -105,16 +105,16 @@ class MockHomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
 
 class MockMarvelData: MarvelData {
     var id: Int
-    var hasBeenFavourited: Bool
+    var isFavourited: Bool
     var name: String
     var overview: String
     var thumbnail: String
     
-    init(name: String, overview: String, thumbnail: String, id: Int, hasBeenFavourited: Bool) {
+    init(name: String, overview: String, thumbnail: String, id: Int, isFavourited: Bool) {
         self.name = name
         self.overview = overview
         self.thumbnail = thumbnail
         self.id = id
-        self.hasBeenFavourited = hasBeenFavourited
+        self.isFavourited = isFavourited
     }
 }

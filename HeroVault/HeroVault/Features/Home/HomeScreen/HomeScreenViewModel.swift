@@ -131,10 +131,6 @@ class HomeScreenViewModel {
     }
     
     private func loadSearchNotFoundText() {
-        if filteredMarvelData.isEmpty {
-            hideNoResultsText = false
-        } else {
-            hideNoResultsText = true
-        }
+        hideNoResultsText = !filteredMarvelData.isEmpty
     }
 }
