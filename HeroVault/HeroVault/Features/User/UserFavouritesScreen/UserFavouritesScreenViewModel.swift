@@ -39,11 +39,6 @@ class UserFavouritesScreenViewModel: ViewModelProtocol {
         self.marvelDataList = marvelDataList
     }
     
-    func fetchAllNamesOfCharactersInCoreData() -> [String] {
-        guard let names = userFavouritesScreenRepository?.fetchNames() else { return [] }
-        return names
-    }
-    
     func reloadView() {
     }
     
