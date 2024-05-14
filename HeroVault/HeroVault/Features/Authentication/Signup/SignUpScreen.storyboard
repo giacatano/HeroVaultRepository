@@ -90,6 +90,28 @@
                                 </subviews>
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-s9-FG2">
+                                <rect key="frame" x="87" y="768" width="219" height="29.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HW-ub-eL8">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.33333333333334" height="29.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44M-Th-BWh">
+                                        <rect key="frame" x="158.33333333333334" y="0.0" width="60.666666666666657" height="29.666666666666668"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Log in">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                            <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="logInButtonTapped:" destination="24y-5F-f1D" eventType="touchUpInside" id="lYL-D2-Wza"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEJ-XL-Z5x"/>
                         <color key="backgroundColor" red="0.75686275960000005" green="0.21960783" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -97,7 +119,9 @@
                             <constraint firstItem="23a-Sc-R1b" firstAttribute="centerX" secondItem="yOV-Zs-lng" secondAttribute="centerX" id="5Se-NR-2Gn"/>
                             <constraint firstItem="Yzp-DF-Awc" firstAttribute="centerX" secondItem="yOV-Zs-lng" secondAttribute="centerX" id="C3x-a0-W4y"/>
                             <constraint firstItem="Yzp-DF-Awc" firstAttribute="centerY" secondItem="yOV-Zs-lng" secondAttribute="centerY" id="F4I-ep-LvX"/>
+                            <constraint firstItem="cEJ-XL-Z5x" firstAttribute="bottom" secondItem="g9F-s9-FG2" secondAttribute="bottom" constant="20.329999999999998" id="I8d-tD-dwP"/>
                             <constraint firstAttribute="bottom" secondItem="23a-Sc-R1b" secondAttribute="bottom" id="NWX-KA-Am1"/>
+                            <constraint firstItem="g9F-s9-FG2" firstAttribute="centerX" secondItem="yOV-Zs-lng" secondAttribute="centerX" id="ZSw-96-MS1"/>
                             <constraint firstItem="23a-Sc-R1b" firstAttribute="top" secondItem="yOV-Zs-lng" secondAttribute="top" id="g9i-ZG-Dmv"/>
                             <constraint firstItem="23a-Sc-R1b" firstAttribute="centerY" secondItem="yOV-Zs-lng" secondAttribute="centerY" id="hgb-lN-DFa"/>
                             <constraint firstAttribute="trailing" secondItem="23a-Sc-R1b" secondAttribute="trailing" id="isI-rM-Oxy"/>
