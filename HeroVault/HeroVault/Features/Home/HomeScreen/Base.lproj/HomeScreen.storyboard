@@ -45,6 +45,13 @@
                                     <action selector="segmentedControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="W5i-0m-9pK"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No results found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-iG-qNP">
+                                <rect key="frame" x="142" y="454" width="146" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="5" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nkZ-HL-Pez">
                                 <rect key="frame" x="10" y="214" width="410" height="684"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="listTableView" destination="nkZ-HL-Pez" id="hPB-o1-7XH"/>
+                        <outlet property="noResultsLabel" destination="w1y-iG-qNP" id="fKP-Sn-gcC"/>
                         <outlet property="searchBar" destination="ouZ-Lt-Xb1" id="mKf-IN-ca6"/>
                         <outlet property="segmentedControl" destination="icj-EL-4JK" id="Yid-5G-5jQ"/>
                         <segue destination="ybf-eS-CTq" kind="show" identifier="SearchDetailsSegue" id="tvW-Zx-sjA"/>

@@ -175,7 +175,7 @@ class CoreDataHandler: CoreDataHandlerType {
         do {
             let results = try context.fetch(fetchRequest)
             let marvelData = results.first as? MarvelData
-            return marvelData?.hasBeenfavourited ?? false
+            return marvelData?.isFavourited ?? false
         } catch {
             print("Error fetching character: \(error.localizedDescription)")
             return false
@@ -213,14 +213,14 @@ class CoreDataHandler: CoreDataHandlerType {
             newCharacter.id = object.id
             newCharacter.overview = object.overview
             newCharacter.thumbnail = object.thumbnail
-            newCharacter.hasBeenfavourited = true
+            newCharacter.isFavourited = true
         } else {
             let newComic = CoreDataComic(context: context)
             newComic.name = object.name
             newComic.id = object.id
             newComic.overview = object.overview
             newComic.thumbnail = object.thumbnail
-            newComic.hasBeenfavourited = true
+            newComic.isFavourited = true
         }
     }
     

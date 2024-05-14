@@ -24,13 +24,14 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    
     // MARK: Tests
     
     func testMarvelDataName() {
         let marvelData = MockMarvelData(name: "Iron Man",
                                         overview: "Genius billionaire playboy philanthropist",
-                                        thumbnail: "iron_man.jpg", id: 8, hasBeenfavourited: true)
+                                        thumbnail: "iron_man.jpg",
+                                        id: 8,
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let name = viewModel.marvelDataName
@@ -39,15 +40,17 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
     }
     
     func testMarvelDataEmptyName() {
-        
         var name = viewModel.marvelDataName
+        
         XCTAssertEqual(name, "")
     }
     
     func testMarvelDataDescription() {
         let marvelData = MockMarvelData(name: "Iron Man",
                                         overview: "Genius billionaire playboy philanthropist",
-                                        thumbnail: "iron_man.jpg", id: 8, hasBeenfavourited: true)
+                                        thumbnail: "iron_man.jpg",
+                                        id: 8,
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let description = viewModel.marvelDataDescription
@@ -56,15 +59,17 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
     }
     
     func testMarvelDataEmptyDescription() {
-        
         var description = viewModel.marvelDataDescription
+        
         XCTAssertEqual(description, "")
     }
     
     func testCreateImage() {
         let marvelData = MockMarvelData(name: "Iron Man",
                                         overview: "Genius billionaire playboy philanthropist",
-                                        thumbnail: "iron_man.jpg", id: 8, hasBeenfavourited: true)
+                                        thumbnail: "iron_man.jpg",
+                                        id: 8,
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         let imageUrl = viewModel.createImage()
@@ -75,7 +80,9 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
     func testSaveObjectIntoCoreData() {
         let marvelData = MockMarvelData(name: "Iron Man",
                                         overview: "Genius billionaire playboy philanthropist",
-                                        thumbnail: "iron_man.jpg", id: 8, hasBeenfavourited: true)
+                                        thumbnail: "iron_man.jpg",
+                                        id: 8,
+                                        isFavourited: true)
         
         viewModel.set(marvelData: marvelData)
         viewModel.saveObjectIntoCoreData()
@@ -98,16 +105,16 @@ class MockHomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
 
 class MockMarvelData: MarvelData {
     var id: Int
-    var hasBeenfavourited: Bool
+    var isFavourited: Bool
     var name: String
     var overview: String
     var thumbnail: String
     
-    init(name: String, overview: String, thumbnail: String, id: Int, hasBeenfavourited: Bool) {
+    init(name: String, overview: String, thumbnail: String, id: Int, isFavourited: Bool) {
         self.name = name
         self.overview = overview
         self.thumbnail = thumbnail
         self.id = id
-        self.hasBeenfavourited = hasBeenfavourited
+        self.isFavourited = isFavourited
     }
 }

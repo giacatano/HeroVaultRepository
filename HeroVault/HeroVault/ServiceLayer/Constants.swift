@@ -34,4 +34,8 @@ struct Constants {
         static let comicEntityName = "CoreDataComic"
         static let persistentContainerName = "CoreData"
     }
+    
+    struct ErrorManagement {
+        static let descriptionError = "It is thought that there are around 37,000 Marvel comics. If you took 15 minutes to read each comic, and you devoted eight hours of your day, every day, to the adventures of the superhero squad, it would take you approximately 1,156 days to complete the series."
+    }
 }

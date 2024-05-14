@@ -14,7 +14,7 @@ protocol MarvelData {
     var name: String { get }
     var overview: String { get }
     var thumbnail: String { get }
-    var hasBeenfavourited: Bool { get }
+    var isFavourited: Bool { get }
 }
 
 // MARK: Character Response Model
@@ -32,7 +32,7 @@ struct Character: Codable, MarvelData {
     let name: String
     let overview: String
     let thumbnail: String
-    let hasBeenfavourited: Bool
+    let isFavourited: Bool
     
     enum CodingKeys: String, CodingKey {
         case id, name, thumbnail
@@ -46,14 +46,14 @@ struct Character: Codable, MarvelData {
         overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
         let pictures = try container.decode(Pictures.self, forKey: .thumbnail)
         thumbnail = pictures.path
-        hasBeenfavourited = false
+        isFavourited = false
     }
     
-    init(id: Int, name: String, overview: String, thumbnail: String, hasBeenfavourited: Bool) {
+    init(id: Int, name: String, overview: String, thumbnail: String, hasBeenFavourited: Bool) {
         self.id = id
         self.name = name
         self.overview = overview
         self.thumbnail = thumbnail
-        self.hasBeenfavourited = hasBeenfavourited
+        self.isFavourited = hasBeenFavourited
     }
 }

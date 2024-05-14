@@ -19,7 +19,8 @@ class HomeScreenDetailsViewModel {
     }
     
     var marvelDataDescription: String {
-        marvelData?.overview ?? ""
+        guard let description = marvelData?.overview else { return "" }
+        return description.isEmpty ? Constants.ErrorManagement.descriptionError : marvelData?.overview ?? ""
     }
     
     func createImage() -> String {

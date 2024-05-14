@@ -28,6 +28,10 @@ class SignUpScreenViewController: UIViewController {
         }
     }
     
+    @IBAction private func logInButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: sender)
+    }
+    
     // MARK: Variable
     
     private lazy var signUpScreenViewModel = SignUpScreenViewModel(authenticationRepository: AuthenticationRepository())
