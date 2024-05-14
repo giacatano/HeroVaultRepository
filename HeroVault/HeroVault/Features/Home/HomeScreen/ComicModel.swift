@@ -40,12 +40,12 @@ struct Comic: Codable, MarvelData {
         isFavourited = false
     }
     
-    init(id: Int, name: String, overview: String, thumbnail: String, hasBeenFavourited: Bool) {
+    init(id: Int, name: String, overview: String, thumbnail: String, isFavourited: Bool) {
         self.id = id
         self.name = name
         self.overview = overview
         self.thumbnail = thumbnail
-        self.isFavourited = hasBeenFavourited
+        self.isFavourited = isFavourited
     }
 }
 

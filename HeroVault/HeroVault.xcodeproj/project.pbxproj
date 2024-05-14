@@ -58,8 +58,6 @@
 		56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FCA0BD2BB4484700A740DF /* Assets.xcassets */; };
 		56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FCA0BF2BB4484700A740DF /* LaunchScreen.storyboard */; };
 		56FCA0CC2BB4484800A740DF /* HeroVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */; };
-		56FCA0D62BB4484800A740DF /* HeroVaultUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0D52BB4484800A740DF /* HeroVaultUITests.swift */; };
-		56FCA0D82BB4484800A740DF /* HeroVaultUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0D72BB4484800A740DF /* HeroVaultUITestsLaunchTests.swift */; };
 		56FCA0E72BB8053D00A740DF /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0E62BB8053D00A740DF /* HomeScreenViewModel.swift */; };
 		56FCA0EF2BB8067100A740DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0EE2BB8067100A740DF /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -137,8 +135,6 @@
 		56FCA0C72BB4484800A740DF /* HeroVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVaultTests.swift; sourceTree = "<group>"; };
 		56FCA0D12BB4484800A740DF /* HeroVaultUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroVaultUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56FCA0D52BB4484800A740DF /* HeroVaultUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVaultUITests.swift; sourceTree = "<group>"; };
-		56FCA0D72BB4484800A740DF /* HeroVaultUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVaultUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56FCA0E62BB8053D00A740DF /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		56FCA0EE2BB8067100A740DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../ServiceLayer/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -328,7 +324,6 @@
 			children = (
 				56FCA0B32BB4484500A740DF /* HeroVault */,
 				56FCA0CA2BB4484800A740DF /* HeroVaultTests */,
-				56FCA0D42BB4484800A740DF /* HeroVaultUITests */,
 				56FCA0B22BB4484500A740DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -367,15 +362,6 @@
 				56C149232BEB6BA700237B09 /* SignUpScreenTests.swift */,
 			);
 			path = HeroVaultTests;
-			sourceTree = "<group>";
-		};
-		56FCA0D42BB4484800A740DF /* HeroVaultUITests */ = {
-			isa = PBXGroup;
-			children = (
-				56FCA0D52BB4484800A740DF /* HeroVaultUITests.swift */,
-				56FCA0D72BB4484800A740DF /* HeroVaultUITestsLaunchTests.swift */,
-			);
-			path = HeroVaultUITests;
 			sourceTree = "<group>";
 		};
 		56FCA0E42BB8042800A740DF /* HomeScreen */ = {
@@ -620,8 +606,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56FCA0D62BB4484800A740DF /* HeroVaultUITests.swift in Sources */,
-				56FCA0D82BB4484800A740DF /* HeroVaultUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
