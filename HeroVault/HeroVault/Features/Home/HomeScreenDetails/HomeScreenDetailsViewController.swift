@@ -22,8 +22,6 @@ class HomeScreenDetailsViewController: UIViewController {
     
     // MARK: IBActions
     
-    var isActive = false
-    
     @IBAction func starButtonTapped(_ sender: Any) {
         homeScreenDetailViewModel.saveObjectIntoCoreData()
         
