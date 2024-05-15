@@ -49,7 +49,7 @@ class SignUpScreenViewController: UIViewController {
     
     private func invalidSignUp() {
         usernameWarningLabel.isHidden = false
-        usernameWarningLabel.text = "User already exists"
+        usernameWarningLabel.text = Constants.ErrorManagement.existingUserError
         userNameTestField.text = ""
         passwordTextField.text = ""
     }

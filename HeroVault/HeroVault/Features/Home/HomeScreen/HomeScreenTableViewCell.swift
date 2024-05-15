@@ -16,7 +16,7 @@ class HomeScreenTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpNib()
+        setUpUINib()
     }
     
     // MARK: Functions
@@ -30,7 +30,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         characterImageView.load(urlString: marvelImage)
     }
     
-    private func setUpNib() {
+    private func setUpUINib() {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         backgroundColor = UIColor.clear
