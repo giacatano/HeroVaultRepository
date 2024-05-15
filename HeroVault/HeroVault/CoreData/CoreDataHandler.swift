@@ -33,8 +33,6 @@ protocol CoreDataHandlerType {
     func deleteAllObjectsFromCoreData()
     func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
-    //delete this one
-    func showAllNames() -> [String]
 }
 
 // MARK: - Core Data Class
@@ -114,23 +112,6 @@ class CoreDataHandler: CoreDataHandlerType {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataCharacter.fetchRequest()
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         _ = try? context.execute(batchDeleteRequest)
-    }
-    
-    // Can be deleted later
-    func showAllNames() -> [String] {
-        
-        var characters: [CoreDataCharacter]? = []
-        var names: [String] = []
-        
-        do {
-            characters = try context.fetch(CoreDataCharacter.fetchRequest())
-        } catch {
-        }
-        for number in 0..<((characters?.count ?? -1)) {
-            names.append(characters?[number].name ?? "no name")
-        }
-        print("here are the names: \(names)")
-        return names
     }
     
     // MARK: - Core Data Create User Data

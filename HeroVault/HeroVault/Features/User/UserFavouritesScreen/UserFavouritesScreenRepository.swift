@@ -11,7 +11,6 @@ import Foundation
 
 protocol UserFavouritesScreenRepositoryType {
     func fetchMarvelDataFromCoreData(marvelDataType: EntityType) -> [MarvelData]?
-    func fetchNames() -> [String]?
 }
 
 // MARK: Repository
@@ -22,9 +21,5 @@ class UserFavouritesScreenRepository: UserFavouritesScreenRepositoryType {
     
     func fetchMarvelDataFromCoreData(marvelDataType: EntityType) -> [MarvelData]? {
         coreDataHandler.fetchAllObjectsFromCoreData(entityType: marvelDataType)
-    }
-    
-    func fetchNames() -> [String]? {
-        coreDataHandler.showAllNames()
     }
 }
