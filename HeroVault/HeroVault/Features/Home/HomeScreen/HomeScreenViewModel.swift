@@ -9,12 +9,14 @@ import Foundation
 
 protocol ViewModelProtocol: AnyObject {
     func reloadView()
-}
-
-protocol TestProtocol: AnyObject {
     func startLoading()
     func stopLoading()
 }
+
+//protocol TestProtocol: AnyObject {
+//    func startLoading()
+//    func stopLoading()
+//}
 
 class HomeScreenViewModel {
     
@@ -30,12 +32,12 @@ class HomeScreenViewModel {
     
     private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelProtocol?
-    private weak var testDelegate: TestProtocol?
+   // private weak var testDelegate: TestProtocol?
     
-    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol, testDelegate: TestProtocol) {
+    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
-        self.testDelegate = testDelegate
+       // self.testDelegate = testDelegate
         self.marvelDataType = .character
         isSearching = false
         isLoading = true
@@ -100,7 +102,7 @@ class HomeScreenViewModel {
     }
     
     private func fetchCharacters() {
-        testDelegate?.startLoading()
+        delegate?.startLoading()
         marvelData = []
         homeScreenRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
@@ -111,7 +113,7 @@ class HomeScreenViewModel {
                         marvelData.append(character)
                     }
                 }
-                testDelegate?.stopLoading()
+                delegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error
@@ -120,7 +122,7 @@ class HomeScreenViewModel {
     }
     
     private func fetchComics() {
-        testDelegate?.startLoading()
+        delegate?.startLoading()
         marvelData = []
         homeScreenRepository?.fetchComics { [weak self] result in
             guard let self else { return }
@@ -131,7 +133,7 @@ class HomeScreenViewModel {
                         marvelData.append(comic)
                     }
                 }
-                testDelegate?.stopLoading()
+                delegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error

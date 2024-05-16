@@ -26,6 +26,8 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
         super.viewDidLoad()
         setUpCollectionView()
         setUpScreen()
+//        stopLoading()
+//        startLoading()
     }
     
     func setUpScreen() {
@@ -35,6 +37,18 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
     }
     func reloadView() {
         favouritesCollectionView.reloadData()
+    }
+    
+    func startLoading() {
+        userFavouritesScreenViewModel.isLoading = true
+        view.showLoading()
+        favouritesCollectionView.isHidden = true
+    }
+    
+    func stopLoading() {
+        userFavouritesScreenViewModel.isLoading = false
+        view.stopLoading()
+        favouritesCollectionView.isHidden = false
     }
     
     func set(marvelDataType: EntityType) {
@@ -55,8 +69,20 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         favouritesCollectionView.deselectItem(at: indexPath, animated: true)
-        print("You selcted me")
+        print("You selected me")
     }
+
+    
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        if userFavouritesScreenViewModel.isLoading {
+//                    // Return false to prevent item selection while loading
+//                    return false
+//                } else {
+//                    // Return true to allow item selection
+//                    return true
+//                }//homeScreenViewModel.isLoading ? nil : indexPath
+//    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userFavouritesScreenViewModel.marvelDataListCount
@@ -82,3 +108,21 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
         return favouritesScreenCollectionViewCell
     }
 }
+
+//extension HomeScreenViewController: ViewModelProtocol {
+//    func startLoading() {
+//        homeScreenViewModel.isLoading = true
+//        view.showLoading()
+//        listTableView.isHidden = true
+//    }
+//    
+//    func stopLoading() {
+//        homeScreenViewModel.isLoading = false
+//        view.stopLoading()
+//        listTableView.isHidden = false
+//    }
+//    
+//    func reloadView() {
+//        listTableView.reloadData()
+//    }
+//}

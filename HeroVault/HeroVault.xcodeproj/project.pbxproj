@@ -12,8 +12,6 @@
 		56025FB12BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */; };
 		56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB62BD3F35200A53EE6 /* CharacterModel.swift */; };
 		56025FB92BD3F38100A53EE6 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB82BD3F38100A53EE6 /* ComicModel.swift */; };
-		561CFAE62BF50547004BEB59 /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */; };
-		561CFAE82BF50C0A004BEB59 /* loadingIndicator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */; };
 		561CFAEA2BF50C65004BEB59 /* Hero.gif in Resources */ = {isa = PBXBuildFile; fileRef = 561CFAE92BF50C64004BEB59 /* Hero.gif */; };
 		561CFAEC2BF562A4004BEB59 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */; };
 		561CFAEE2BF562E2004BEB59 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */; };
@@ -83,8 +81,6 @@
 		56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsViewModel.swift; sourceTree = "<group>"; };
 		56025FB62BD3F35200A53EE6 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		56025FB82BD3F38100A53EE6 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
-		561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
-		561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loadingIndicator.storyboard; sourceTree = "<group>"; };
 		561CFAE92BF50C64004BEB59 /* Hero.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hero.gif; sourceTree = "<group>"; };
 		561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -287,12 +283,10 @@
 			isa = PBXGroup;
 			children = (
 				56E819702BCE9B51009CCE03 /* String+HTTP.swift */,
-				561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */,
-				561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */,
-				561CFAE92BF50C64004BEB59 /* Hero.gif */,
-				561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */,
 				56E8196E2BCE9434009CCE03 /* UIImageView+Extension.swift */,
 				561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */,
+				561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */,
+				561CFAE92BF50C64004BEB59 /* Hero.gif */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,7 +473,6 @@
 				56E8197A2BCF9E90009CCE03 /* UserScreen.storyboard in Resources */,
 				56FCA0BC2BB4484500A740DF /* HomeScreen.storyboard in Resources */,
 				561CFAEA2BF50C65004BEB59 /* Hero.gif in Resources */,
-				561CFAE82BF50C0A004BEB59 /* loadingIndicator.storyboard in Resources */,
 				56E8196B2BC9414E009CCE03 /* HomeScreenTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
 				56A15FBE2BBD7CB400D74E55 /* Game.storyboard in Resources */,
@@ -552,7 +545,6 @@
 				56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */,
 				56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */,
 				56E8196F2BCE9434009CCE03 /* UIImageView+Extension.swift in Sources */,
-				561CFAE62BF50547004BEB59 /* LoadingIndicatorViewController.swift in Sources */,
 				566C88612BE6AD72007AEB4C /* SignUpScreenViewModel.swift in Sources */,
 				56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */,
 				56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */,

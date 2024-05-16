@@ -16,12 +16,14 @@ class UserFavouritesScreenViewModel: ViewModelProtocol {
     private weak var delegate: ViewModelProtocol?
     private var marvelDataType: EntityType?
     var marvelData = [MarvelData]()
+    var isLoading: Bool
     
     // MARK: Functions
     
     init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelProtocol) {
         self.userFavouritesScreenRepository = userFavouritesScreenRepository
         self.delegate = delegate
+        isLoading = true
     }
     
     var marvelDataListCount: Int {
@@ -40,6 +42,12 @@ class UserFavouritesScreenViewModel: ViewModelProtocol {
     }
     
     func reloadView() {
+    }
+    
+    func startLoading() {
+    }
+    
+    func stopLoading() {
     }
     
     func fetchMarvelNameAndImage(for marvelIndex: Int) -> (String, String) {
