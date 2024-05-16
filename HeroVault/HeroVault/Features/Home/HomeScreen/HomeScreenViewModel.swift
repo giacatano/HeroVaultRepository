@@ -12,12 +12,6 @@ protocol ViewModelProtocol: AnyObject {
     func startLoading()
     func stopLoading()
 }
-
-//protocol TestProtocol: AnyObject {
-//    func startLoading()
-//    func stopLoading()
-//}
-
 class HomeScreenViewModel {
     
     // MARK: Variables
@@ -27,20 +21,15 @@ class HomeScreenViewModel {
     var marvelDataType: EntityType
     var error: Error?
     var isSearching: Bool
-    var isLoading: Bool
     var hideNoResultsText: Bool
-    
     private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelProtocol?
-   // private weak var testDelegate: TestProtocol?
     
     init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
-       // self.testDelegate = testDelegate
         self.marvelDataType = .character
         isSearching = false
-        isLoading = true
         hideNoResultsText = true
     }
     
@@ -79,14 +68,13 @@ class HomeScreenViewModel {
     }
     
     func filterMarvelData(filteredText: String) {
-        
         isSearching = true
         guard !filteredText.isEmpty else {
             isSearching = false
             hideNoResultsText = true
             return
         }
-        
+
         filteredMarvelData = marvelData.filter { marvelItem in
             marvelItem.name.lowercased().contains(filteredText.lowercased())
         }
@@ -113,11 +101,11 @@ class HomeScreenViewModel {
                         marvelData.append(character)
                     }
                 }
-                delegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error
             }
+            delegate?.stopLoading()
         }
     }
     
@@ -133,11 +121,11 @@ class HomeScreenViewModel {
                         marvelData.append(comic)
                     }
                 }
-                delegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error
             }
+            delegate?.stopLoading()
         }
     }
     

@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-fr-mQN">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-fr-mQN">
                         <rect key="frame" x="71.666666666666686" y="10" width="160" height="120"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -60,4 +60,7 @@
             <point key="canvasLocation" x="274.04580152671753" y="79.225352112676063"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
+    </resources>
 </document>
