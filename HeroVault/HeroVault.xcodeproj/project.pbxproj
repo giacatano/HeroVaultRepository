@@ -12,6 +12,11 @@
 		56025FB12BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */; };
 		56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB62BD3F35200A53EE6 /* CharacterModel.swift */; };
 		56025FB92BD3F38100A53EE6 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56025FB82BD3F38100A53EE6 /* ComicModel.swift */; };
+		561CFAE62BF50547004BEB59 /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */; };
+		561CFAE82BF50C0A004BEB59 /* loadingIndicator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */; };
+		561CFAEA2BF50C65004BEB59 /* Hero.gif in Resources */ = {isa = PBXBuildFile; fileRef = 561CFAE92BF50C64004BEB59 /* Hero.gif */; };
+		561CFAEC2BF562A4004BEB59 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */; };
+		561CFAEE2BF562E2004BEB59 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */; };
 		566C885B2BE6AA91007AEB4C /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C885A2BE6AA91007AEB4C /* LoginScreenViewModel.swift */; };
 		566C885D2BE6AAAC007AEB4C /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C885C2BE6AAAC007AEB4C /* AuthenticationRepository.swift */; };
 		566C88612BE6AD72007AEB4C /* SignUpScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */; };
@@ -35,7 +40,7 @@
 		56E819642BC5140B009CCE03 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819632BC5140B009CCE03 /* LoginScreen.storyboard */; };
 		56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819682BC9414E009CCE03 /* HomeScreenTableViewCell.swift */; };
 		56E8196B2BC9414E009CCE03 /* HomeScreenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E819692BC9414E009CCE03 /* HomeScreenTableViewCell.xib */; };
-		56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */; };
+		56E8196F2BCE9434009CCE03 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E8196E2BCE9434009CCE03 /* UIImageView+Extension.swift */; };
 		56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819702BCE9B51009CCE03 /* String+HTTP.swift */; };
 		56E819782BCF9E7F009CCE03 /* UserScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E819772BCF9E7F009CCE03 /* UserScreenViewController.swift */; };
 		56E8197A2BCF9E90009CCE03 /* UserScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E819792BCF9E90009CCE03 /* UserScreen.storyboard */; };
@@ -78,6 +83,11 @@
 		56025FB02BD3DA9100A53EE6 /* HomeScreenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDetailsViewModel.swift; sourceTree = "<group>"; };
 		56025FB62BD3F35200A53EE6 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		56025FB82BD3F38100A53EE6 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
+		561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loadingIndicator.storyboard; sourceTree = "<group>"; };
+		561CFAE92BF50C64004BEB59 /* Hero.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hero.gif; sourceTree = "<group>"; };
+		561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		566C885A2BE6AA91007AEB4C /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		566C885C2BE6AAAC007AEB4C /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewModel.swift; sourceTree = "<group>"; };
@@ -101,7 +111,7 @@
 		56E819632BC5140B009CCE03 /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
 		56E819682BC9414E009CCE03 /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		56E819692BC9414E009CCE03 /* HomeScreenTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenTableViewCell.xib; sourceTree = "<group>"; };
-		56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		56E8196E2BCE9434009CCE03 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		56E819702BCE9B51009CCE03 /* String+HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTTP.swift"; sourceTree = "<group>"; };
 		56E819772BCF9E7F009CCE03 /* UserScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreenViewController.swift; sourceTree = "<group>"; };
 		56E819792BCF9E90009CCE03 /* UserScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserScreen.storyboard; sourceTree = "<group>"; };
@@ -276,8 +286,13 @@
 		56E8196D2BCE940C009CCE03 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				56E8196E2BCE9434009CCE03 /* UIImageViewExtension.swift */,
 				56E819702BCE9B51009CCE03 /* String+HTTP.swift */,
+				561CFAE52BF50547004BEB59 /* LoadingIndicatorViewController.swift */,
+				561CFAE72BF50C0A004BEB59 /* loadingIndicator.storyboard */,
+				561CFAE92BF50C64004BEB59 /* Hero.gif */,
+				561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */,
+				56E8196E2BCE9434009CCE03 /* UIImageView+Extension.swift */,
+				561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,6 +478,8 @@
 				56FCA0BE2BB4484700A740DF /* Assets.xcassets in Resources */,
 				56E8197A2BCF9E90009CCE03 /* UserScreen.storyboard in Resources */,
 				56FCA0BC2BB4484500A740DF /* HomeScreen.storyboard in Resources */,
+				561CFAEA2BF50C65004BEB59 /* Hero.gif in Resources */,
+				561CFAE82BF50C0A004BEB59 /* loadingIndicator.storyboard in Resources */,
 				56E8196B2BC9414E009CCE03 /* HomeScreenTableViewCell.xib in Resources */,
 				56E8195E2BC173FE009CCE03 /* TabBarNavigation.storyboard in Resources */,
 				56A15FBE2BBD7CB400D74E55 /* Game.storyboard in Resources */,
@@ -505,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561CFAEE2BF562E2004BEB59 /* UIImage+Extension.swift in Sources */,
 				56025FB72BD3F35200A53EE6 /* CharacterModel.swift in Sources */,
 				56CAB27E2BE2DA7900C6CB7B /* HomeScreenDetailsRepository.swift in Sources */,
 				566C885B2BE6AA91007AEB4C /* LoginScreenViewModel.swift in Sources */,
@@ -517,6 +535,7 @@
 				56A15FB82BBD7BE400D74E55 /* GameRepository.swift in Sources */,
 				56B05DB32BD62B78001A0A61 /* UserFavouritesScreenViewController.swift in Sources */,
 				56F97D602BDECCFD0055DF7F /* UserFavouritesScreenRepository.swift in Sources */,
+				561CFAEC2BF562A4004BEB59 /* UIView+Extension.swift in Sources */,
 				56FCA0B92BB4484500A740DF /* HomeScreenViewController.swift in Sources */,
 				56FCA0EF2BB8067100A740DF /* Constants.swift in Sources */,
 				56F97D702BE183490055DF7F /* CoreDataCharacter+CoreDataProperties.swift in Sources */,
@@ -532,7 +551,8 @@
 				56F97D6E2BE1831D0055DF7F /* CoreDataCharacter+CoreDataClass.swift in Sources */,
 				56E8196A2BC9414E009CCE03 /* HomeScreenTableViewCell.swift in Sources */,
 				56FCA0B72BB4484500A740DF /* SceneDelegate.swift in Sources */,
-				56E8196F2BCE9434009CCE03 /* UIImageViewExtension.swift in Sources */,
+				56E8196F2BCE9434009CCE03 /* UIImageView+Extension.swift in Sources */,
+				561CFAE62BF50547004BEB59 /* LoadingIndicatorViewController.swift in Sources */,
 				566C88612BE6AD72007AEB4C /* SignUpScreenViewModel.swift in Sources */,
 				56B05DAE2BD42B53001A0A61 /* GameModel.swift in Sources */,
 				56E819712BCE9B51009CCE03 /* String+HTTP.swift in Sources */,

@@ -11,6 +11,11 @@ protocol ViewModelProtocol: AnyObject {
     func reloadView()
 }
 
+protocol TestProtocol: AnyObject {
+    func startLoading()
+    func stopLoading()
+}
+
 class HomeScreenViewModel {
     
     // MARK: Variables
@@ -20,16 +25,20 @@ class HomeScreenViewModel {
     var marvelDataType: EntityType
     var error: Error?
     var isSearching: Bool
+    var isLoading: Bool
     var hideNoResultsText: Bool
     
     private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelProtocol?
+    private weak var testDelegate: TestProtocol?
     
-    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol) {
+    init(homeScreenRepository: HomeScreenRepositoryType, delegate: ViewModelProtocol, testDelegate: TestProtocol) {
         self.homeScreenRepository = homeScreenRepository
         self.delegate = delegate
+        self.testDelegate = testDelegate
         self.marvelDataType = .character
         isSearching = false
+        isLoading = true
         hideNoResultsText = true
     }
     
@@ -91,6 +100,7 @@ class HomeScreenViewModel {
     }
     
     private func fetchCharacters() {
+        testDelegate?.startLoading()
         marvelData = []
         homeScreenRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
@@ -101,6 +111,7 @@ class HomeScreenViewModel {
                         marvelData.append(character)
                     }
                 }
+                testDelegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error
@@ -109,6 +120,7 @@ class HomeScreenViewModel {
     }
     
     private func fetchComics() {
+        testDelegate?.startLoading()
         marvelData = []
         homeScreenRepository?.fetchComics { [weak self] result in
             guard let self else { return }
@@ -119,6 +131,7 @@ class HomeScreenViewModel {
                         marvelData.append(comic)
                     }
                 }
+                testDelegate?.stopLoading()
                 delegate?.reloadView()
             case .failure(let error):
                 self.error = error

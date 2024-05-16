@@ -26,7 +26,7 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self)
+    private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self, testDelegate: self)
     
     // MARK: Functions
     
@@ -70,7 +70,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
                                                                             for: indexPath) as? HomeScreenTableViewCell else {
             return UITableViewCell()
         }
-        
+
         let (marvelName, marvelImage) = homeScreenViewModel.fetchMarvelNameAndImage(for: indexPath.section)
         homePageTableViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         return homePageTableViewCell
@@ -82,6 +82,10 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.homeScreenDetailSegueName, sender: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        homeScreenViewModel.isLoading ? nil : indexPath
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,6 +103,20 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeScreenViewController: ViewModelProtocol {
     func reloadView() {
         listTableView.reloadData()
+    }
+}
+
+extension HomeScreenViewController: TestProtocol {
+    func startLoading() {
+        homeScreenViewModel.isLoading = true
+        view.showLoading()
+        listTableView.isHidden = true
+    }
+    
+    func stopLoading() {
+        homeScreenViewModel.isLoading = false
+        view.stopLoading()
+        listTableView.isHidden = false
     }
 }
 
