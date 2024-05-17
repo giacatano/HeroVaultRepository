@@ -7,21 +7,21 @@
 
 import Foundation
 
-class UserFavouritesScreenViewModel: ViewModelProtocol {
+class UserFavouritesScreenViewModel {
     
     // MARK: Variables
     
     private var marvelDataList: [MarvelData]?
     private var userFavouritesScreenRepository: UserFavouritesScreenRepositoryType?
-    private weak var delegate: ViewModelProtocol?
     private var marvelDataType: EntityType?
     var marvelData = [MarvelData]()
+    var showFavouritesText: Bool
     
     // MARK: Functions
     
     init(userFavouritesScreenRepository: UserFavouritesScreenRepositoryType, delegate: ViewModelProtocol) {
         self.userFavouritesScreenRepository = userFavouritesScreenRepository
-        self.delegate = delegate
+        showFavouritesText = true
     }
     
     var marvelDataListCount: Int {
@@ -37,9 +37,12 @@ class UserFavouritesScreenViewModel: ViewModelProtocol {
         guard let marvelDataList = userFavouritesScreenRepository?.fetchMarvelDataFromCoreData(marvelDataType: marvelDataType) else { return }
         print("marvelDataList: \(marvelDataList)")
         self.marvelDataList = marvelDataList
-    }
-    
-    func reloadView() {
+        
+        if marvelDataList.isEmpty {
+            showFavouritesText = true
+        } else {
+            showFavouritesText = false
+        }
     }
     
     func fetchMarvelNameAndImage(for marvelIndex: Int) -> (String, String) {

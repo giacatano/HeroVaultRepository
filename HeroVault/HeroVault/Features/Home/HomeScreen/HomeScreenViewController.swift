@@ -22,6 +22,7 @@ class HomeScreenViewController: UIViewController {
         searchBar.text = ""
         let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? ""
         homeScreenViewModel.handleSegmentedControl(segmentedControlTitle: segmentedControlTitle)
+        noResultsLabel.isHidden = true
     }
     
     // MARK: Variables
@@ -37,13 +38,11 @@ class HomeScreenViewController: UIViewController {
         setUpSearchBar()
         noResultsLabel.isHidden = homeScreenViewModel.hideNoResultsText
     }
-    
     private func setUpSearchBar() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .black
         searchBar.searchTextField.backgroundColor = .white
     }
-    
     private func setUpTableView() {
         listTableView.register(HomeScreenTableViewCell.characterNib(),
                                forCellReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
@@ -55,7 +54,6 @@ class HomeScreenViewController: UIViewController {
 // MARK: Extensions
 
 extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         homeScreenViewModel.numberOfSections
     }
@@ -65,12 +63,10 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let homePageTableViewCell = listTableView.dequeueReusableCell(withIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName,
                                                                             for: indexPath) as? HomeScreenTableViewCell else {
             return UITableViewCell()
         }
-        
         let (marvelName, marvelImage) = homeScreenViewModel.fetchMarvelNameAndImage(for: indexPath.section)
         homePageTableViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         return homePageTableViewCell
@@ -97,6 +93,16 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeScreenViewController: ViewModelProtocol {
+    func startLoadingIndicator() {
+        view.showLoadingIndicator()
+        listTableView.isHidden = true
+    }
+    
+    func stopLoadingIndicator() {
+        view.stopLoadingIndicator()
+        listTableView.isHidden = false
+    }
+    
     func reloadView() {
         listTableView.reloadData()
     }

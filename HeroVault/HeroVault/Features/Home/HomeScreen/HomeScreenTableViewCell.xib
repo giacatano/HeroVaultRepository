@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-d6-pPu">
-                        <rect key="frame" x="0.0" y="0.0" width="373" height="369.33333333333331"/>
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="432.33333333333331"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-g1-dZ3">
-                                <rect key="frame" x="15" y="15" width="343" height="284.33333333333331"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-g1-dZ3">
+                                <rect key="frame" x="15" y="15" width="343" height="347.33333333333331"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="284.32999999999998" id="9ul-t0-XPr"/>
@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-gS-dS7">
-                                <rect key="frame" x="6" y="299.33333333333331" width="352" height="55"/>
+                                <rect key="frame" x="6" y="362.33333333333331" width="352" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fvbnbkbnkjbnejbnelbnrtb" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Cs-jWw">
                                         <rect key="frame" x="0.0" y="0.0" width="352" height="55"/>
@@ -78,4 +78,7 @@
             <point key="canvasLocation" x="164.8854961832061" y="79.577464788732399"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
+    </resources>
 </document>
