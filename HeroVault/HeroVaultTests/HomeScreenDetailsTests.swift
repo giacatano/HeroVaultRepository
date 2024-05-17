@@ -90,6 +90,13 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
 // MARK: Mock Classes
 
 class MockHomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
+    func hasObjectBeenFavourited(object: HeroVault.MarvelData) -> Bool {
+        return true
+    }
+    
+    func removeFavouritedFromCoreData(object: HeroVault.MarvelData) {
+    }
+    
     var saveIntoCoreDataCalled = false
     var savedObject: MarvelData?
     

@@ -22,7 +22,7 @@ class HomeScreenDetailsViewModel {
         guard let description = marvelData?.overview else { return "" }
         return description.isEmpty ? Constants.ErrorManagement.descriptionError : marvelData?.overview ?? ""
     }
-        
+    
     // MARK: Functions
     
     init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
@@ -34,7 +34,7 @@ class HomeScreenDetailsViewModel {
         imageName.append("/portrait_incredible.jpg")
         return imageName.convertToHttps()
     }
-
+    
     func set(marvelData: MarvelData) {
         self.marvelData = marvelData
     }

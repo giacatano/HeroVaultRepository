@@ -49,5 +49,5 @@ class HomeScreenDetailsViewController: UIViewController {
         let imageName = isFavourited ? "star.circle" : "star.circle.fill"
         starButton.setImage(UIImage(systemName: imageName), for: .normal)
         isFavourited ? homeScreenDetailViewModel.removeFromFavourites() : homeScreenDetailViewModel.saveObjectIntoCoreData()
-      }
+    }
 }
