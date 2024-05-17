@@ -94,13 +94,13 @@
                                 <rect key="frame" x="39.666666666666657" y="433.33333333333331" width="351" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hbtrhtrhtrjhtjyyjyjyjyjyj yj yjyjyjyj" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUm-Ou-nA0">
-                                        <rect key="frame" x="0.0" y="0.0" width="213" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="282" height="50"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCh-if-v8y">
-                                        <rect key="frame" x="213" y="0.0" width="69" height="50"/>
+                                        <rect key="frame" x="282" y="0.0" width="69" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="NY6-Yd-lI4"/>
@@ -109,30 +109,12 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="plus.app" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="star.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
                                             <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="favouriteButtonTapped:" destination="ODW-tn-hqn" eventType="touchUpInside" id="5Vy-QW-Wmd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db4-ew-bES">
-                                        <rect key="frame" x="282" y="0.0" width="69" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="b2E-qd-DCd"/>
-                                            <constraint firstAttribute="width" constant="69" id="pGK-LA-lo0"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="minus.square" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35"/>
-                                            <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="unfavouriteButtonTapped:" destination="ODW-tn-hqn" eventType="touchUpInside" id="HNY-H9-m8x"/>
+                                            <action selector="starButtonTapped:" destination="ODW-tn-hqn" eventType="touchUpInside" id="jbD-51-yA0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -167,11 +149,10 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="srn-WA-7sa" id="W58-Ly-yCs"/>
-                        <outlet property="favouriteButton" destination="wCh-if-v8y" id="Oft-JA-4Ac"/>
                         <outlet property="ratingImage" destination="UwB-x4-H9o" id="UdG-Ft-KTY"/>
                         <outlet property="selectedImage" destination="E8f-I4-Sdm" id="GuR-QQ-5Gh"/>
                         <outlet property="selectedLabel" destination="DUm-Ou-nA0" id="eYe-uU-QUc"/>
-                        <outlet property="unfavouriteButton" destination="db4-ew-bES" id="5uP-So-l3W"/>
+                        <outlet property="starButton" destination="wCh-if-v8y" id="Vp1-C7-3RU"/>
                         <outlet property="userRatingLabel" destination="NvE-Jc-Lub" id="Jqu-rx-Kfy"/>
                     </connections>
                 </viewController>
@@ -184,8 +165,7 @@
         <image name="Background" width="640" height="812.33331298828125"/>
         <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
         <image name="RedStars" width="300" height="53.333332061767578"/>
-        <image name="minus.square" catalog="system" width="128" height="114"/>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="star.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

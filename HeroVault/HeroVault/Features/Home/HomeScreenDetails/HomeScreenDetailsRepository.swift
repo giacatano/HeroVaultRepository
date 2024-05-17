@@ -11,10 +11,9 @@ import Foundation
 
 protocol HomeScreenDetailsRepositoryType {
     func saveIntoCoreData(object: MarvelData)
-    func deleteFromCoreData(object: MarvelData)
 }
 
-// MARK: Repository
+// MARK: Repository 
 
 class HomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
     
@@ -22,9 +21,5 @@ class HomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
     
     func saveIntoCoreData(object: MarvelData) {
         coreDataHandler.saveObjectIntoCoreData(object)
-    }
-    
-    func deleteFromCoreData(object: MarvelData) {
-        coreDataHandler.deleteObjectFromCoreData(object)
     }
 }

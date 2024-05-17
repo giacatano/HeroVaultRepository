@@ -94,18 +94,12 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
 // MARK: Mock Classes
 
 class MockHomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
-    
-    var deleteFromCoreDataCalled = false
     var saveIntoCoreDataCalled = false
     var savedObject: MarvelData?
     
     func saveIntoCoreData(object: MarvelData) {
         saveIntoCoreDataCalled = true
         savedObject = object
-    }
-    
-    func deleteFromCoreData(object: MarvelData) {
-        deleteFromCoreDataCalled = true
     }
 }
 
