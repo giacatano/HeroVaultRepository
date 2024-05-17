@@ -26,13 +26,12 @@ class UserFavouritesScreenViewController: UIViewController {
         super.viewDidLoad()
         setUpCollectionView()
         setUpScreen()
-        noFavouritesLabel.isHidden = !userFavouritesScreenViewModel.showFavouritesText
     }
     
     func setUpScreen() {
         userFavouritesScreenViewModel.fetchAllMarvelDataFromCoreData()
         favouritesTitleLabel.text = userFavouritesScreenViewModel.favouritesScreenTitle
-        noFavouritesLabel.isHidden = userFavouritesScreenViewModel.emptyMarvelDataList
+        noFavouritesLabel.isHidden = !userFavouritesScreenViewModel.showFavouritesText
     }
     
     func set(marvelDataType: EntityType) {
@@ -83,13 +82,13 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
 }
 
 extension UserFavouritesScreenViewController: ViewModelProtocol {
+    func stopLoadingIndicator() {
+    }
+    
     func reloadView() {
         favouritesCollectionView.reloadData()
     }
     
-    func startLoading() {
-    }
-    
-    func stopLoading() {
+    func startLoadingIndicator() {
     }
 }

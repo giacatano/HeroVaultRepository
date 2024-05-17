@@ -9,8 +9,8 @@ import Foundation
 
 protocol ViewModelProtocol: AnyObject {
     func reloadView()
-    func startLoading()
-    func stopLoading()
+    func startLoadingIndicator()
+    func stopLoadingIndicator()
 }
 class HomeScreenViewModel {
     
@@ -74,7 +74,7 @@ class HomeScreenViewModel {
             hideNoResultsText = true
             return
         }
-
+        
         filteredMarvelData = marvelData.filter { marvelItem in
             marvelItem.name.lowercased().contains(filteredText.lowercased())
         }
@@ -90,7 +90,7 @@ class HomeScreenViewModel {
     }
     
     private func fetchCharacters() {
-        delegate?.startLoading()
+        delegate?.startLoadingIndicator()
         marvelData = []
         homeScreenRepository?.fetchCharacters { [weak self] result in
             guard let self else { return }
@@ -105,12 +105,12 @@ class HomeScreenViewModel {
             case .failure(let error):
                 self.error = error
             }
-            delegate?.stopLoading()
+            delegate?.stopLoadingIndicator()
         }
     }
     
     private func fetchComics() {
-        delegate?.startLoading()
+        delegate?.startLoadingIndicator()
         marvelData = []
         homeScreenRepository?.fetchComics { [weak self] result in
             guard let self else { return }
@@ -125,7 +125,7 @@ class HomeScreenViewModel {
             case .failure(let error):
                 self.error = error
             }
-            delegate?.stopLoading()
+            delegate?.stopLoadingIndicator()
         }
     }
     

@@ -300,10 +300,10 @@ class MockHomeScreenRepository: HomeScreenRepositoryType {
 }
 
 class MockViewModelProtocol: ViewModelProtocol {
-    func startLoading() {
+    func startLoadingIndicator() {
     }
     
-    func stopLoading() {
+    func stopLoadingIndicator() {
     }
     
     var reloadViewCalled = false

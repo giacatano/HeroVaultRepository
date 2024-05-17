@@ -93,12 +93,12 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeScreenViewController: ViewModelProtocol {
-    func startLoading() {
+    func startLoadingIndicator() {
         view.showLoadingIndicator()
         listTableView.isHidden = true
     }
     
-    func stopLoading() {
+    func stopLoadingIndicator() {
         view.stopLoadingIndicator()
         listTableView.isHidden = false
     }
