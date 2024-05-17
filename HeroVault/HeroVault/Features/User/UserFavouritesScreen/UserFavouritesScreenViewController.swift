@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
+class UserFavouritesScreenViewController: UIViewController {
     
     // MARK: IBOutlets
     
@@ -32,19 +32,7 @@ class UserFavouritesScreenViewController: UIViewController, ViewModelProtocol {
     func setUpScreen() {
         userFavouritesScreenViewModel.fetchAllMarvelDataFromCoreData()
         favouritesTitleLabel.text = userFavouritesScreenViewModel.favouritesScreenTitle
-        if userFavouritesScreenViewModel.marvelDataListCount > 0 {
-            noFavouritesLabel.isHidden = true
-        }
-    }
-    
-    func reloadView() {
-        favouritesCollectionView.reloadData()
-    }
-    
-    func startLoading() {
-    }
-    
-    func stopLoading() {
+        noFavouritesLabel.isHidden = userFavouritesScreenViewModel.emptyMarvelDataList
     }
     
     func set(marvelDataType: EntityType) {
@@ -66,7 +54,6 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         favouritesCollectionView.deselectItem(at: indexPath, animated: true)
-        print("You selected me")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,5 +79,17 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
         favouritesScreenCollectionViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         favouritesScreenCollectionViewCell.layer.cornerRadius = 5
         return favouritesScreenCollectionViewCell
+    }
+}
+
+extension UserFavouritesScreenViewController: ViewModelProtocol {
+    func reloadView() {
+        favouritesCollectionView.reloadData()
+    }
+    
+    func startLoading() {
+    }
+    
+    func stopLoading() {
     }
 }

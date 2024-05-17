@@ -32,6 +32,10 @@ class UserFavouritesScreenViewModel {
         marvelDataType == .character ? "Characters" : "Comics"
     }
     
+    var emptyMarvelDataList: Bool {
+            return marvelDataListCount == 0
+        }
+    
     func fetchAllMarvelDataFromCoreData() {
         guard let marvelDataType = marvelDataType else { return }
         guard let marvelDataList = userFavouritesScreenRepository?.fetchMarvelDataFromCoreData(marvelDataType: marvelDataType) else { return }

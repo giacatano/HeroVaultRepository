@@ -11,7 +11,7 @@ extension UIView {
     
     static let loadingViewTag = 1
     
-    func showLoading() {
+    func showLoadingIndicator() {
         var loadingImageView = viewWithTag(UIView.loadingViewTag) as? UIImageView
         
         if loadingImageView == nil {
@@ -41,7 +41,7 @@ extension UIView {
         }
     }
     
-    func stopLoading() {
+    func stopLoadingIndicator() {
         if let loading = viewWithTag(UIView.loadingViewTag) as? UIImageView {
             loading.stopAnimating()
             loading.removeFromSuperview()

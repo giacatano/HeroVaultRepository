@@ -94,12 +94,12 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeScreenViewController: ViewModelProtocol {
     func startLoading() {
-        view.showLoading()
+        view.showLoadingIndicator()
         listTableView.isHidden = true
     }
     
     func stopLoading() {
-        view.stopLoading()
+        view.stopLoadingIndicator()
         listTableView.isHidden = false
     }
     
@@ -107,6 +107,7 @@ extension HomeScreenViewController: ViewModelProtocol {
         listTableView.reloadData()
     }
 }
+
 extension HomeScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         homeScreenViewModel.filterMarvelData(filteredText: searchText)
