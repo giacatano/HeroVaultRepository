@@ -22,28 +22,16 @@ class HomeScreenDetailsViewController: UIViewController {
     
     // MARK: IBActions
     
-    @IBAction func starButtonTapped(_ sender: Any) {
-        homeScreenDetailViewModel.saveObjectIntoCoreData()
-        
-        if let button = sender as? UIButton {
-            
-            button.isSelected.toggle()
-            
-            if button.isSelected {
-                button.setImage(UIImage(systemName: "star.circle.fill"), for: .normal)
-                
-            } else {
-                button.setImage(UIImage(systemName: "star.circle"), for: .normal)
-            }
-        }
+    @IBAction private func starButtonTapped(_ sender: Any) {
+        setUpFavouritedButton()
     }
     
     // MARK: ViewController Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(homeScreenDetailViewModel.marvelData ?? "empty")
         setUpHomeScreenDetailView()
+        homeScreenDetailViewModel.hasObjectBeenFavourited() ? starButton.setImage(UIImage(systemName: "star.circle.fill"), for: .normal) : starButton.setImage(UIImage(systemName: "star.circle"), for: .normal)
     }
     
     func set(marvelData: MarvelData) {
@@ -55,4 +43,11 @@ class HomeScreenDetailsViewController: UIViewController {
         descriptionTextField.text = homeScreenDetailViewModel.marvelDataDescription
         selectedImage.load(urlString: homeScreenDetailViewModel.createImage())
     }
+    
+    private func setUpFavouritedButton() {
+        let isFavourited = homeScreenDetailViewModel.hasObjectBeenFavourited()
+        let imageName = isFavourited ? "star.circle" : "star.circle.fill"
+        starButton.setImage(UIImage(systemName: imageName), for: .normal)
+        isFavourited ? homeScreenDetailViewModel.removeFromFavourites() : homeScreenDetailViewModel.saveObjectIntoCoreData()
+      }
 }

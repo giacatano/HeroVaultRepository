@@ -22,19 +22,19 @@ class HomeScreenDetailsViewModel {
         guard let description = marvelData?.overview else { return "" }
         return description.isEmpty ? Constants.ErrorManagement.descriptionError : marvelData?.overview ?? ""
     }
-    
-    func createImage() -> String {
-        guard var imageName = (marvelData?.thumbnail) else { return "" }
-        imageName.append("/portrait_incredible.jpg")
-        return imageName.convertToHttps()
-    }
-    
+        
     // MARK: Functions
     
     init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
         self.homeScreenDetailsRepository = homeScreenDetailsRepository
     }
     
+    func createImage() -> String {
+        guard var imageName = (marvelData?.thumbnail) else { return "" }
+        imageName.append("/portrait_incredible.jpg")
+        return imageName.convertToHttps()
+    }
+
     func set(marvelData: MarvelData) {
         self.marvelData = marvelData
     }
@@ -42,6 +42,19 @@ class HomeScreenDetailsViewModel {
     func saveObjectIntoCoreData() {
         if let marvelData {
             homeScreenDetailsRepository?.saveIntoCoreData(object: marvelData)
+        }
+    }
+    
+    func hasObjectBeenFavourited() -> Bool {
+        if let marvelData {
+            return homeScreenDetailsRepository?.hasObjectBeenFavourited(object: marvelData) ?? false
+        }
+        return false
+    }
+    
+    func removeFromFavourites() {
+        if let marvelData {
+            homeScreenDetailsRepository?.removeFavouritedFromCoreData(object: marvelData)
         }
     }
 }

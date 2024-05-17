@@ -41,8 +41,4 @@ class HomeScreenRepository: HomeScreenRepositoryType {
             completion(result)
         }
     }
-    
-    func hasMarvelDataBeenfavourited(object: MarvelData, entityType: EntityType) -> Bool {
-        coreDataHandler.hasObjectBeenFavourited(object, entityType: entityType)
-    }
 }
