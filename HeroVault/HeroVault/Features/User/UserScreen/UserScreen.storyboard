@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -108,6 +109,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7B1-O9-Kxl">
+                                <rect key="frame" x="301" y="75" width="66" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Logout">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="11"/>
+                                    <color key="baseForegroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="acf-fk-bNx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,14 +135,26 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="7B1-O9-Kxl" id="uHm-Al-flv"/>
                         <outlet property="userImage" destination="7ne-TO-39Y" id="eDH-Vl-O2m"/>
                         <outlet property="userNameLabel" destination="Uva-Qs-UVJ" id="t17-IG-rHQ"/>
                         <segue destination="Xkt-Zw-tdL" kind="show" identifier="UserFavouritesSegue" id="0DC-UL-yrK"/>
+                        <segue destination="aeC-Vj-gpn" kind="show" identifier="LoginScreenSegue" id="Mqj-12-SKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="27"/>
+            <point key="canvasLocation" x="241.98473282442748" y="26.760563380281692"/>
+        </scene>
+        <!--LoginScreen-->
+        <scene sceneID="Gsh-AB-zaP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginScreen" id="aeC-Vj-gpn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="p1e-WS-DaV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KF0-57-IvX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="-65"/>
         </scene>
         <!--UserFavouritesScreen-->
         <scene sceneID="Stx-rA-EQ3">

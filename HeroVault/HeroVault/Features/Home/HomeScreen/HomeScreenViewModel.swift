@@ -12,6 +12,7 @@ protocol ViewModelProtocol: AnyObject {
     func startLoadingIndicator()
     func stopLoadingIndicator()
 }
+
 class HomeScreenViewModel {
     
     // MARK: Variables

@@ -13,10 +13,9 @@ class UserScreenViewController: UIViewController {
     
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet private weak var logoutButton: UIButton!
     
-    private var userScreenViewModel = UserScreenViewModel()
-
-// MARK: IBActions
+    // MARK: IBActions
     
     @IBAction private func favouriteCharactersButtonTapped(sender: Any) {
         userScreenViewModel.set(marvelDataType: .character)
@@ -26,6 +25,10 @@ class UserScreenViewController: UIViewController {
     @IBAction private func favouriteComicsButtonTapped(_ sender: Any) {
         userScreenViewModel.set(marvelDataType: .comic)
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
+    }
+    
+    @IBAction private func logoutButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,3 +41,7 @@ class UserScreenViewController: UIViewController {
         }
     }
 }
+
+// MARK: Variables
+
+private var userScreenViewModel = UserScreenViewModel(authenticationRepository: AuthenticationRepository())
