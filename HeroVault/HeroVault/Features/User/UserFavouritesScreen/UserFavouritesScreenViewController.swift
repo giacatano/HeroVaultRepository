@@ -56,8 +56,7 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        setUpScreen()
-        return  userFavouritesScreenViewModel.marvelDataListCount
+        userFavouritesScreenViewModel.marvelDataListCount
     }
     
     func collectionView(_ collectionView: UICollectionView,
