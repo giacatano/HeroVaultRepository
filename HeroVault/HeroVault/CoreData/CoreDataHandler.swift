@@ -30,6 +30,7 @@ protocol CoreDataHandlerType {
     func fetchAllObjectsFromCoreData(entityType: EntityType) -> [MarvelData]?
     func saveObjectIntoCoreData(_ object: MarvelData)
     func deleteObjectFromCoreData(_ object: MarvelData)
+    func doesObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool
     func deleteAllObjectsFromCoreData()
     func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
@@ -114,6 +115,25 @@ class CoreDataHandler: CoreDataHandlerType {
         _ = try? context.execute(batchDeleteRequest)
     }
     
+    func doesObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool {
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            if count > 0 {
+                print("Number of objects with character ID \(object.id): \(count)")
+                return true
+            } else {
+                return false
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return false
+        }
+    }
+    
     // MARK: - Core Data Create User Data
     
     func signUpUser(userName: String, password: String) -> Bool {
@@ -148,21 +168,6 @@ class CoreDataHandler: CoreDataHandlerType {
     
     // MARK: - Core Data Helper Functions
     
-    func hasObjectBeenFavourited(_ object: MarvelData, entityType: EntityType) -> Bool {
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            let marvelData = results.first as? MarvelData
-            return marvelData?.isFavourited ?? false
-        } catch {
-            print("Error fetching character: \(error.localizedDescription)")
-            return false
-        }
-    }
-    
     private func checkIfUserExists(userName: String, password: String) -> Bool {
         let fetchRequest = NSFetchRequest<User>(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
@@ -194,14 +199,12 @@ class CoreDataHandler: CoreDataHandlerType {
             newCharacter.id = object.id
             newCharacter.overview = object.overview
             newCharacter.thumbnail = object.thumbnail
-            newCharacter.isFavourited = true
         } else {
             let newComic = CoreDataComic(context: context)
             newComic.name = object.name
             newComic.id = object.id
             newComic.overview = object.overview
             newComic.thumbnail = object.thumbnail
-            newComic.isFavourited = true
         }
     }
     
@@ -237,25 +240,6 @@ class CoreDataHandler: CoreDataHandlerType {
         } catch {
             print("Error fetching character: \(error.localizedDescription)")
             return nil
-        }
-    }
-    
-    private func doesObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool {
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
-        fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
-        
-        do {
-            let count = try context.count(for: fetchRequest)
-            if count > 0 {
-                print("Number of objects with character ID \(object.id): \(count)")
-                return true
-            } else {
-                return false
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-            return false
         }
     }
 }

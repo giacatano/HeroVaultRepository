@@ -38,11 +38,13 @@ class HomeScreenViewController: UIViewController {
         setUpSearchBar()
         noResultsLabel.isHidden = homeScreenViewModel.hideNoResultsText
     }
+    
     private func setUpSearchBar() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .black
         searchBar.searchTextField.backgroundColor = .white
     }
+    
     private func setUpTableView() {
         listTableView.register(HomeScreenTableViewCell.characterNib(),
                                forCellReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
