@@ -15,8 +15,8 @@ class UserScreenViewController: UIViewController {
     @IBOutlet weak private var userNameLabel: UILabel!
     
     private var userScreenViewModel = UserScreenViewModel()
-
-// MARK: IBActions
+    
+    // MARK: IBActions
     
     @IBAction private func favouriteCharactersButtonTapped(sender: Any) {
         userScreenViewModel.set(marvelDataType: .character)
