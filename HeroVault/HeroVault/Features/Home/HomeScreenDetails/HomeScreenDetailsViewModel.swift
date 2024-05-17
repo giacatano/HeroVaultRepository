@@ -44,4 +44,10 @@ class HomeScreenDetailsViewModel {
             homeScreenDetailsRepository?.saveIntoCoreData(object: marvelData)
         }
     }
+    
+    func deleteObjectFromCoreData() {
+        if let marvelData{
+            homeScreenDetailsRepository?.deleteFromCoreData(object: marvelData)
+        }
+    }
 }

@@ -18,24 +18,17 @@ class HomeScreenDetailsViewController: UIViewController {
     @IBOutlet weak private var selectedImage: UIImageView!
     @IBOutlet weak private var selectedLabel: UILabel!
     @IBOutlet weak private var descriptionTextField: UITextView!
-    @IBOutlet weak private var starButton: UIButton!
+    @IBOutlet weak private var favouriteButton: UIButton!
+    @IBOutlet weak private var unfavouriteButton: UIButton!
     
     // MARK: IBActions
     
-    @IBAction func starButtonTapped(_ sender: Any) {
+    @IBAction func favouriteButtonTapped(_ sender: Any) {
         homeScreenDetailViewModel.saveObjectIntoCoreData()
-        
-        if let button = sender as? UIButton {
-            
-            button.isSelected.toggle()
-            
-            if button.isSelected {
-                button.setImage(UIImage(systemName: "star.circle.fill"), for: .normal)
-                
-            } else {
-                button.setImage(UIImage(systemName: "star.circle"), for: .normal)
-            }
-        }
+    }
+    
+    @IBAction func unfavouriteButtonTapped(_ sender: Any) {
+        homeScreenDetailViewModel.deleteObjectFromCoreData()
     }
     
     // MARK: ViewController Functions
