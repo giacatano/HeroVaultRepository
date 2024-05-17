@@ -139,22 +139,11 @@
                         <outlet property="userImage" destination="7ne-TO-39Y" id="eDH-Vl-O2m"/>
                         <outlet property="userNameLabel" destination="Uva-Qs-UVJ" id="t17-IG-rHQ"/>
                         <segue destination="Xkt-Zw-tdL" kind="show" identifier="UserFavouritesSegue" id="0DC-UL-yrK"/>
-                        <segue destination="aeC-Vj-gpn" kind="show" identifier="LoginScreenSegue" id="Mqj-12-SKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241.98473282442748" y="26.760563380281692"/>
-        </scene>
-        <!--LoginScreen-->
-        <scene sceneID="Gsh-AB-zaP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LoginScreen" id="aeC-Vj-gpn" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="p1e-WS-DaV"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KF0-57-IvX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="863" y="-65"/>
         </scene>
         <!--UserFavouritesScreen-->
         <scene sceneID="Stx-rA-EQ3">

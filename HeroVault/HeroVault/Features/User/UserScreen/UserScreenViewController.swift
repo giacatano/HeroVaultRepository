@@ -28,7 +28,7 @@ class UserScreenViewController: UIViewController {
     }
     
     @IBAction private func logoutButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: sender)
+        userScreenViewModel.logout()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
