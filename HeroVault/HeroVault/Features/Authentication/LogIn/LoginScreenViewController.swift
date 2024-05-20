@@ -45,11 +45,12 @@ class LoginScreenViewController: UIViewController {
     
     private func setUpLoginScreen() {
         invalidCredentialsLabel.isHidden = true
+        hideKeyboardWhenTappedAround()
     }
     
     private func invalidLogin() {
         invalidCredentialsLabel.isHidden = false
-        invalidCredentialsLabel.text = "Invalid Credentials"
+        invalidCredentialsLabel.text = Constants.ErrorManagement.invalidCredentialsError
         usernameTextField.text = ""
         passwordTextField.text = ""
     }

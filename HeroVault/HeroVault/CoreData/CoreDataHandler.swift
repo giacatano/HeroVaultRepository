@@ -30,8 +30,7 @@ protocol CoreDataHandlerType {
     func fetchAllObjectsFromCoreData(entityType: EntityType) -> [MarvelData]?
     func saveObjectIntoCoreData(_ object: MarvelData)
     func deleteObjectFromCoreData(_ object: MarvelData)
-    func doesObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool
-    func deleteAllObjectsFromCoreData()
+    func checkObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool
     func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
 }
@@ -40,7 +39,9 @@ protocol CoreDataHandlerType {
 
 class CoreDataHandler: CoreDataHandlerType {
     
-    let appDelegate: AppDelegate
+    // MARK: - Variables
+    
+    weak var appDelegate: AppDelegate?
     let context: NSManagedObjectContext
     
     init() {
@@ -52,9 +53,7 @@ class CoreDataHandler: CoreDataHandlerType {
         context = appDelegate.persistentContainer.viewContext
     }
     
-    // MARK: - Core Data CRUD functions
-    
-    // MARK: - Core Data Create Marvel Data
+    // MARK: - Core Data CRUD Functions
     
     func fetchAllObjectsFromCoreData(entityType: EntityType) -> [MarvelData]? {
         if entityType == .character {
@@ -75,8 +74,8 @@ class CoreDataHandler: CoreDataHandlerType {
     // MARK: - Core Data Save Marvel Data
     
     func saveObjectIntoCoreData(_ object: MarvelData) {
-        let entityType: EntityType = object is Character ? .character : .comic
-        if !doesObjectExistInCoreData(object, entityType: entityType) {
+        let entityType: EntityType = (object is Character || object is CoreDataCharacter) ? .character : .comic
+        if !checkObjectExistInCoreData(object, entityType: entityType) {
             createObjectInCoreData(object)
             saveContext()
             print("saved into core data: \(object.name)")
@@ -88,10 +87,9 @@ class CoreDataHandler: CoreDataHandlerType {
     // MARK: - Core Data Delete Marvel Data
     
     func deleteObjectFromCoreData(_ object: MarvelData) {
-        
         var objectToBeDeleted: MarvelData?
         
-        if object is Character {
+        if object is Character || object is CoreDataCharacter {
             if let characterObject = fetchCharacterByID(object.id) {
                 objectToBeDeleted = characterObject
             }
@@ -107,16 +105,9 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    // MARK: - Core Data Delete All Marvel Data
+    // MARK: - Core Data Check Marvel Data Exists
     
-    func deleteAllObjectsFromCoreData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataCharacter.fetchRequest()
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        _ = try? context.execute(batchDeleteRequest)
-    }
-    
-    func doesObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool {
-        
+    func checkObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
         fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
         
@@ -134,7 +125,7 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    // MARK: - Core Data Create User Data
+    // MARK: - Core Data Create User
     
     func signUpUser(userName: String, password: String) -> Bool {
         if !checkIfUserExists(userName: userName, password: password) {
@@ -148,7 +139,7 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    // MARK: - Core Data Login User Data
+    // MARK: - Core Data Login User
     
     func loginUser(userName: String, password: String) -> Bool {
         if !checkIfUserExists(userName: userName, password: password) {
@@ -158,7 +149,7 @@ class CoreDataHandler: CoreDataHandlerType {
         }
     }
     
-    // MARK: - Core Data Delete User Data
+    // MARK: - Core Data Delete User
     
     func deleteUsers() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
@@ -193,7 +184,7 @@ class CoreDataHandler: CoreDataHandlerType {
     }
     
     private func createObjectInCoreData(_ object: MarvelData) {
-        if object is Character {
+        if object is Character || object is CoreDataCharacter {
             let newCharacter = CoreDataCharacter(context: context)
             newCharacter.name = object.name
             newCharacter.id = object.id
@@ -216,10 +207,8 @@ class CoreDataHandler: CoreDataHandlerType {
     }
     
     private func fetchComicByID(_ id: Int) -> MarvelData? {
-        
         let fetchRequest: NSFetchRequest<CoreDataComic> = CoreDataComic.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", id)
-        
         do {
             let results = try context.fetch(fetchRequest)
             return results.first
@@ -230,10 +219,8 @@ class CoreDataHandler: CoreDataHandlerType {
     }
     
     private func fetchCharacterByID(_ id: Int) -> MarvelData? {
-        
         let fetchRequest: NSFetchRequest<CoreDataCharacter> = CoreDataCharacter.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", id)
-        
         do {
             let results = try context.fetch(fetchRequest)
             return results.first
@@ -241,5 +228,11 @@ class CoreDataHandler: CoreDataHandlerType {
             print("Error fetching character: \(error.localizedDescription)")
             return nil
         }
+    }
+    
+    private func deleteAllObjectsFromCoreData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataCharacter.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try? context.execute(batchDeleteRequest)
     }
 }

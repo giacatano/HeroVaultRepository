@@ -34,7 +34,7 @@ class HomeScreenViewModel {
         hideNoResultsText = true
     }
     
-    // MARK: Computes properties
+    // MARK: Computed Properties
     
     var marvelDataCount: Int {
         marvelData.count

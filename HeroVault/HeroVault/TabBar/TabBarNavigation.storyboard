@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dKa-NC-pT6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dKa-NC-pT6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Navigation Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="jyZ-6L-qmk">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="dKa-NC-pT6" customClass="TabBarNavigationController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="dKa-NC-pT6" customClass="TabBarViewController" customModule="HeroVault" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="mqi-s1-mvX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.80392158030000005" green="0.2352941036" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.15294116739999999" green="0.15294116739999999" blue="0.15686275059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="y6b-r9-LxQ" kind="relationship" relationship="viewControllers" id="lVQ-PC-IiO"/>
                         <segue destination="DIz-Ow-Gse" kind="relationship" relationship="viewControllers" id="nVB-q2-UhQ"/>
@@ -33,8 +40,22 @@
         <scene sceneID="qQJ-yS-lmo">
             <objects>
                 <navigationController id="y6b-r9-LxQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Game" image="gamecontroller" catalog="system" id="P68-SD-Kk0">
+                    <tabBarItem key="tabBarItem" title="Game" id="P68-SD-Kk0">
+                        <imageReference key="image" image="gamecontroller" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </hierarchicalColors>
+                        </imageReference>
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="selectedImage" image="gamecontroller" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                            </hierarchicalColors>
+                        </imageReference>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGZ-SB-yg3">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -59,11 +80,31 @@
             </objects>
             <point key="canvasLocation" x="-2385" y="993"/>
         </scene>
-        <!--Discover-->
+        <!--Home-->
         <scene sceneID="OlM-hd-62P">
             <objects>
                 <navigationController id="DIz-Ow-Gse" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="BYR-DH-DUB"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="BYR-DH-DUB">
+                        <imageReference key="image" image="house" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="house" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AoG-Yp-oJr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,7 +132,22 @@
         <scene sceneID="8IV-1b-2iV">
             <objects>
                 <navigationController id="DJY-46-vTM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.crop.circle" id="HKT-Bd-n0U"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="HKT-Bd-n0U">
+                        <imageReference key="image" image="person.circle" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="person.crop.circle" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                                <color name="primary"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Isp-Bt-fSp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,10 +174,13 @@
     </scenes>
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="79"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <namedColor name="RedAccentColor">
+            <color red="0.80400002002716064" green="0.23499999940395355" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primary">
             <color red="0.80400002002716064" green="0.23499999940395355" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>

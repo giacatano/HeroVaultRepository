@@ -36,6 +36,7 @@ class HomeScreenViewController: UIViewController {
         homeScreenViewModel.fetchMarvelData()
         setUpTableView()
         setUpSearchBar()
+        setUpSegmentedControl()
         noResultsLabel.isHidden = homeScreenViewModel.hideNoResultsText
     }
     
@@ -43,6 +44,7 @@ class HomeScreenViewController: UIViewController {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .black
         searchBar.searchTextField.backgroundColor = .white
+        hideKeyboardWhenTappedAround()
     }
     
     private func setUpTableView() {
@@ -50,6 +52,14 @@ class HomeScreenViewController: UIViewController {
                                forCellReuseIdentifier: Constants.SegueIdentifierNames.homeScreenTableViewCellName)
         listTableView.dataSource = self
         listTableView.delegate = self
+    }
+    
+    private func setUpSegmentedControl() {
+        var selectedSegmentAttributes: [NSAttributedString.Key: Any] = [:]
+        segmentedControl.backgroundColor = .white
+        segmentedControl.tintColor = .primary
+        selectedSegmentAttributes[.foregroundColor] = UIColor.white
+        segmentedControl.setTitleTextAttributes(selectedSegmentAttributes, for: .selected)
     }
 }
 
@@ -71,6 +81,7 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let (marvelName, marvelImage) = homeScreenViewModel.fetchMarvelNameAndImage(for: indexPath.section)
         homePageTableViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
+        homePageTableViewCell.selectionStyle = .none
         return homePageTableViewCell
     }
     

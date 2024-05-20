@@ -9,13 +9,13 @@ import Foundation
 
 class SignUpScreenViewModel {
     
-    init(authenticationRepository: AuthenticationRepositoryType) {
-        self.authenticationRepository = authenticationRepository
-    }
-    
     // MARK: Variables
     
     private var authenticationRepository: AuthenticationRepositoryType?
+    
+    init(authenticationRepository: AuthenticationRepositoryType) {
+        self.authenticationRepository = authenticationRepository
+    }
     
     // MARK: Functions
     

@@ -12,7 +12,6 @@ import Foundation
 protocol AuthenticationRepositoryType {
     func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
-    func logoutUser()
 }
 
 // MARK: Repository
@@ -29,9 +28,5 @@ class AuthenticationRepository: AuthenticationRepositoryType {
     
     func loginUser(userName: String, password: String) -> Bool {
         coreDataHandler.loginUser(userName: userName, password: password)
-    }
-    
-    func logoutUser() {
-#warning("still doing functionality, logout")
     }
 }
