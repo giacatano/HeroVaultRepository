@@ -26,7 +26,7 @@ class HomeScreenDetailsViewController: UIViewController {
         setUpFavouritedButton()
     }
     
-    // MARK: ViewController Functions
+    // MARK: View Controller Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()

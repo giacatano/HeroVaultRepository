@@ -9,10 +9,11 @@ import UIKit
 
 class UserFavouritesScreenCollectionViewCell: UICollectionViewCell {
     
-    // MARK: Outlets
+    // MARK: IBOutlets
     
     @IBOutlet weak private var favouritedImageView: UIImageView!
     @IBOutlet weak private var favouritedLabel: UILabel!
+    
     // MARK: Functions
     
     override func awakeFromNib() {

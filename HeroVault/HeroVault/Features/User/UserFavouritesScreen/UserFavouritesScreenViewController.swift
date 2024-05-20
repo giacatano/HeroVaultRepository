@@ -52,7 +52,7 @@ class UserFavouritesScreenViewController: UIViewController {
 extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        favouritesCollectionView.deselectItem(at: indexPath, animated: true)
+        performSegue(withIdentifier: Constants.SegueIdentifierNames.homeScreenDetailSegueName, sender: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,6 +77,17 @@ extension UserFavouritesScreenViewController: UICollectionViewDelegate, UICollec
         favouritesScreenCollectionViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
         favouritesScreenCollectionViewCell.layer.cornerRadius = 5
         return favouritesScreenCollectionViewCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = sender as? IndexPath,
+           segue.identifier == Constants.SegueIdentifierNames.homeScreenDetailSegueName {
+            if let homeScreenDetailScreen = segue.destination as? HomeScreenDetailsViewController {
+                if let marvelData = userFavouritesScreenViewModel.fetchMarvelData(atIndex: indexPath.row) {
+                    homeScreenDetailScreen.set(marvelData: marvelData)
+                }
+            }
+        }
     }
 }
 

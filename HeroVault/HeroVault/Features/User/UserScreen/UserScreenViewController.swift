@@ -13,8 +13,7 @@ class UserScreenViewController: UIViewController {
     
     @IBOutlet weak private var userImage: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!
-    
-    private var userScreenViewModel = UserScreenViewModel()
+    @IBOutlet weak private var logoutButton: UIButton!
     
     // MARK: IBActions
     
@@ -27,6 +26,23 @@ class UserScreenViewController: UIViewController {
         userScreenViewModel.set(marvelDataType: .comic)
         performSegue(withIdentifier: Constants.SegueIdentifierNames.userFavouritesSegueName, sender: sender)
     }
+    
+    @IBAction private func logoutButtonTapped(_ sender: Any) {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate {
+            let storyboard = UIStoryboard(name: Constants.Storyboards.loginScreen, bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboards.loginScreenViewController)
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            navigationController.navigationBar.isHidden = true
+            sceneDelegate.window?.rootViewController = navigationController
+        }
+    }
+    
+    // MARK: Variables
+    
+    private var userScreenViewModel = UserScreenViewModel()
+    
+    // MARK: Functions
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SegueIdentifierNames.userFavouritesSegueName {

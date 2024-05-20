@@ -14,6 +14,12 @@ class HomeScreenDetailsViewModel {
     var marvelData: MarvelData?
     private var homeScreenDetailsRepository: HomeScreenDetailsRepositoryType?
     
+    init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
+        self.homeScreenDetailsRepository = homeScreenDetailsRepository
+    }
+    
+    // MARK: Computed Properties
+    
     var marvelDataName: String {
         marvelData?.name ?? ""
     }
@@ -24,10 +30,6 @@ class HomeScreenDetailsViewModel {
     }
     
     // MARK: Functions
-    
-    init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {
-        self.homeScreenDetailsRepository = homeScreenDetailsRepository
-    }
     
     func createImage() -> String {
         guard var imageName = (marvelData?.thumbnail) else { return "" }

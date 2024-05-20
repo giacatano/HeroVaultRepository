@@ -32,7 +32,7 @@ class SignUpScreenViewController: UIViewController {
         performSegue(withIdentifier: Constants.SegueIdentifierNames.loginScreenSegueName, sender: sender)
     }
     
-    // MARK: Variable
+    // MARK: Variables
     
     private lazy var signUpScreenViewModel = SignUpScreenViewModel(authenticationRepository: AuthenticationRepository())
     
@@ -45,6 +45,7 @@ class SignUpScreenViewController: UIViewController {
     
     private func setUpSignUpScreen() {
         usernameWarningLabel.isHidden = true
+        hideKeyboardWhenTappedAround()
     }
     
     private func invalidSignUp() {

@@ -12,6 +12,7 @@ protocol ViewModelProtocol: AnyObject {
     func startLoadingIndicator()
     func stopLoadingIndicator()
 }
+
 class HomeScreenViewModel {
     
     // MARK: Variables
@@ -33,7 +34,7 @@ class HomeScreenViewModel {
         hideNoResultsText = true
     }
     
-    // MARK: Computes properties
+    // MARK: Computed Properties
     
     var marvelDataCount: Int {
         marvelData.count
