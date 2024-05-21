@@ -139,8 +139,8 @@
                         <outlet property="InvalidCredentialsLabel" destination="q5y-2D-6dr" id="Cfb-uQ-L5D"/>
                         <outlet property="PasswordTextField" destination="XKb-Rw-YdX" id="nBF-kN-BQU"/>
                         <outlet property="UsernameTextField" destination="kYB-wz-15m" id="Ljf-Q4-yau"/>
-                        <segue destination="xkH-FE-ePn" kind="show" identifier="LoginScreenSegue" id="eDH-2H-0cW"/>
-                        <segue destination="328-9Z-7gS" kind="show" identifier="SignUpScreenSegue" id="EdI-ji-zzI"/>
+                        <segue destination="xkH-FE-ePn" kind="show" identifier="LoginScreenSegue" animates="NO" id="eDH-2H-0cW"/>
+                        <segue destination="328-9Z-7gS" kind="show" identifier="SignUpScreenSegue" animates="NO" id="EdI-ji-zzI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
