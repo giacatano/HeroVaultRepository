@@ -50,22 +50,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="cep-4a-BAV">
-                                <rect key="frame" x="286" y="69" width="75" height="75"/>
+                                <rect key="frame" x="291" y="59" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="Cum-Hl-Sl4"/>
-                                    <constraint firstAttribute="width" constant="75" id="Rc4-wF-EbU"/>
+                                    <constraint firstAttribute="height" constant="70" id="Cum-Hl-Sl4"/>
+                                    <constraint firstAttribute="width" constant="70" id="Rc4-wF-EbU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="40"/>
+                                        <integer key="value" value="32"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value=""/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Characters/Comics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIo-8a-rEL">
-                                <rect key="frame" x="107" y="196" width="182" height="24"/>
+                                <rect key="frame" x="95" y="196" width="208" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -85,7 +85,7 @@
                             <constraint firstItem="rOP-kT-jkO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="251" id="RbW-fr-ZrO"/>
                             <constraint firstItem="mHd-wo-XRg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Z6u-Ji-doU"/>
                             <constraint firstItem="mHd-wo-XRg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="fs5-kM-s4E"/>
-                            <constraint firstItem="cep-4a-BAV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="hKc-bM-5oW"/>
+                            <constraint firstItem="cep-4a-BAV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hKc-bM-5oW"/>
                             <constraint firstItem="1Ak-mP-NCH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="i5X-6p-VzH"/>
                             <constraint firstItem="4Hg-VJ-oBP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="s9Q-DU-km2"/>
                             <constraint firstItem="1Ak-mP-NCH" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="tKW-aV-tD8"/>
@@ -120,7 +120,7 @@
     </scenes>
     <resources>
         <image name="Background" width="640" height="812.33331298828125"/>
-        <image name="User" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="User" width="245.33332824707031" height="245.33332824707031"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -133,7 +133,7 @@
                         <outlet property="passwordTextField" destination="1or-YF-PCB" id="eVc-F4-l9Y"/>
                         <outlet property="userNameTestField" destination="qyC-kB-Mq1" id="OjF-Ug-NgY"/>
                         <outlet property="usernameWarningLabel" destination="eAw-uv-BM5" id="Q1f-bd-Jke"/>
-                        <segue destination="ewm-eq-H3L" kind="show" identifier="LoginScreenSegue" id="lIG-bS-bPa"/>
+                        <segue destination="ewm-eq-H3L" kind="show" identifier="LoginScreenSegue" animates="NO" id="lIG-bS-bPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DrQ-vh-aur" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
