@@ -184,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				566C88602BE6AD72007AEB4C /* SignUpScreenViewModel.swift */,
+				56A15FB92BBD7BF400D74E55 /* GameViewModel.swift */,
 				566C88622BE6ADC4007AEB4C /* SignUpScreenViewController.swift */,
 				566C88652BE6AE79007AEB4C /* SignUpScreen.storyboard */,
 			);
@@ -216,7 +217,6 @@
 			children = (
 				56B05DAD2BD42B53001A0A61 /* GameModel.swift */,
 				56A15FB72BBD7BE400D74E55 /* GameRepository.swift */,
-				56A15FB92BBD7BF400D74E55 /* GameViewModel.swift */,
 				56A15FBB2BBD7C5300D74E55 /* GameViewController.swift */,
 				56A15FBD2BBD7CB400D74E55 /* Game.storyboard */,
 			);
