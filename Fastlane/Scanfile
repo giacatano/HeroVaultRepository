@@ -4,7 +4,7 @@
 workspace "HeroVault/HeroVault.xcodeproj/project.xcworkspace"
 scheme "HeroVault"
 sdk "iphonesimulator"
-device "iPhone 15"
+device "iPhone 14"
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true
