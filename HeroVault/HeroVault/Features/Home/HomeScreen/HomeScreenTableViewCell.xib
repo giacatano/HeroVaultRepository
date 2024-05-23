@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +46,7 @@
                                             <constraint firstAttribute="height" constant="55" id="Eez-5L-Ibt"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="primaryText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -54,14 +55,14 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="primaryCard"/>
                         <constraints>
                             <constraint firstItem="CQE-g1-dZ3" firstAttribute="centerX" secondItem="eh2-d6-pPu" secondAttribute="centerX" id="wEn-ZH-RMQ"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" name="primaryCard"/>
                 <constraints>
                     <constraint firstItem="eh2-d6-pPu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2FH-iE-9cR"/>
                     <constraint firstItem="eh2-d6-pPu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2GD-O9-jdf"/>
@@ -80,5 +81,11 @@
     </objects>
     <resources>
         <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
+        <namedColor name="primaryCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryText">
+            <color red="0.035294115539999997" green="0.035294115539999997" blue="0.035294115539999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

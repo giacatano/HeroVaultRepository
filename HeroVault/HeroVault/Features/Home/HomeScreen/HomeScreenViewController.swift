@@ -42,8 +42,8 @@ class HomeScreenViewController: UIViewController {
     
     private func setUpSearchBar() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = .black
-        searchBar.searchTextField.backgroundColor = .white
+        textFieldInsideSearchBar?.textColor = .primaryText
+        searchBar.searchTextField.backgroundColor = .primaryCard
         hideKeyboardWhenTappedAround()
     }
     
@@ -56,7 +56,7 @@ class HomeScreenViewController: UIViewController {
     
     private func setUpSegmentedControl() {
         var selectedSegmentAttributes: [NSAttributedString.Key: Any] = [:]
-        segmentedControl.backgroundColor = .white
+        segmentedControl.backgroundColor = .primaryCard
         segmentedControl.tintColor = .primary
         selectedSegmentAttributes[.foregroundColor] = UIColor.white
         segmentedControl.setTitleTextAttributes(selectedSegmentAttributes, for: .selected)
