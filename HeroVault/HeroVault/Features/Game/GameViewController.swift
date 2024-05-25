@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    private var gameViewModel = GameViewModel(gameRepository: GameRepository())
+    private var gameViewModel = GameViewModel(gameRepository: GameRepository(apiHandler: APIHandler(), coreDataHandler: CoreDataHandler()))
     
     override func viewDidLoad() {
         super.viewDidLoad()

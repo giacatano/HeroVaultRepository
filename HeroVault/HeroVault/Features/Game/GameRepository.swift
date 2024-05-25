@@ -15,7 +15,13 @@ protocol GameRepositoryType {
 
 class GameRepository: GameRepositoryType {
     
-    private let apiHandler = APIHandler()
+    private let apiHandler: APIHandlerType
+    private let coreDataHandler: CoreDataHandlerType
+    
+    init(apiHandler: APIHandlerType, coreDataHandler: CoreDataHandlerType) {
+        self.apiHandler = apiHandler
+        self.coreDataHandler = coreDataHandler
+    }
     
     func fetchGames(completion: @escaping (GameResult) -> Void) {
         apiHandler.request(path: Constants.EndPoints.marvelEvents,
