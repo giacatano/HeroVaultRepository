@@ -12,7 +12,7 @@ struct Constants {
     struct EndPoints {
         static let marvelCharacterNames = "https://gateway.marvel.com:443/v1/public/characters"
         static let marvelComicNames = "https://gateway.marvel.com:443/v1/public/comics"
-        static let marvelStoryDescriptions = "https://gateway.marvel.com:443/v1/public/events"
+        static let marvelEvents = "https://gateway.marvel.com:443/v1/public/events"
     }
     
     struct APIKeys {

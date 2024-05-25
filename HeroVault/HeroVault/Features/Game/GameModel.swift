@@ -18,18 +18,18 @@ struct GameData: Codable {
 }
 
 struct Game: Codable {
-    let id: Int
-    let title: String
-    let description: String
-    let thumbnail: GamePictures
-}
-
-struct GamePictures: Codable {
-    let path: String
-    let jpg: String
+    let overview: String
+    let thumbnail: String
     
     enum CodingKeys: String, CodingKey {
-        case path
-        case jpg = "extension"
+        case thumbnail
+        case overview = "description"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
+        let pictures = try container.decode(Pictures.self, forKey: .thumbnail)
+        thumbnail = pictures.path
     }
 }

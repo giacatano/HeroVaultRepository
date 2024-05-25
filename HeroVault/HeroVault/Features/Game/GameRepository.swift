@@ -18,7 +18,7 @@ class GameRepository: GameRepositoryType {
     private let apiHandler = APIHandler()
     
     func fetchGames(completion: @escaping (GameResult) -> Void) {
-        apiHandler.request(path: Constants.EndPoints.marvelStoryDescriptions,
+        apiHandler.request(path: Constants.EndPoints.marvelEvents,
                            networkType: NetworkingRequestType.GET,
                            model: GameResponse.self) { result in
             completion(result)
