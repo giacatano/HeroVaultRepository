@@ -25,7 +25,7 @@ class GameViewModel {
             case .success(let events):
                 self.events = events.data.results
             case .failure(let error):
-                #warning("WIP-Error handling")
+#warning("WIP-Error handling")
             }
         }
     }
