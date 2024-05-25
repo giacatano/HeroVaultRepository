@@ -23,4 +23,4 @@ class LoginScreenViewModel {
         guard let loginUser = authenticationRepository?.loginUser(userName: userName, password: password) else { return false }
         return loginUser
     }
-}
+} 
