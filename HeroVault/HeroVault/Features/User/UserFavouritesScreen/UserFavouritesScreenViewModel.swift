@@ -53,7 +53,7 @@ class UserFavouritesScreenViewModel {
     }
     
     func fetchMarvelData(atIndex: Int) -> MarvelData? {
-        guard let marvelDataList else { return nil}
+        guard let marvelDataList else { return nil }
         return marvelDataList[atIndex]
     }
     

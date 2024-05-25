@@ -18,8 +18,9 @@ class UserFavouritesScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository: UserFavouritesScreenRepository(),
-                                                                                   delegate: self)
+    private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository:
+                                                                                    UserFavouritesScreenRepository(), delegate: self)
+    
     // MARK: Functions
     
     override func viewDidLoad() {
