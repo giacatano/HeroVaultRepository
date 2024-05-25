@@ -162,14 +162,6 @@
             </objects>
             <point key="canvasLocation" x="863" y="27"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="a75-YO-uDl">
-            <objects>
-                <viewControllerPlaceholder id="e79-wX-oEG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xUi-dk-6fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="311" y="-338"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Background" width="143.33332824707031" height="310.66665649414062"/>
