@@ -11,7 +11,7 @@ class HomeScreenDetailsViewModel {
     
     // MARK: Variables
     
-    var marvelData: MarvelData?
+    private var marvelData: MarvelData?
     private var homeScreenDetailsRepository: HomeScreenDetailsRepositoryType?
     
     init(homeScreenDetailsRepository: HomeScreenDetailsRepositoryType) {

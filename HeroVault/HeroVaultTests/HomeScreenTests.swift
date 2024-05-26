@@ -8,7 +8,7 @@
 import XCTest
 @testable import HeroVault
 
-class HomeScreenViewModelTests: XCTestCase {
+class HomeScreenTests: XCTestCase {
     var viewModel: HomeScreenViewModel!
     var mockRepository: MockHomeScreenRepository!
     var mockDelegate: MockViewModelProtocol!
@@ -37,26 +37,22 @@ class HomeScreenViewModelTests: XCTestCase {
                                                                                       thumbnail: "iron_man.jpg")]))
         
         mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
         viewModel.fetchMarvelData()
-        
         XCTAssertEqual(viewModel.marvelDataCount, 1)
-        XCTAssertEqual(viewModel.marvelData[0].name, "Iron Man")
-        XCTAssertEqual(viewModel.marvelData[0].overview, "Genius billionaire playboy philanthropist")
-        XCTAssertEqual(viewModel.marvelData[0].thumbnail, "iron_man.jpg")
-        XCTAssertNil(viewModel.error)
-        XCTAssertTrue(mockDelegate.reloadViewCalled)
+        
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Iron Man")
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.overview, "Genius billionaire playboy philanthropist")
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.thumbnail, "iron_man.jpg")
     }
     
     func testFetchCharactersFailure() {
         let characterResponse = NetworkingError.parsingError
         mockRepository.characterResponseToReturn = .failure(characterResponse)
-        
         viewModel.fetchMarvelData()
-        guard let networkingError = viewModel.error as? NetworkingError else {
-            return
-        }
-        
-        XCTAssertEqual(networkingError, NetworkingError.parsingError)
+        XCTAssertFalse(mockDelegate.reloadViewCalled)
+        mockDelegate.stopLoadingIndicator()
+        XCTAssertTrue(mockDelegate.isCalled)
     }
     
     func testFetchComicsSuccess() {
@@ -68,196 +64,210 @@ class HomeScreenViewModelTests: XCTestCase {
         viewModel.set(marvelDataType: .comic)
         mockRepository.comicResponseToReturn = .success(comicResponse)
         viewModel.fetchMarvelData()
-        
         XCTAssertEqual(viewModel.marvelDataCount, 1)
-        XCTAssertEqual(viewModel.marvelData[0].name, "Iron Man")
-        XCTAssertEqual(viewModel.marvelData[0].overview, "Genius billionaire playboy philanthropist")
-        XCTAssertEqual(viewModel.marvelData[0].thumbnail, "iron_man.jpg")
-        XCTAssertNil(viewModel.error)
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Iron Man")
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.overview, "Genius billionaire playboy philanthropist")
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.thumbnail, "iron_man.jpg")
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
     
     func testFetchComicsFailure() {
         let comicResponse = NetworkingError.parsingError
         mockRepository.comicResponseToReturn = .failure(comicResponse)
-        
-        viewModel.set(marvelDataType: .comic)
         viewModel.fetchMarvelData()
-        
-        guard let networkingError = viewModel.error as? NetworkingError else {
-            return
-        }
-        
-        XCTAssertEqual(networkingError, NetworkingError.parsingError)
+        XCTAssertFalse(mockDelegate.reloadViewCalled)
+        mockDelegate.stopLoadingIndicator()
+        XCTAssertTrue(mockDelegate.isCalled)
     }
     
     func testFilteredMarvelDataCount() {
-        viewModel.filteredMarvelData = [
-            Character(id: 1, name: "Iron Man", overview: "", thumbnail: ""),
-            Comic(id: 2, name: "Spider-Man", overview: "", thumbnail: ""),
-            Comic(id: 3, name: "Batman", overview: "", thumbnail: "")
-        ]
-        XCTAssertEqual(viewModel.filteredMarvelDataCount, 3)
-        viewModel.filteredMarvelData.removeLast()
-        XCTAssertEqual(viewModel.filteredMarvelDataCount, 2)
-        viewModel.filteredMarvelData.removeAll()
-        XCTAssertEqual(viewModel.filteredMarvelDataCount, 0)
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
+        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        XCTAssertEqual(viewModel.marvelDataCount, 2)
     }
     
     func testFetchMarvelNameAndImage() {
-        let marvelData1 = Character(id: 1,
-                                    name: "Iron Man",
-                                    overview: "Genius, billionaire, playboy, philanthropist",
-                                    thumbnail: "http://example.com/ironman")
-        let marvelData2 = Comic(id: 2,
-                                name: "Spider-Man",
-                                overview: "Friendly neighborhood superhero",
-                                thumbnail: "http://example.com/spiderman")
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
         
-        viewModel.marvelData = [marvelData1, marvelData2]
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
         
         viewModel.isSearching = false
+        viewModel.filterMarvelData(filteredText: "")
         let (name1, image1) = viewModel.fetchMarvelNameAndImage(for: 0)
         XCTAssertEqual(name1, "Iron Man")
-        XCTAssertEqual(image1, "https://example.com/ironman/portrait_incredible.jpg")
+        XCTAssertEqual(image1, "iron_man/portrait_incredible.jpg")
         
         viewModel.isSearching = true
-        viewModel.filteredMarvelData = [marvelData1, marvelData2]
-        let (name2, image2) = viewModel.fetchMarvelNameAndImage(for: 1)
-        XCTAssertEqual(name2, "Spider-Man")
-        XCTAssertEqual(image2, "https://example.com/spiderman/portrait_incredible.jpg")
+        viewModel.fetchMarvelData()
+        viewModel.filterMarvelData(filteredText: "")
+        
+        let (name2, image2) = viewModel.fetchMarvelNameAndImage(for: 0)
+        XCTAssertEqual(name2, "Iron Man")
+        XCTAssertEqual(image2, "iron_man/portrait_incredible.jpg")
     }
     
     func testNumberOfSectionsForNotFiltering() {
-        let marvelData = Character(id: 1,
-                                   name: "Iron Man",
-                                   overview: "Genius, billionaire, playboy, philanthropist",
-                                   thumbnail: "http://example.com/ironman")
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
+        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
         viewModel.isSearching = false
-        viewModel.marvelData = [marvelData]
         XCTAssertEqual(viewModel.numberOfSections, 1)
     }
     
     func testNumberOfSectionsForFiltering() {
-        let marvelData = Character(id: 1,
-                                   name: "Iron Man",
-                                   overview: "Genius, billionaire, playboy, philanthropist",
-                                   thumbnail: "http://example.com/ironman")
-        let marvelData2 = Comic(id: 2,
-                                name: "Spider-Man",
-                                overview: "Friendly neighborhood superhero",
-                                thumbnail: "http://example.com/spiderman")
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
+        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
         viewModel.isSearching = true
-        viewModel.filteredMarvelData = [marvelData, marvelData2]
-        XCTAssertEqual(viewModel.numberOfSections, 2)
+        viewModel.filterMarvelData(filteredText: "")
+        XCTAssertEqual(viewModel.numberOfSections, 1)
     }
     
     func testHandleSegmentedControlForCharactersSelected() {
         viewModel.handleSegmentedControl(segmentedControlTitle: "Characters")
-        XCTAssertEqual(viewModel.marvelDataType, EntityType.character)
-        viewModel.handleSegmentedControl(segmentedControlTitle: "Comics")
-        XCTAssertEqual(viewModel.marvelDataType, EntityType.comic)
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
+        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        XCTAssertEqual(viewModel.numberOfSections, 2)
+    }
+    
+    func testHandleSegmentedControlForComicsSelected() {
+        viewModel.handleSegmentedControl(segmentedControlTitle: "Characters")
+        let comicResponse = ComicResponse(data:
+                                              ComicData(results: [Comic(id: 1,
+                                                                        name: "Iron Man",
+                                                                        overview: "Genius billionaire playboy philanthropist",
+                                                                        thumbnail: "iron_man")]))
+        
+        mockRepository.comicResponseToReturn = .success(comicResponse)
+        viewModel.fetchMarvelData()
+        XCTAssertNotEqual(viewModel.numberOfSections, 1)
     }
     
     func testFilteredMarvelDataWithSearchText() {
-        viewModel.marvelData = [
-            Character(id: 1,
-                      name: "Spider-Man",
-                      overview: "A superhero",
-                      thumbnail: "spiderman.jpg"),
-            Character(id: 2,
-                      name: "Iron Man",
-                      overview: "A billionaire playboy philanthropist",
-                      thumbnail: "ironman.jpg"),
-            Comic(id: 1,
-                  name: "Avengers",
-                  overview: "A team of superheroes",
-                  thumbnail: "avengers.jpg")
-        ]
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
         
-        viewModel.filterMarvelData(filteredText: "spider")
-        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        viewModel.filterMarvelData(filteredText: "Iron Man")
         XCTAssertTrue(viewModel.isSearching)
-        XCTAssertEqual(viewModel.filteredMarvelData.count, 1)
-        XCTAssertEqual(viewModel.filteredMarvelData[0].name, "Spider-Man")
         XCTAssertTrue(mockDelegate.reloadViewCalled)
     }
     
     func testFilteredMarvelDataWithNoSearchText() {
-        viewModel.marvelData = [
-            Character(id: 1,
-                      name: "Spider-Man",
-                      overview: "A superhero",
-                      thumbnail: "spiderman.jpg"),
-            Character(id: 2,
-                      name: "Iron Man",
-                      overview: "A billionaire playboy philanthropist",
-                      thumbnail: "ironman.jpg"),
-            Comic(id: 1,
-                  name: "Avengers",
-                  overview: "A team of superheroes",
-                  thumbnail: "avengers.jpg")
-        ]
-        viewModel.filterMarvelData(filteredText: "")
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
         
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        viewModel.filterMarvelData(filteredText: "")
         XCTAssertFalse(viewModel.isSearching)
-        XCTAssertEqual(viewModel.filteredMarvelData.count, 0)
     }
     
     func testFetchMarvelDataAtIndexWhenNotFiltering() {
-        viewModel.marvelData = [
-            Character(id: 1,
-                      name: "Spider-Man",
-                      overview: "A superhero",
-                      thumbnail: "spiderman.jpg"),
-            Character(id: 2,
-                      name: "Iron Man",
-                      overview: "A billionaire playboy philanthropist",
-                      thumbnail: "ironman.jpg"),
-            Comic(id: 1,
-                  name: "Avengers",
-                  overview: "A team of superheroes",
-                  thumbnail: "avengers.jpg")
-        ]
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
         
-        viewModel.isSearching = false
-        XCTAssertEqual(viewModel.marvelData.count, 3)
-        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Spider-Man")
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Iron Man")
     }
     
     func testFetchMarvelDataAtIndexWhenFiltering() {
-        viewModel.filteredMarvelData = [
-            Character(id: 1,
-                      name: "Spider-Man",
-                      overview: "A superhero",
-                      thumbnail: "spiderman.jpg"),
-            Character(id: 2,
-                      name: "Iron Man",
-                      overview: "A billionaire playboy philanthropist",
-                      thumbnail: "ironman.jpg"),
-            Comic(id: 1,
-                  name: "Avengers",
-                  overview: "A team of superheroes",
-                  thumbnail: "avengers.jpg")
-        ]
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Iron Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man"),
+                                                                            Character(id: 1,
+                                                                                      name: "spider Man",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
         
-        viewModel.isSearching = true
-        XCTAssertEqual(viewModel.filteredMarvelData.count, 3)
-        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 1)?.name, "Iron Man")
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
+        viewModel.filterMarvelData(filteredText: "Ir")
+        XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Iron Man")
+        XCTAssertEqual(viewModel.filteredMarvelDataCount, 1)
     }
     
-    func testFilterMarvelData_EmptyFilteredMarvelData() {
-        viewModel.filteredMarvelData = []
+    func testFilterMarvelDataEmptyFilteredMarvelData() {
+        let characterResponse = CharacterResponse(data:
+                                                    CharacterData(results: [Character(id: 1,
+                                                                                      name: "Spider",
+                                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                                      thumbnail: "iron_man")]))
+        
+        mockRepository.characterResponseToReturn = .success(characterResponse)
+        viewModel.set(marvelDataType: .character)
+        viewModel.fetchMarvelData()
         viewModel.filterMarvelData(filteredText: "")
         XCTAssertTrue(viewModel.hideNoResultsText)
-    }
-    
-    func testFilterMarvelData_NonEmptyFilteredMarvelData() {
-        viewModel.filteredMarvelData = [
-            Character(id: 1, name: "Spider-Man", overview: "A superhero", thumbnail: "spiderman.jpg")
-        ]
-        viewModel.filterMarvelData(filteredText: "Spider")
-        XCTAssertFalse(viewModel.hideNoResultsText)
     }
 }
 
@@ -281,10 +291,14 @@ class MockHomeScreenRepository: HomeScreenRepositoryType {
 }
 
 class MockViewModelProtocol: ViewModelProtocol {
+    var isCalled = false
+    
     func startLoadingIndicator() {
+        isCalled = true
     }
     
     func stopLoadingIndicator() {
+        isCalled = true
     }
     
     var reloadViewCalled = false

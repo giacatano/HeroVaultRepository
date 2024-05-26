@@ -17,12 +17,12 @@ class HomeScreenViewModel {
     
     // MARK: Variables
     
-    var marvelData = [MarvelData]()
-    var filteredMarvelData = [MarvelData]()
-    var marvelDataType: EntityType
-    var error: Error?
-    var isSearching: Bool
     var hideNoResultsText: Bool
+    private var marvelData = [MarvelData]()
+    private var filteredMarvelData = [MarvelData]()
+    private var marvelDataType: EntityType
+    private var error: Error?
+    var isSearching: Bool
     private let homeScreenRepository: HomeScreenRepositoryType?
     private weak var delegate: ViewModelProtocol?
     
@@ -98,7 +98,7 @@ class HomeScreenViewModel {
             switch result {
             case .success(let characters):
                 for character in characters.data.results {
-                    if !character.name.isEmpty && !character.overview.isEmpty && !checkIfImageIsAvailable(thumbnail: character.thumbnail) {
+                    if !character.name.isEmpty && !character.overview.isEmpty && !isImageAvailable(thumbnail: character.thumbnail) {
                         marvelData.append(character)
                     }
                 }
@@ -118,7 +118,7 @@ class HomeScreenViewModel {
             switch result {
             case .success(let comics):
                 for comic in comics.data.results {
-                    if !comic.name.isEmpty && !checkIfImageIsAvailable(thumbnail: comic.thumbnail) {
+                    if !comic.name.isEmpty && !isImageAvailable(thumbnail: comic.thumbnail) {
                         marvelData.append(comic)
                     }
                 }
@@ -130,7 +130,7 @@ class HomeScreenViewModel {
         }
     }
     
-    private func checkIfImageIsAvailable(thumbnail: String) -> Bool {
+    private func isImageAvailable(thumbnail: String) -> Bool {
         thumbnail.contains("image_not_available")
     }
     
