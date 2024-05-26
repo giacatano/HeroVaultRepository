@@ -1,5 +1,5 @@
 //
-//  GameRepository.swift
+//  GameScreenRepository.swift
 //  HeroVault
 //
 //  Created by Gia Catano on 2024/04/03.
@@ -9,11 +9,11 @@ import Foundation
 
 typealias GameResult = Result<GameResponse, NetworkingError>
 
-protocol GameRepositoryType {
+protocol GameScreenRepositoryType {
     func fetchGames(completion: @escaping (GameResult) -> Void)
 }
 
-class GameRepository: GameRepositoryType {
+class GameScreenRepository: GameScreenRepositoryType {
     
     private let apiHandler: APIHandlerType
     private let coreDataHandler: CoreDataHandlerType

@@ -27,6 +27,7 @@ struct Constants {
         static let userFavouritesSegueName = "UserFavouritesSegue"
         static let userFavouritesScreenCollectionViewCellName = "UserFavouritesScreenCollectionViewCell"
         static let signUpScreenSegueName = "SignUpScreenSegue"
+        static let gameScreenCollectionViewCellName = "GameScreenCollectionViewCell"
     }
     
     struct CoreData {
