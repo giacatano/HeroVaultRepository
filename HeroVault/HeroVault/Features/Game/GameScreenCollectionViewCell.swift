@@ -5,6 +5,19 @@
 //  Created by Gia Catano on 2024/05/25.
 //
 
+//func generateRandomImages()  {
+//    guard let correctGame = games.first(where: { $0.overview == currentGameDescription })?.thumbnail else { return }
+//     
+//    //let incorrectThumbnails = games.filter { $0.overview != currentGameDescription }.map { $0.thumbnail }
+//    
+//    let incorrectThumbnails = games.filter { $0.overview != currentGameDescription }
+//                                   .map { "\($0.thumbnail)/portrait_incredible.jpg".convertToHttps() }
+//    
+//    
+//    let randomIncorrectThumbnails = Array(incorrectThumbnails.shuffled().prefix(3))
+//    testArrayTwo.append(correctGame)
+//    testArrayTwo.append(contentsOf: randomIncorrectThumbnails)
+
 import UIKit
 
 class GameScreenCollectionViewCell: UICollectionViewCell {
@@ -16,23 +29,10 @@ class GameScreenCollectionViewCell: UICollectionViewCell {
     
     // MARK: Variables
     
-//    override var isSelected: Bool {
-//        didSet {
-//            layer.borderColor = borderColor
-//        }
-//    }
-//    
-//    private var borderColor: CGColor {
-//        return isSelected ? UIColor.red.cgColor : UIColor.green.cgColor
-//    }
-    
     // MARK: Functions
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        correctAnswer()
-        incorrectAnswer()
-//        setUpUINib()
     }
     
     static func gameNib() -> UINib {
@@ -41,18 +41,16 @@ class GameScreenCollectionViewCell: UICollectionViewCell {
     
     func setUpNib(gameImage: String) {
         eventImageView.load(urlString: gameImage)
+        cardView.layer.borderWidth = 0
     }
     
-//    func setUpUINib() {
-//        layer.borderWidth = 1
-//        layer.borderColor = borderColor
-//    }
-    
     func correctAnswer() {
+        cardView.layer.borderWidth = 1
         cardView.layer.borderColor = UIColor.green.cgColor
     }
     
     func incorrectAnswer() {
+        cardView.layer.borderWidth = 1
         cardView.layer.borderColor = UIColor.red.cgColor
     }
 }

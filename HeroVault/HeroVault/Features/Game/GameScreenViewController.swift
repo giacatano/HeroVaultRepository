@@ -16,19 +16,32 @@ class GameScreenViewController: UIViewController {
     
     // MARK: Variables
     
+    
+    
     private lazy var gameScreenViewModel = GameScreenViewModel(gameScreenRepository: GameScreenRepository(apiHandler: APIHandler(), coreDataHandler: CoreDataHandler()), delegate: self)
     
     // MARK: Functions
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        setUpEvent()
+        setUpCollectionView()
+        gameCollectionView.reloadData()
+        gameScreenViewModel.testArray = []
+        gameScreenViewModel.testArrayThree = []
+        gameScreenViewModel.counter = 0
+        
+    }
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         gameScreenViewModel.fetchEvents()
         setUpCollectionView()
-        setUpEvent()
+       // setUpEvent()
     }
     
     func setUpEvent() {
-        eventOverviewLabel.text = gameScreenViewModel.generateDescription()
+        eventOverviewLabel.text = gameScreenViewModel.generateDescription
     }
     
     private func setUpCollectionView() {
@@ -44,23 +57,6 @@ class GameScreenViewController: UIViewController {
 
 // MARK: Extensions
 
-extension GameScreenViewController: ViewModelProtocol {
-    func startLoadingIndicator() {
-        //view.showLoadingIndicator()
-        //listTableView.isHidden = true
-    }
-    
-    func stopLoadingIndicator() {
-        // view.stopLoadingIndicator()
-        // listTableView.isHidden = false
-    }
-    
-    func reloadView() {
-        //listTableView.reloadData()
-        //label.text = gameViewModel.generateDescription()
-    }
-}
-
 extension GameScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         4
@@ -68,9 +64,17 @@ extension GameScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected me")
-        //        if let = collectionView.cellForItem(at: indexPath) as? GameScreenCollectionViewCell {
-        //            GameScreenCollectionViewCell.correctAnswer(<#T##self: GameScreenCollectionViewCell##GameScreenCollectionViewCell#>)
-        //        }
+        print(indexPath.row)
+        
+        if let test = collectionView.cellForItem(at: indexPath) as? GameScreenCollectionViewCell {
+            if gameScreenViewModel.checkAnswer(atIndex: indexPath.row) {
+                print(indexPath.row)
+                test.correctAnswer()
+            } else {
+                test.incorrectAnswer()
+            }
+            
+        }
     }
     
     
@@ -87,8 +91,26 @@ extension GameScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                                                        for: indexPath) as? GameScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
-        gameScreenCollectionViewCell.setUpNib(gameImage: gameScreenViewModel.generateImage())
+        gameScreenCollectionViewCell.setUpNib(gameImage: gameScreenViewModel.generateImage)
         return gameScreenCollectionViewCell
+    }
+}
+
+
+extension GameScreenViewController: ViewModelProtocol {
+    func startLoadingIndicator() {
+        view.showLoadingIndicator()
+        gameCollectionView.isHidden = true
+    }
+    
+    func stopLoadingIndicator() {
+         view.stopLoadingIndicator()
+        gameCollectionView.isHidden = false
+    }
+    
+    func reloadView() {
+        gameCollectionView.reloadData()
+        eventOverviewLabel.text = gameScreenViewModel.generateDescription
     }
 }
 
