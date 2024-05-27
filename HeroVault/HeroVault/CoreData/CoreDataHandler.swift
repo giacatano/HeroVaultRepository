@@ -1,8 +1,8 @@
 //
-//  CoreDataHandler.swift
-//  HeroVault
+// CoreDataHandler.swift
+// HeroVault
 //
-//  Created by Gia Catano on 2024/04/30.
+// Created by Gia Catano on 2024/04/30.
 //
 
 import CoreData
@@ -13,7 +13,6 @@ import UIKit
 enum EntityType: String {
     case character
     case comic
-    
     var rawValue: String {
         switch self {
         case .character:
@@ -33,6 +32,8 @@ protocol CoreDataHandlerType {
     func checkObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool
     func signUpUser(userName: String, password: String) -> Bool
     func loginUser(userName: String, password: String) -> Bool
+    func saveHighScore(score: Int)
+    func fetchHighScore() -> String
 }
 
 // MARK: - Core Data Class
@@ -43,12 +44,12 @@ class CoreDataHandler: CoreDataHandlerType {
     
     weak var appDelegate: AppDelegate?
     let context: NSManagedObjectContext
+    private var currentUserName = ""
     
     init() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("Unable to access AppDelegate")
         }
-        
         self.appDelegate = appDelegate
         context = appDelegate.persistentContainer.viewContext
     }
@@ -88,7 +89,6 @@ class CoreDataHandler: CoreDataHandlerType {
     
     func deleteObjectFromCoreData(_ object: MarvelData) {
         var objectToBeDeleted: MarvelData?
-        
         if object is Character || object is CoreDataCharacter {
             if let characterObject = fetchCharacterByID(object.id) {
                 objectToBeDeleted = characterObject
@@ -98,7 +98,6 @@ class CoreDataHandler: CoreDataHandlerType {
                 objectToBeDeleted = comicObject
             }
         }
-        
         if let objectToBeDeleted {
             deleteObject(objectToBeDeleted)
             print("deleted from core data: \(object.name)")
@@ -110,7 +109,6 @@ class CoreDataHandler: CoreDataHandlerType {
     func checkObjectExistInCoreData(_ object: MarvelData, entityType: EntityType) -> Bool {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityType.rawValue)
         fetchRequest.predicate = NSPredicate(format: "id == %d", object.id)
-        
         do {
             let count = try context.count(for: fetchRequest)
             if count > 0 {
@@ -157,18 +155,41 @@ class CoreDataHandler: CoreDataHandlerType {
         _ = try? context.execute(batchDeleteRequest)
     }
     
+    func fetchHighScore() -> String {
+        let currentUser = fetchCurrentUser()
+        guard let highScore = currentUser.highScore else { return "0" }
+        return highScore
+    }
+    
+    func saveHighScore(score: Int) {
+        let currentUser = fetchCurrentUser()
+        currentUser.highScore = String(score)
+        saveContext()
+    }
     // MARK: - Core Data Helper Functions
     
     private func checkIfUserExists(userName: String, password: String) -> Bool {
         let fetchRequest = NSFetchRequest<User>(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
-        
         do {
             let results = try context.fetch(fetchRequest)
+            currentUserName = userName
             return !results.isEmpty
         } catch {
             print("Error fetching user: \(error.localizedDescription)")
             return false
+        }
+    }
+    
+    private func fetchCurrentUser() -> User {
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "username == %@", currentUserName)
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results.first ?? User()
+        } catch {
+            print("Error fetching user: \(error.localizedDescription)")
+            return User()
         }
     }
     

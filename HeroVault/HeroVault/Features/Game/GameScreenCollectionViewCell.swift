@@ -1,22 +1,9 @@
 //
-//  GameScreenCollectionViewCell.swift
-//  HeroVault
+// GameScreenCollectionViewCell.swift
+// HeroVault
 //
-//  Created by Gia Catano on 2024/05/25.
+// Created by Gia Catano on 2024/05/25.
 //
-
-//func generateRandomImages()  {
-//    guard let correctGame = games.first(where: { $0.overview == currentGameDescription })?.thumbnail else { return }
-//     
-//    //let incorrectThumbnails = games.filter { $0.overview != currentGameDescription }.map { $0.thumbnail }
-//    
-//    let incorrectThumbnails = games.filter { $0.overview != currentGameDescription }
-//                                   .map { "\($0.thumbnail)/portrait_incredible.jpg".convertToHttps() }
-//    
-//    
-//    let randomIncorrectThumbnails = Array(incorrectThumbnails.shuffled().prefix(3))
-//    testArrayTwo.append(correctGame)
-//    testArrayTwo.append(contentsOf: randomIncorrectThumbnails)
 
 import UIKit
 
@@ -26,8 +13,6 @@ class GameScreenCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak private var eventImageView: UIImageView!
     @IBOutlet weak private var cardView: UIView!
-    
-    // MARK: Variables
     
     // MARK: Functions
     

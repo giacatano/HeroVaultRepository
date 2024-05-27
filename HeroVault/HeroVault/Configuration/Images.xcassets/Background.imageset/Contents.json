@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "iPhone 14 & 15 Pro - 162.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "iPhone 14 & 15 Pro - 163.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -29,7 +31,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Light background.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -40,7 +41,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Dark background.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
