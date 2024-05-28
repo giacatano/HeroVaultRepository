@@ -17,7 +17,6 @@ class GameScreenViewController: UIViewController {
     @IBOutlet weak private var currentScoreLabel: UILabel!
     @IBOutlet weak private var playButtonLabel: UIButton!
     @IBOutlet weak private var highScoreLabel: UILabel!
-    @IBOutlet weak var overviewContainer: UIView!
     
     // MARK: IBActions
     
@@ -137,7 +136,6 @@ extension GameScreenViewController: ViewModelProtocol {
         currentScoreLabel.isHidden = true
         playButtonLabel.isHidden = true
         highScoreLabel.isHidden = true
-        //overviewContainer.isHidden = true
         instructionLabel.isHidden = true
     }
     
@@ -146,7 +144,6 @@ extension GameScreenViewController: ViewModelProtocol {
         gameCollectionView.isHidden = false
         currentScoreLabel.isHidden = false
         highScoreLabel.isHidden = false
-       // overviewContainer.isHidden = false
         instructionLabel.isHidden = false
     }
     
