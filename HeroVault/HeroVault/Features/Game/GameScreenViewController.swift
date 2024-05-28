@@ -137,7 +137,8 @@ extension GameScreenViewController: ViewModelProtocol {
         currentScoreLabel.isHidden = true
         playButtonLabel.isHidden = true
         highScoreLabel.isHidden = true
-        overviewContainer.isHidden = true
+        //overviewContainer.isHidden = true
+        instructionLabel.isHidden = true
     }
     
     func stopLoadingIndicator() {
@@ -145,7 +146,8 @@ extension GameScreenViewController: ViewModelProtocol {
         gameCollectionView.isHidden = false
         currentScoreLabel.isHidden = false
         highScoreLabel.isHidden = false
-        overviewContainer.isHidden = false
+       // overviewContainer.isHidden = false
+        instructionLabel.isHidden = false
     }
     
     func reloadView() {
