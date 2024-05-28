@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5n-za-5EP">
                         <rect key="frame" x="10" y="10" width="165" height="200"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Xga-cn-qsl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Game" translatesAutoresizingMaskIntoConstraints="NO" id="Xga-cn-qsl">
                                 <rect key="frame" x="10" y="8" width="120" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Fpz-Za-jVC"/>
@@ -68,7 +68,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
+        <image name="Game" width="283.33334350585938" height="283.33334350585938"/>
         <namedColor name="primaryCard">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

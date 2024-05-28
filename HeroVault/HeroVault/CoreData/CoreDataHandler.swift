@@ -166,6 +166,7 @@ class CoreDataHandler: CoreDataHandlerType {
         currentUser.highScore = String(score)
         saveContext()
     }
+    
     // MARK: - Core Data Helper Functions
     
     private func checkIfUserExists(userName: String, password: String) -> Bool {

@@ -30,12 +30,12 @@ class GameScreenCollectionViewCell: UICollectionViewCell {
     }
     
     func correctAnswer() {
-        cardView.layer.borderWidth = 1
+        cardView.layer.borderWidth = 3
         cardView.layer.borderColor = UIColor.systemGreen.cgColor
     }
     
     func incorrectAnswer() {
-        cardView.layer.borderWidth = 1
+        cardView.layer.borderWidth = 3
         cardView.layer.borderColor = UIColor.red.cgColor
     }
 }

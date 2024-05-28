@@ -20,7 +20,7 @@ class GameScreenViewController: UIViewController {
     
     // MARK: IBActions
     
-    @IBAction func playButton(_ sender: Any) {
+    @IBAction private func playButton(_ sender: Any) {
         gameScreenViewModel.playAgain()
         playButtonLabel.isHidden = true
         gameScreenViewModel.cellsClickable = true
@@ -28,9 +28,11 @@ class GameScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var gameScreenViewModel = GameScreenViewModel(gameScreenRepository: GameScreenRepository(apiHandler: APIHandler(),
-                                                                                                          coreDataHandler: CoreDataHandler()),
+    private lazy var gameScreenViewModel = GameScreenViewModel(gameScreenRepository:
+                                                                GameScreenRepository(apiHandler: APIHandler(),
+                                                                                     coreDataHandler: CoreDataHandler()),
                                                                delegate: self)
+    
     // MARK: Functions
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,11 +62,11 @@ class GameScreenViewController: UIViewController {
         gameScreenViewModel.generateImage()
         gameCollectionView.reloadData()
         currentScoreNumber()
-        highScoreLabel.text = "Highest score: \(gameScreenViewModel.highScore)"
+        highScoreLabel.text = "High Score: \(gameScreenViewModel.highScore)"
     }
     
     private func currentScoreNumber() {
-        currentScoreLabel.text = "Current score: \(gameScreenViewModel.score)"
+        currentScoreLabel.text = "Current Score: \(gameScreenViewModel.score)"
     }
 }
 
@@ -154,7 +156,7 @@ extension GameScreenViewController: ViewModelProtocol {
     }
     
     func showError() {
-        let alert = UIAlertController(title: "Game Over", message: "Your score was \(gameScreenViewModel.score)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Game Over", message:  "Your score was: \(gameScreenViewModel.score)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
             self.playButtonLabel.isHidden = false
             self.gameScreenViewModel.cellsClickable = false
@@ -165,12 +167,12 @@ extension GameScreenViewController: ViewModelProtocol {
     func showNewHighScore() {
         let alert = UIAlertController(title:
                                         "New High Score",
-                                      message: "Your score was \(gameScreenViewModel.score)",
+                                      message: "Your new high score is: \(gameScreenViewModel.score)",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
             self.playButtonLabel.isHidden = false
             self.gameScreenViewModel.cellsClickable = false
-            self.highScoreLabel.text = self.gameScreenViewModel.highScore
+            self.highScoreLabel.text = "High Score: \(self.gameScreenViewModel.highScore)"
         })
         self.present(alert, animated: true, completion: nil)
     }

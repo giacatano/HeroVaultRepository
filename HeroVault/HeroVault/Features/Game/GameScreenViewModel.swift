@@ -61,7 +61,11 @@ class GameScreenViewModel {
             guard let self else { return }
             switch result {
             case .success(let events):
-                games = events.data.results
+                for event in events.data.results {
+                    if !event.thumbnail.isEmpty && !isImageAvailable(thumbnail: event.thumbnail) {
+                        games = events.data.results
+                    }
+                }
                 delegate?.reloadView()
             case .failure(let error):
                 print("error: \(error)")
@@ -117,5 +121,9 @@ class GameScreenViewModel {
             images.append(contentsOf: randomIncorrectThumbnails)
         }
         return images
+    }
+    
+    private func isImageAvailable(thumbnail: String) -> Bool {
+        thumbnail.contains("image_not_available")
     }
 }

@@ -45,6 +45,8 @@ class HomeScreenViewController: UIViewController {
         textFieldInsideSearchBar?.textColor = .primaryText
         searchBar.searchTextField.backgroundColor = .primaryCard
         hideKeyboardWhenTappedAround()
+        searchBar.delegate = self
+        searchBar.searchTextField.clearButtonMode = .never
     }
     
     private func setUpTableView() {
@@ -109,11 +111,15 @@ extension HomeScreenViewController: ViewModelProtocol {
     func startLoadingIndicator() {
         view.showLoadingIndicator()
         listTableView.isHidden = true
+        segmentedControl.isHidden = true
+        searchBar.isHidden = true
     }
     
     func stopLoadingIndicator() {
         view.stopLoadingIndicator()
         listTableView.isHidden = false
+        segmentedControl.isHidden = false
+        searchBar.isHidden = false
     }
     
     func reloadView() {

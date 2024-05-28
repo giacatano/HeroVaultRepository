@@ -34,7 +34,7 @@
                                 <color key="textColor" name="primaryHeaders"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgD-Uh-R7Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgD-Uh-R7Y">
                                 <rect key="frame" x="32" y="149" width="321.33333333333331" height="71.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -53,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2mb-o5-Eio">
-                                <rect key="frame" x="20" y="224.66666666666663" width="353" height="430"/>
+                                <rect key="frame" x="20" y="222.66666666666663" width="353" height="430"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="430" id="WVZ-LE-4w9"/>
@@ -77,9 +77,9 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqJ-n5-a8d">
-                                <rect key="frame" x="250.33333333333334" y="661.66666666666663" width="111.66666666666666" height="17"/>
+                                <rect key="frame" x="250.33333333333334" y="659.66666666666663" width="111.66666666666666" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="primaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-vK-UAE">
@@ -99,16 +99,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Score: 45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-xC-lkV">
-                                <rect key="frame" x="30.999999999999993" y="661.66666666666663" width="121.33333333333331" height="17"/>
+                                <rect key="frame" x="30.999999999999993" y="659.66666666666663" width="121.33333333333331" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="primaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2mb-o5-Eio" firstAttribute="top" secondItem="AgD-Uh-R7Y" secondAttribute="bottom" constant="4" id="29I-iH-iXZ"/>
+                            <constraint firstItem="2mb-o5-Eio" firstAttribute="top" secondItem="AgD-Uh-R7Y" secondAttribute="bottom" constant="2" id="29I-iH-iXZ"/>
                             <constraint firstItem="9Oi-xC-lkV" firstAttribute="top" secondItem="2mb-o5-Eio" secondAttribute="bottom" constant="7" id="4Qx-fm-KOk"/>
                             <constraint firstItem="AgD-Uh-R7Y" firstAttribute="top" secondItem="4c3-AO-Jhw" secondAttribute="bottom" constant="4" id="6ni-dQ-9WL"/>
                             <constraint firstItem="eCM-vK-UAE" firstAttribute="centerY" secondItem="KCX-vF-j2c" secondAttribute="centerY" id="ALM-b0-Tin"/>
@@ -140,12 +140,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="430" height="932"/>
+        <image name="Background" width="790" height="1694"/>
         <namedColor name="primary">
             <color red="0.80400002002716064" green="0.23499999940395355" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="primaryHeaders">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryText">
+            <color red="0.035000000149011612" green="0.035000000149011612" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
