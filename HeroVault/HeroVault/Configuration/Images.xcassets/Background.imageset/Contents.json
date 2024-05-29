@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Light Mode BKG 2 (1).jpg",
+      "filename" : "Light Background.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "iPhone 14 & 15 Pro - 163.png",
+      "filename" : "Dark Background.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

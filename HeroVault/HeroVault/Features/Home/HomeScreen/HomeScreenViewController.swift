@@ -23,6 +23,8 @@ class HomeScreenViewController: UIViewController {
         let segmentedControlTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? ""
         homeScreenViewModel.handleSegmentedControl(segmentedControlTitle: segmentedControlTitle)
         noResultsLabel.isHidden = true
+        segmentedControl.isHidden = false
+        searchBar.isHidden = false
     }
     
     // MARK: Variables
@@ -45,7 +47,6 @@ class HomeScreenViewController: UIViewController {
         textFieldInsideSearchBar?.textColor = .primaryText
         searchBar.searchTextField.backgroundColor = .primaryCard
         hideKeyboardWhenTappedAround()
-        searchBar.delegate = self
         searchBar.searchTextField.clearButtonMode = .never
     }
     
