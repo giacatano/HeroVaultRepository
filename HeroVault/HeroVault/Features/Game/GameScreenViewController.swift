@@ -114,7 +114,7 @@ extension GameScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     private func handleIncorrectAnswer(for cell: GameScreenCollectionViewCell, collectionView: UICollectionView) {
         cell.incorrectAnswer()
         gameScreenViewModel.cellsClickable = false
-        gameScreenViewModel.newHighScore() ? showNewHighScore() : showError()
+        gameScreenViewModel.newHighScore()
         gameScreenViewModel.resetScore()
         highlightCorrectCell(in: collectionView)
     }
@@ -155,25 +155,17 @@ extension GameScreenViewController: ViewModelProtocol {
         gameCollectionView.reloadData()
     }
     
-    func showError() {
-        let alert = UIAlertController(title: "Game Over", message:  "Your score was: \(gameScreenViewModel.score)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+    func showError(title: String, message: String) {
+        showAlert(title: title, message: message) {
             self.playButtonLabel.isHidden = false
             self.gameScreenViewModel.cellsClickable = false
-        })
-        self.present(alert, animated: true, completion: nil)
+        }
     }
     
-    func showNewHighScore() {
-        let alert = UIAlertController(title:
-                                        "New High Score",
-                                      message: "Your new high score is: \(gameScreenViewModel.score)",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+    func showSuccess(title: String, message: String) {
+        showAlert(title: title, message: message) {
             self.playButtonLabel.isHidden = false
             self.gameScreenViewModel.cellsClickable = false
-            self.highScoreLabel.text = "High Score: \(self.gameScreenViewModel.highScore)"
-        })
-        self.present(alert, animated: true, completion: nil)
+        }
     }
 }
