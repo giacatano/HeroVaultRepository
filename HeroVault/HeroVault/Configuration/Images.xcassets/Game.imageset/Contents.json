@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "iPhone 14 & 15 Pro - 163.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "51ca10d996b8b.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

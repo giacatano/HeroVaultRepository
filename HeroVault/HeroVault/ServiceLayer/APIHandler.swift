@@ -19,7 +19,14 @@ enum NetworkingError: Error {
     case parsingError
 }
 
-class APIHandler {
+protocol APIHandlerType {
+    func request<T: Codable>(path: String,
+                             networkType: NetworkingRequestType,
+                             model: T.Type,
+                             completion: @escaping (Result<T, NetworkingError>) -> Void)
+}
+
+class APIHandler: APIHandlerType {
     
     func request<T: Codable>(path: String,
                              networkType: NetworkingRequestType,
