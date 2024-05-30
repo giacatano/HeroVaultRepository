@@ -29,7 +29,7 @@ class HomeScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(), delegate: self)
+    private lazy var homeScreenViewModel = HomeScreenViewModel(homeScreenRepository: HomeScreenRepository(apiHandler: APIHandler(), coreDataHandler: CoreDataHandler()), delegate: self)
     
     // MARK: Functions
     
@@ -84,7 +84,6 @@ extension HomeScreenViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let (marvelName, marvelImage) = homeScreenViewModel.fetchMarvelNameAndImage(for: indexPath.section)
         homePageTableViewCell.setUpNib(marvelName: marvelName, marvelImage: marvelImage)
-        homePageTableViewCell.selectionStyle = .none
         return homePageTableViewCell
     }
     

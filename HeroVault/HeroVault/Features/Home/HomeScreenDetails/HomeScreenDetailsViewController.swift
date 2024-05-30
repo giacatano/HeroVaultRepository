@@ -9,7 +9,7 @@ import UIKit
 
 class HomeScreenDetailsViewController: UIViewController {
     
-    private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel(homeScreenDetailsRepository: HomeScreenDetailsRepository())
+    private lazy var homeScreenDetailViewModel = HomeScreenDetailsViewModel(homeScreenDetailsRepository: HomeScreenDetailsRepository(coreDataHandler: CoreDataHandler()))
     
     // MARK: IBOutlets
     

@@ -34,7 +34,7 @@ class SignUpScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var signUpScreenViewModel = SignUpScreenViewModel(authenticationRepository: AuthenticationRepository())
+    private lazy var signUpScreenViewModel = SignUpScreenViewModel(authenticationRepository: AuthenticationRepository(coreDataHandler: CoreDataHandler()))
     
     // MARK: Functions
     

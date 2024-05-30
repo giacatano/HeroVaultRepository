@@ -18,7 +18,11 @@ protocol AuthenticationRepositoryType {
 
 class AuthenticationRepository: AuthenticationRepositoryType {
     
-    private var coreDataHandler = CoreDataHandler()
+    private var coreDataHandler: CoreDataHandlerType
+    
+    init(coreDataHandler: CoreDataHandlerType) {
+        self.coreDataHandler = coreDataHandler
+    }
     
     // MARK: Authentication Functions
     

@@ -34,5 +34,6 @@ class HomeScreenTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         backgroundColor = UIColor.clear
+        selectionStyle = .none
     }
 }

@@ -34,7 +34,8 @@ class LoginScreenViewController: UIViewController {
     
     // MARK: Variables
     
-    private lazy var loginScreenViewModel = LoginScreenViewModel(authenticationRepository: AuthenticationRepository())
+    private lazy var loginScreenViewModel = LoginScreenViewModel(authenticationRepository:
+                                                                    AuthenticationRepository(coreDataHandler: CoreDataHandler()))
     
     // MARK: Functions
     
@@ -45,7 +46,6 @@ class LoginScreenViewController: UIViewController {
     
     private func setUpLoginScreen() {
         invalidCredentialsLabel.isHidden = true
-        hideKeyboardWhenTappedAround()
     }
     
     private func invalidLogin() {
