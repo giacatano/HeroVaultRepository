@@ -17,7 +17,11 @@ protocol UserFavouritesScreenRepositoryType {
 
 class UserFavouritesScreenRepository: UserFavouritesScreenRepositoryType {
     
-    private let coreDataHandler = CoreDataHandler()
+    private let coreDataHandler: CoreDataHandlerType
+    
+    init(coreDataHandler: CoreDataHandlerType) {
+        self.coreDataHandler = coreDataHandler
+    }
     
     func fetchMarvelDataFromCoreData(marvelDataType: EntityType) -> [MarvelData]? {
         coreDataHandler.fetchAllObjectsFromCoreData(entityType: marvelDataType)

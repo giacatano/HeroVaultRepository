@@ -21,7 +21,11 @@ class HomeScreenDetailsRepository: HomeScreenDetailsRepositoryType {
     
     // MARK: Variables
     
-    private let coreDataHandler = CoreDataHandler()
+    private let coreDataHandler: CoreDataHandlerType
+    
+    init(coreDataHandler: CoreDataHandlerType) {
+        self.coreDataHandler = coreDataHandler
+    }
     
     // MARK: Functions
     

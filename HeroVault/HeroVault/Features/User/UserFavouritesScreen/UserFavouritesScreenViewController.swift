@@ -19,7 +19,9 @@ class UserFavouritesScreenViewController: UIViewController {
     // MARK: Variables
     
     private lazy var userFavouritesScreenViewModel = UserFavouritesScreenViewModel(userFavouritesScreenRepository:
-                                                                                    UserFavouritesScreenRepository(), delegate: self)
+                                                                                    UserFavouritesScreenRepository(coreDataHandler:
+                                                                                                                    CoreDataHandler()),
+                                                                                   delegate: self)
     
     // MARK: Functions
     

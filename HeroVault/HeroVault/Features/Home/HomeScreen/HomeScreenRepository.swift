@@ -23,8 +23,13 @@ protocol HomeScreenRepositoryType {
 
 class HomeScreenRepository: HomeScreenRepositoryType {
     
-    private let apiHandler = APIHandler()
-    private let coreDataHandler = CoreDataHandler()
+    private let apiHandler: APIHandlerType
+    private let coreDataHandler: CoreDataHandlerType
+    
+    init(apiHandler: APIHandlerType, coreDataHandler: CoreDataHandlerType) {
+        self.apiHandler = apiHandler
+        self.coreDataHandler = coreDataHandler
+    }
     
     func fetchComics(completion: @escaping (ComicResult) -> Void) {
         apiHandler.request(path: Constants.EndPoints.marvelComicNames,
