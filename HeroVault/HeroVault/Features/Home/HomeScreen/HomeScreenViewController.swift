@@ -126,6 +126,12 @@ extension HomeScreenViewController: ViewModelProtocol {
     func reloadView() {
         listTableView.reloadData()
     }
+    
+    func showError(title: String, message: String) {
+    }
+    
+    func showSuccess(title: String, message: String) {
+    }
 }
 
 extension HomeScreenViewController: UISearchBarDelegate {

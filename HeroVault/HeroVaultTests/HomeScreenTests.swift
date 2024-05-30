@@ -306,4 +306,10 @@ class MockViewModelProtocol: ViewModelProtocol {
     func reloadView() {
         reloadViewCalled = true
     }
+    
+    func showError(title: String, message: String) {
+    }
+    
+    func showSuccess(title: String, message: String) {
+    }
 }

@@ -6,12 +6,13 @@
 3. [Usage](#usage)
 4. [Architecture](#architecture)
 5. [Tests](#tests)
-6. [Dependencies](#dependencies)
-7. [Design](#design)
-8. [API](#api)
+6. [CI CD](#tests)
+7. [Dependencies](#dependencies)
+8. [Design](#design)
+9. [API](#api)
 
 # HeroVault
-A pet project used to entertain and inform comic readers.
+A pet project used to entertain and inform comic fans.
 
 ## Description
 
@@ -19,11 +20,12 @@ A pet project used to entertain and inform comic readers.
 
 The idea of this app is to have a comic store experience inside an app. There is information on comics and characters as well as entertainment from the built-in game feature. 
 
+![HomeScreen](https://github.com/giacatano/HeroVaultRepository/assets/142597978/8c734a99-3adb-47dd-8958-96174fd42104)
 
-<p align="row">
-  <img width="455" alt="Screenshot 2024-05-03 at 12 24 06" src="https://github.com/giacatano/HeroVaultRepository/assets/142597978/bd0f049b-8a2a-4f9e-af1e-6f1483c09140">
-<img width="454" alt="Screenshot 2024-05-03 at 12 23 04" src="https://github.com/giacatano/HeroVaultRepository/assets/142597978/a8d7e934-4f0d-4994-a7bc-c8b9c73851ea"> 
-</p>
+![FavouritesScreen](https://github.com/giacatano/HeroVaultRepository/assets/142597978/71514e24-b602-49a4-8152-954430e1b295)
+
+![GameScreen](https://github.com/giacatano/HeroVaultRepository/assets/142597978/a93c46da-274e-46a2-a908-c9fa159e95bc)
+
 
 ## Getting Started
 
@@ -36,9 +38,7 @@ The app should start up on the simulator directing you to the login page
 
 ## Usage
 
-At this point in the app development there isn't any authentication to gain access there are default credentials
-- Username: "Admin"
-- Password: "Hero"
+To access certain features or content within the application, user authentication is required. This involves creating a unique user account, which is securely stored using Core Data.
 
 ## Architecture
 
@@ -63,6 +63,10 @@ At this point in the app development there isn't any authentication to gain acce
 ## Tests
 The project is tested using the built-in framework XCTest.
 
+## CI/CD
+
+This project utilizes Continuous Integration (CI) and Continuous Deployment (CD) practices to automate the build, test, and deployment processes. CI/CD pipelines are managed through GitHub Actions and Fastlane, streamlining the development workflow and ensuring consistent deployment processes.
+
 ## Dependencies
 
 Currently, there are no dependencies in the project
@@ -74,6 +78,6 @@ Currently, there are no dependencies in the project
 - The colour scheme used should also be used in the Xcode project
 
 ## API
-- The API being used is called [SoccersApi](https://developer.marvel.com/), it is a Marvel Comics API.
+- The API being used is [MarvelComicsAPI](https://developer.marvel.com/)
 - All data provided is via the RESTful API which returns in JSON format only.
 - The list of API calls can be found [here](https://developer.marvel.com/docs)

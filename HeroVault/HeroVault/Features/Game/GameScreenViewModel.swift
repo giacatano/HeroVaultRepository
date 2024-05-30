@@ -79,7 +79,9 @@ class GameScreenViewModel {
         if Int(score) ?? 0 > Int(highScore) ?? 0 {
             gameScreenRepository.saveHighScore(score: currentScore)
             newScore = true
+            delegate?.showSuccess(title: Constants.ApplicationText.highScoreTitle, message: Constants.ApplicationText.highScoreMessage + score)
         }
+        delegate?.showError(title: Constants.ApplicationText.gameOverTitle , message: Constants.ApplicationText.gameOverMessage + score)
         return newScore
     }
     

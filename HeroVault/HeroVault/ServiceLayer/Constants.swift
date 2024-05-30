@@ -46,4 +46,11 @@ struct Constants {
         static let loginScreenViewController = "LoginScreenViewController"
         static let loginScreen = "LoginScreen"
     }
+    
+    struct ApplicationText {
+        static let highScoreTitle = "New High Score"
+        static let highScoreMessage = "Your new high score is: "
+        static let gameOverTitle = "Game Over"
+        static let gameOverMessage = "Your score was: "
+    }
 }

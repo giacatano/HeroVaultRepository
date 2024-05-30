@@ -102,4 +102,10 @@ extension UserFavouritesScreenViewController: ViewModelProtocol {
     
     func startLoadingIndicator() {
     }
+    
+    func showError(title: String, message: String) {
+    }
+    
+    func showSuccess(title: String, message: String) {
+    }
 }
