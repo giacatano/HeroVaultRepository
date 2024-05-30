@@ -65,7 +65,6 @@
 		56FCA0BC2BB4484500A740DF /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FCA0BA2BB4484500A740DF /* HomeScreen.storyboard */; };
 		56FCA0BE2BB4484700A740DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FCA0BD2BB4484700A740DF /* Images.xcassets */; };
 		56FCA0C12BB4484700A740DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FCA0BF2BB4484700A740DF /* LaunchScreen.storyboard */; };
-		56FCA0CC2BB4484800A740DF /* HeroVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */; };
 		56FCA0E72BB8053D00A740DF /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0E62BB8053D00A740DF /* HomeScreenViewModel.swift */; };
 		56FCA0EF2BB8067100A740DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCA0EE2BB8067100A740DF /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -142,7 +141,6 @@
 		56FCA0C02BB4484700A740DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56FCA0C22BB4484700A740DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56FCA0C72BB4484800A740DF /* HeroVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVaultTests.swift; sourceTree = "<group>"; };
 		56FCA0E62BB8053D00A740DF /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		56FCA0EE2BB8067100A740DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../ServiceLayer/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,7 +361,6 @@
 		56FCA0CA2BB4484800A740DF /* HeroVaultTests */ = {
 			isa = PBXGroup;
 			children = (
-				56FCA0CB2BB4484800A740DF /* HeroVaultTests.swift */,
 				566C88672BE8C97C007AEB4C /* HomeScreenTests.swift */,
 				56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */,
 				56C149212BEB6A1A00237B09 /* LoginScreenTests.swift */,
@@ -584,7 +581,6 @@
 				566C88682BE8C97C007AEB4C /* HomeScreenTests.swift in Sources */,
 				56C149222BEB6A1A00237B09 /* LoginScreenTests.swift in Sources */,
 				56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */,
-				56FCA0CC2BB4484800A740DF /* HeroVaultTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
