@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeScreenTableViewCell" rowHeight="216" id="KGk-i7-Jjw" userLabel="HomeScreenTableViewCell" customClass="HomeScreenTableViewCell" customModule="HeroVault" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="370"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="HomeScreenTableViewCell" customModule="HeroVault" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="370"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-d6-pPu">
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="432.33333333333331"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-g1-dZ3">
+                                <rect key="frame" x="15" y="15" width="343" height="347.33333333333331"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284.32999999999998" id="9ul-t0-XPr"/>
+                                    <constraint firstAttribute="width" constant="343" id="WYt-av-YSA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value=""/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-gS-dS7">
+                                <rect key="frame" x="6" y="362.33333333333331" width="352" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fvbnbkbnkjbnejbnelbnrtb" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Cs-jWw">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="55"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="352" id="DOR-90-mAm"/>
+                                            <constraint firstAttribute="height" constant="55" id="Eez-5L-Ibt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" name="primaryText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="FBG-tl-Fy6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="primaryCard"/>
+                        <constraints>
+                            <constraint firstItem="CQE-g1-dZ3" firstAttribute="centerX" secondItem="eh2-d6-pPu" secondAttribute="centerX" id="wEn-ZH-RMQ"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="primaryCard"/>
+                <constraints>
+                    <constraint firstItem="eh2-d6-pPu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2FH-iE-9cR"/>
+                    <constraint firstItem="eh2-d6-pPu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2GD-O9-jdf"/>
+                    <constraint firstItem="eh2-d6-pPu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5H7-LN-yW5"/>
+                    <constraint firstAttribute="bottom" secondItem="eh2-d6-pPu" secondAttribute="bottom" id="FzC-DS-GjD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="characterImageView" destination="CQE-g1-dZ3" id="cIy-U2-aNn"/>
+                <outlet property="nameLabel" destination="Ms6-Cs-jWw" id="oDq-5L-jQm"/>
+            </connections>
+            <point key="canvasLocation" x="164.8854961832061" y="79.577464788732399"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceHolder" width="347.33334350585938" height="347.33334350585938"/>
+        <namedColor name="primaryCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryText">
+            <color red="0.035294115539999997" green="0.035294115539999997" blue="0.035294115539999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
