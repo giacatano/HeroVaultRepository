@@ -46,6 +46,7 @@ class LoginScreenViewController: UIViewController {
     
     private func setUpLoginScreen() {
         invalidCredentialsLabel.isHidden = true
+        hideKeyboardWhenTappedAround()
     }
     
     private func invalidLogin() {
