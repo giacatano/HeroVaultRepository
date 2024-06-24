@@ -52,5 +52,6 @@ struct Constants {
         static let highScoreMessage = "Your new high score is: "
         static let gameOverTitle = "Game Over"
         static let gameOverMessage = "Your score was: "
+        static var currentUsername = ""
     }
 }

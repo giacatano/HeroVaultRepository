@@ -44,7 +44,6 @@ class CoreDataHandler: CoreDataHandlerType {
     
     weak var appDelegate: AppDelegate?
     let context: NSManagedObjectContext
-    private var currentUserName = ""
     
     init() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -174,7 +173,7 @@ class CoreDataHandler: CoreDataHandlerType {
         fetchRequest.predicate = NSPredicate(format: "username == %@ AND password == %@", userName, password)
         do {
             let results = try context.fetch(fetchRequest)
-            currentUserName = userName
+            Constants.ApplicationText.currentUsername = userName
             return !results.isEmpty
         } catch {
             print("Error fetching user: \(error.localizedDescription)")
@@ -184,7 +183,7 @@ class CoreDataHandler: CoreDataHandlerType {
     
     private func fetchCurrentUser() -> User {
         let fetchRequest = NSFetchRequest<User>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "username == %@", currentUserName)
+        fetchRequest.predicate = NSPredicate(format: "username == %@", Constants.ApplicationText.currentUsername)
         do {
             let results = try context.fetch(fetchRequest)
             return results.first ?? User()
