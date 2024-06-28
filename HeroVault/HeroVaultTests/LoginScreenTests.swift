@@ -26,22 +26,20 @@ class LoginScreenViewModelTests: XCTestCase {
     
     // MARK: Tests
     
-    func testLoginUser_Success() {
+    func testLoginUserSuccess() {
         let username = "testUser"
         let password = "testPassword"
         
         mockRepository.loginUserResult = true
-
         let result = viewModel.loginUser(userName: username, password: password)
         XCTAssertTrue(result)
     }
     
-    func testLoginUser_Failure() {
+    func testLoginUserFailure() {
         let username = "testUser"
         let password = "testPassword"
         
         mockRepository.loginUserResult = false
-
         let result = viewModel.loginUser(userName: username, password: password)
         XCTAssertFalse(result)
     }

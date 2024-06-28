@@ -11,12 +11,12 @@ import XCTest
 class HomeScreenTests: XCTestCase {
     var viewModel: HomeScreenViewModel!
     var mockRepository: MockHomeScreenRepository!
-    var mockDelegate: MockViewModelProtocol!
+    var mockDelegate: MockHomeScreenViewModelProtocol!
     
     override func setUp() {
         super.setUp()
         mockRepository = MockHomeScreenRepository()
-        mockDelegate = MockViewModelProtocol()
+        mockDelegate = MockHomeScreenViewModelProtocol()
         viewModel = HomeScreenViewModel(homeScreenRepository: mockRepository, delegate: mockDelegate)
     }
     
@@ -40,7 +40,6 @@ class HomeScreenTests: XCTestCase {
         viewModel.set(marvelDataType: .character)
         viewModel.fetchMarvelData()
         XCTAssertEqual(viewModel.marvelDataCount, 1)
-        
         XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.name, "Iron Man")
         XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.overview, "Genius billionaire playboy philanthropist")
         XCTAssertEqual(viewModel.fetchMarvelData(atIndex: 0)?.thumbnail, "iron_man.jpg")
@@ -107,17 +106,14 @@ class HomeScreenTests: XCTestCase {
         mockRepository.characterResponseToReturn = .success(characterResponse)
         viewModel.set(marvelDataType: .character)
         viewModel.fetchMarvelData()
-        
         viewModel.isSearching = false
         viewModel.filterMarvelData(filteredText: "")
         let (name1, image1) = viewModel.fetchMarvelNameAndImage(for: 0)
         XCTAssertEqual(name1, "Iron Man")
         XCTAssertEqual(image1, "iron_man/portrait_incredible.jpg")
-        
         viewModel.isSearching = true
         viewModel.fetchMarvelData()
         viewModel.filterMarvelData(filteredText: "")
-        
         let (name2, image2) = viewModel.fetchMarvelNameAndImage(for: 0)
         XCTAssertEqual(name2, "Iron Man")
         XCTAssertEqual(image2, "iron_man/portrait_incredible.jpg")
@@ -173,10 +169,10 @@ class HomeScreenTests: XCTestCase {
     func testHandleSegmentedControlForComicsSelected() {
         viewModel.handleSegmentedControl(segmentedControlTitle: "Characters")
         let comicResponse = ComicResponse(data:
-                                              ComicData(results: [Comic(id: 1,
-                                                                        name: "Iron Man",
-                                                                        overview: "Genius billionaire playboy philanthropist",
-                                                                        thumbnail: "iron_man")]))
+                                            ComicData(results: [Comic(id: 1,
+                                                                      name: "Iron Man",
+                                                                      overview: "Genius billionaire playboy philanthropist",
+                                                                      thumbnail: "iron_man")]))
         
         mockRepository.comicResponseToReturn = .success(comicResponse)
         viewModel.fetchMarvelData()
@@ -290,7 +286,7 @@ class MockHomeScreenRepository: HomeScreenRepositoryType {
     }
 }
 
-class MockViewModelProtocol: ViewModelProtocol {
+class MockHomeScreenViewModelProtocol: ViewModelProtocol {
     var isCalled = false
     
     func startLoadingIndicator() {

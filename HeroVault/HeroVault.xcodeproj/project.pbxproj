@@ -15,6 +15,9 @@
 		561CFAEA2BF50C65004BEB59 /* Hero.gif in Resources */ = {isa = PBXBuildFile; fileRef = 561CFAE92BF50C64004BEB59 /* Hero.gif */; };
 		561CFAEC2BF562A4004BEB59 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */; };
 		561CFAEE2BF562E2004BEB59 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */; };
+		564224752C2C498000A9FAC8 /* GameScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564224742C2C498000A9FAC8 /* GameScreenTests.swift */; };
+		564224772C2D345600A9FAC8 /* UserFavouritesScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564224762C2D345600A9FAC8 /* UserFavouritesScreenTests.swift */; };
+		564224792C2D402100A9FAC8 /* UserScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564224782C2D402100A9FAC8 /* UserScreenTests.swift */; };
 		566236852C02391D00829713 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566236842C02391D00829713 /* GameScreenViewModel.swift */; };
 		5662368C2C027AF700829713 /* GameScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662368A2C027AF700829713 /* GameScreenCollectionViewCell.swift */; };
 		5662368D2C027AF700829713 /* GameScreenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5662368B2C027AF700829713 /* GameScreenCollectionViewCell.xib */; };
@@ -88,6 +91,9 @@
 		561CFAE92BF50C64004BEB59 /* Hero.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hero.gif; sourceTree = "<group>"; };
 		561CFAEB2BF562A4004BEB59 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		561CFAED2BF562E2004BEB59 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		564224742C2C498000A9FAC8 /* GameScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenTests.swift; sourceTree = "<group>"; };
+		564224762C2D345600A9FAC8 /* UserFavouritesScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavouritesScreenTests.swift; sourceTree = "<group>"; };
+		564224782C2D402100A9FAC8 /* UserScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreenTests.swift; sourceTree = "<group>"; };
 		566236842C02391D00829713 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
 		5662368A2C027AF700829713 /* GameScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		5662368B2C027AF700829713 /* GameScreenCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScreenCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -365,6 +371,9 @@
 				56C1491F2BEB47F500237B09 /* HomeScreenDetailsTests.swift */,
 				56C149212BEB6A1A00237B09 /* LoginScreenTests.swift */,
 				56C149232BEB6BA700237B09 /* SignUpScreenTests.swift */,
+				564224742C2C498000A9FAC8 /* GameScreenTests.swift */,
+				564224782C2D402100A9FAC8 /* UserScreenTests.swift */,
+				564224762C2D345600A9FAC8 /* UserFavouritesScreenTests.swift */,
 			);
 			path = HeroVaultTests;
 			sourceTree = "<group>";
@@ -577,7 +586,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564224772C2D345600A9FAC8 /* UserFavouritesScreenTests.swift in Sources */,
+				564224752C2C498000A9FAC8 /* GameScreenTests.swift in Sources */,
 				56C149242BEB6BA700237B09 /* SignUpScreenTests.swift in Sources */,
+				564224792C2D402100A9FAC8 /* UserScreenTests.swift in Sources */,
 				566C88682BE8C97C007AEB4C /* HomeScreenTests.swift in Sources */,
 				56C149222BEB6A1A00237B09 /* LoginScreenTests.swift in Sources */,
 				56C149202BEB47F500237B09 /* HomeScreenDetailsTests.swift in Sources */,

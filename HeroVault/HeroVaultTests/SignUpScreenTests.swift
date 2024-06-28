@@ -26,21 +26,20 @@ class SignUpScreenViewModelTests: XCTestCase {
     
     // MARK: Tests
     
-    func testSignUpUser_Success() {
+    func testSignUpUserSuccess() {
         let username = "testUser"
         let password = "testPassword"
         
         mockRepository.signUpUserResult = true
- 
         let result = viewModel.signUpUser(userName: username, password: password)
         XCTAssertTrue(result)
     }
     
-    func testSignUpUser_Failure() {
+    func testSignUpUserFailure() {
         let username = "testUser"
         let password = "testPassword"
+        
         mockRepository.signUpUserResult = false
-  
         let result = viewModel.signUpUser(userName: username, password: password)
         XCTAssertFalse(result)
     }
