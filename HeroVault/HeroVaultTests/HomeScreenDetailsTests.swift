@@ -34,13 +34,11 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
         
         viewModel.set(marvelData: marvelData)
         let name = viewModel.marvelDataName
-        
         XCTAssertEqual(name, "Iron Man")
     }
     
     func testMarvelDataEmptyName() {
-        var name = viewModel.marvelDataName
-        
+        let name = viewModel.marvelDataName
         XCTAssertEqual(name, "")
     }
     
@@ -52,13 +50,11 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
         
         viewModel.set(marvelData: marvelData)
         let description = viewModel.marvelDataDescription
-        
         XCTAssertEqual(description, "Genius billionaire playboy philanthropist")
     }
     
     func testMarvelDataEmptyDescription() {
-        var description = viewModel.marvelDataDescription
-        
+        let description = viewModel.marvelDataDescription
         XCTAssertEqual(description, "")
     }
     
@@ -70,7 +66,6 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
         
         viewModel.set(marvelData: marvelData)
         let imageUrl = viewModel.createImage()
-        
         XCTAssertEqual(imageUrl, "iron_man.jpg/portrait_incredible.jpg".convertToHttps())
     }
     
@@ -82,8 +77,19 @@ class HomeScreenDetailsViewModelTests: XCTestCase {
         
         viewModel.set(marvelData: marvelData)
         viewModel.saveObjectIntoCoreData()
-        
         XCTAssertTrue(mockRepository.saveIntoCoreDataCalled)
+    }
+    
+    func testHasObjectBeenFavourited() {
+        let mockRepository = MockHomeScreenDetailsRepository()
+        let viewModel = HomeScreenDetailsViewModel(homeScreenDetailsRepository: mockRepository)
+        let mockMarvelData = MockMarvelData(name: "", overview: "", thumbnail: "String", id: 0)
+        
+        mockRepository.saveIntoCoreDataCalled = true
+        viewModel.set(marvelData: mockMarvelData)
+        let isFavourited = viewModel.hasObjectBeenFavourited()
+        XCTAssertTrue(isFavourited)
+        XCTAssertTrue(mockRepository.hasObjectBeenFavourited(object: mockMarvelData))
     }
 }
 

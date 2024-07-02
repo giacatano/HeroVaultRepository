@@ -32,4 +32,9 @@ struct Game: Codable {
         let pictures = try container.decode(Pictures.self, forKey: .thumbnail)
         thumbnail = pictures.path
     }
+    
+    init(overview: String, thumbnail: String) {
+        self.overview = overview
+        self.thumbnail = thumbnail
+    }
 }

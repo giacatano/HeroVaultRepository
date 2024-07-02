@@ -96,13 +96,15 @@ class GameScreenViewModel {
         }
     }
     
-    func checkAnswer(atIndex: Int) -> Bool {
-        var answer = false
-        if correctThumbnail == currentGameThumbnails[atIndex] {
-            currentScore += 1
-            answer = true
+    func checkAnswer(atIndex index: Int) -> Bool {
+        guard index >= 0 && index < currentGameThumbnails.count else {
+            return false
         }
-        return answer
+        if correctThumbnail == currentGameThumbnails[index] {
+            currentScore += 1
+            return true
+        }
+        return false
     }
     
     func resetScore() {
